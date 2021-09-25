@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font-family: inherit;
+}
+:root {
+  --clr-pink: hsl(304, 100%, 50%);
+  --clr-purple: hsl(250, 100%, 69%);
+  --clr-green: hsl(155, 76%, 44%);
+  --clr-red: hsl(11, 89%, 54%);
+  --clr-gray--light: hsl(0, 0%, 94%);
+  --clr-gray--dark: hsl(248, 26%, 73%);
+  --clr-black--light: hsl(248, 10%, 30%);
+  --clr-white: hsl(0, 100%, 100%);
+
+  --fs-display: 2rem;
+  --fs-h1: 5rem;
+  --fs-h2: 1.4rem;
+  --fs-h3: 4rem;
+  --fs-h4: 3.5rem;
+
+  --fs-subtitle-1: 2.5rem;
+  --fs-subtitle-2: 2rem;
+  --fs-text-1: 1rem;
+  --fs-text-2: 1.5rem;
+  --fs-link: 1.3rem;
+  --fs-btn: 2rem;
+  --fs-logo: 1.2rem;
+
+  --fw-xl: 800;
+  --fw-lg: 700;
+  --fw-md: 500;
+  --fw-sm: 400;
+
+  --ff-primary: 'Inter', sans-serif;
+
+  --z-base: 0;
+  --z-behind: -1;
+  --z-top: 10;
+  --z-modal: 100;
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-family: var(--ff-primary);
+}

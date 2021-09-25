@@ -1,0 +1,125 @@
+/*=============================================
+=            header            =
+=============================================*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm);
+  position: relative;
+  .header__menu__icon {
+    font-size: 2rem;
+  }
+  .logo {
+    max-inline-size: 100%;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--fs-logo);
+  }
+  nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: red;
+    padding: var(--spacing-md);
+    z-index: var(--z-top);
+    &.large-screen {
+      position: unset;
+      padding: unset;
+      background: transparent;
+      .header__nav__menu {
+        flex-direction: row;
+      }
+    }
+    .header__nav__menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-md);
+    }
+    .nav__link {
+      text-transform: capitalize;
+      &.header__link {
+        font-size: var(--fs-link);
+        color: var(--clr-black--light);
+      }
+    }
+  }
+}
+
+/*=============================================
+=            buttons            =
+=============================================*/
+.btn {
+  appearance: none;
+  padding: var(--spacing-xs);
+  border: 0;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  &.btn__icon--right {
+    flex-direction: row-reverse;
+  }
+}
+.btn--primary {
+  background: var(--clr-purple);
+  color: var(--clr-white);
+}
+.btn--secondary {
+  box-shadow: inset 0 0 2px var(--clr-purple);
+  color: var(--clr-purple);
+}
+.btns-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+}
+.btns-group > .btn {
+  flex: 1;
+}
+.btns-group--col {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/*=============================================
+=            main            =
+=============================================*/
+main {
+  padding: var(--spacing-sm);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+.main__icon {
+  position: absolute;
+}
+.main__title {
+  font-size: var(--fs-display);
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: var(--fw-xl);
+}
+.main__subtitle {
+  text-align: center;
+  font-size: var(--fs-h2);
+  color: var(--clr-gray--dark);
+  font-weight: var(--fw-lg);
+  span:nth-of-type(1) {
+    color: var(--clr-purple);
+  }
+  span:nth-of-type(2) {
+    color: var(--clr-pink);
+  }
+  span:nth-of-type(3) {
+    color: var(--clr-green);
+  }
+}

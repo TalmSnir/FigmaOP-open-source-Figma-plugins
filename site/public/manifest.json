@@ -1,0 +1,8 @@
+{
+  "short_name": "FigmaOP",
+  "name": "FigmaOP- open source Figma plugins",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

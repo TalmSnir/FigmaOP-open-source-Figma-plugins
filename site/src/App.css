@@ -1,0 +1,196 @@
+/*=============================================
+=            header            =
+=============================================*/
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: var(--spacing-sm);
+  position: relative;
+}
+
+header .header__menu__icon {
+  font-size: 2rem;
+}
+
+header .logo {
+  max-inline-size: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--fs-logo);
+}
+
+header nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: red;
+  padding: var(--spacing-md);
+  z-index: var(--z-top);
+}
+
+header nav.large-screen {
+  position: unset;
+  padding: unset;
+  background: transparent;
+}
+
+header nav.large-screen .header__nav__menu {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+header nav .header__nav__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--spacing-md);
+}
+
+header nav .nav__link {
+  text-transform: capitalize;
+}
+
+header nav .nav__link.header__link {
+  font-size: var(--fs-link);
+  color: var(--clr-black--light);
+}
+
+/*=============================================
+=            buttons            =
+=============================================*/
+.btn {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: var(--spacing-xs);
+  border: 0;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: var(--spacing-xs);
+}
+
+.btn.btn__icon--right {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.btn--primary {
+  background: var(--clr-purple);
+  color: var(--clr-white);
+}
+
+.btn--secondary {
+  -webkit-box-shadow: inset 0 0 2px var(--clr-purple);
+          box-shadow: inset 0 0 2px var(--clr-purple);
+  color: var(--clr-purple);
+}
+
+.btns-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: var(--spacing-sm);
+}
+
+.btns-group > .btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.btns-group--col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+/*=============================================
+=            main            =
+=============================================*/
+main {
+  padding: var(--spacing-sm);
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.main__icon {
+  position: absolute;
+}
+
+.main__title {
+  font-size: var(--fs-display);
+  text-transform: capitalize;
+  text-align: center;
+  font-weight: var(--fw-xl);
+}
+
+.main__subtitle {
+  text-align: center;
+  font-size: var(--fs-h2);
+  color: var(--clr-gray--dark);
+  font-weight: var(--fw-lg);
+}
+
+.main__subtitle span:nth-of-type(1) {
+  color: var(--clr-purple);
+}
+
+.main__subtitle span:nth-of-type(2) {
+  color: var(--clr-pink);
+}
+
+.main__subtitle span:nth-of-type(3) {
+  color: var(--clr-green);
+}
+/*# sourceMappingURL=App.css.map */
