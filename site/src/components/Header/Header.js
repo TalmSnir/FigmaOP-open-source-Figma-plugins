@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavMenu from './NavMenu';
 import Button from '../Button';
 import Logo from '../Logo';
+import Container from '../Container';
 
 function Header() {
   const [showMenuButton, setShowMenuButton] = useState(true);
@@ -27,15 +28,17 @@ function Header() {
   window.addEventListener('resize', handleWindowResize);
   return (
     <header>
-      <Logo />
-      {showMenu && <NavMenu largeScreenMenu={largeScreenMenu} />}
-      {showMenuButton && (
-        <Button
-          iconClasses='header__menu__icon'
-          iconName={showMenu ? 'close' : 'menu'}
-          onClick={handleToggleMenu}
-        />
-      )}
+      <Container>
+        <Logo />
+        {showMenu && <NavMenu largeScreenMenu={largeScreenMenu} />}
+        {showMenuButton && (
+          <Button
+            iconClasses='header__menu__icon'
+            iconName={showMenu ? 'close' : 'menu'}
+            onClick={handleToggleMenu}
+          />
+        )}
+      </Container>
     </header>
   );
 }

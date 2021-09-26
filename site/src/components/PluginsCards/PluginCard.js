@@ -17,8 +17,10 @@ function PluginCard({
   return (
     <div className='plugin-card'>
       <PluginIcon name={pluginName} className='plugin-card__icon' />
-      <h1 className='plugin-card__title'>{pluginName}</h1>
-      <p className='plugin-card__description'>{pluginDescription}</p>
+      <div className='plugin-card__text'>
+        <h1 className='plugin-card__text--title'>{pluginName}</h1>
+        <p className='plugin-card__text--description'>{pluginDescription}</p>
+      </div>
       <ButtonsGroup>
         <Button type='primary' as='link' href={pluginFigmaCommunityPage}>
           view plugin
