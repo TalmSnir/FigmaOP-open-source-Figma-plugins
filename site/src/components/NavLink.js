@@ -6,12 +6,12 @@ function NavLink({ children, href, target, location, iconName, iconSide }) {
   const className = classNames('nav__link', {
     header__link: location === 'header',
     footer__link: location === 'footer',
-    'nav__link__icon--right': iconSide === 'right',
+    'nav__link__icon--left': iconSide === 'left',
   });
   return (
     <a href={href} target={target} className={className}>
-      {iconName && <Icon name={iconName} />}
       {children}
+      {iconName && <Icon name={iconName} />}
     </a>
   );
 }

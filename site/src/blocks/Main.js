@@ -12,11 +12,11 @@ function Main() {
         <span>faster</span>, <span>smarter</span> and <span>intentionally</span>
         .
       </h2>
-      <PluginIcon name={'fast-variants-properties'} className='main__icon' />
-      <PluginIcon name={'icons-toolbox'} className='main__icon' />
-      <PluginIcon name={'layout-handoff'} className='main__icon' />
-      <Icon name='github-circle' className='main__icon' />
-      <Icon name='figma' className='main__icon' />
+      <PluginIcon name={'fast-variants-properties'} className='main__icon ' />
+      <PluginIcon name={'icons-toolbox'} className='main__icon ' />
+      <PluginIcon name={'layout-handoff'} className='main__icon ' />
+      <Icon name='github-circle' className='main__icon ' />
+      <Icon name='figma' className='main__icon ' />
       <ButtonsGroup direction='column'>
         <Button iconName='star' type='primary'>
           on github
