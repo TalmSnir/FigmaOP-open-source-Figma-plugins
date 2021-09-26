@@ -6,7 +6,7 @@ import Logo from '../components/Logo';
 const footerMenus = ['FigmaOP plugins', 'Plugins repositories', 'support'];
 function Footer() {
   return (
-    <footer>
+    <footer id='footer'>
       <Logo theme='light' />
       <FooterMenu
         title='FigmaOP plugins'

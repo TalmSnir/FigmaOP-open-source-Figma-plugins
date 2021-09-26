@@ -1,11 +1,12 @@
 import React from 'react';
 import PluginCard from './PluginCard';
-const plugins = ['fast-variants-properties', 'icons-toolbox', 'layout-handoff'];
+import { plugins } from '../../Data';
+
 function PluginsCards() {
   return (
     <section className='plugins-cards'>
       {plugins.map(plugin => (
-        <PluginCard pluginName={plugin} key={plugin} />
+        <PluginCard plugin={plugin} key={plugin.pluginName} />
       ))}
     </section>
   );

@@ -20,8 +20,8 @@ export default NavLink;
 NavLink.propTypes = {
   href: PropTypes.string.isRequired,
   target: PropTypes.string,
-  children: PropTypes.string,
-  location: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  location: PropTypes.oneOf(['footer', 'header']),
   iconName: PropTypes.string,
   iconSide: PropTypes.string,
 };

@@ -1,73 +1,123 @@
 /*=============================================
-=            header            =
+=            components            =
 =============================================*/
-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+/*----------  Container  ----------*/
+.container {
   padding: var(--spacing-sm);
-  position: relative;
+  margin: 0 auto;
+  max-width: 1000px;
 }
 
-header .header__menu__icon {
-  font-size: 2rem;
-}
-
-header nav {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
-  background: red;
-  padding: var(--spacing-md);
-  z-index: var(--z-top);
-}
-
-header nav.large-screen {
-  position: unset;
-  padding: unset;
-  background: transparent;
-}
-
-header nav.large-screen .header__nav__menu {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-header nav .header__nav__menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+/*----------  NavLink  ----------*/
+.nav__link {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: var(--spacing-md);
-}
-
-header nav .nav__link {
+  gap: var(--spacing-xs);
   text-transform: capitalize;
+  font-weight: var(--fw-md);
 }
 
-header nav .nav__link.header__link {
-  font-size: var(--fs-link);
-  color: var(--clr-black--light);
+.nav__link__icon--left {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
 }
 
-/*=============================================
-=            buttons            =
-=============================================*/
+.nav__link.header__link {
+  font-size: var(--fs-sm);
+  color: var(--clr-white);
+}
+
+@media (min-width: 768px) {
+  .nav__link.header__link {
+    color: var(--clr-gray--very-dark);
+  }
+}
+
+@media (min-width: 1440px) {
+  .nav__link.header__link {
+    color: var(--clr-gray--very-dark);
+  }
+}
+
+.nav__link.header__link:hover, .nav__link.header__link:focus {
+  color: var(--clr-pink);
+}
+
+.nav__link.header__link.active {
+  color: var(--clr-purple);
+}
+
+.nav__link.footer__link {
+  font-size: var(--fs-xs);
+  color: var(--clr-white);
+}
+
+.nav__link.footer__link:hover, .nav__link.footer__link:focus {
+  color: var(--clr-pink);
+}
+
+/*----------  Logo  ----------*/
+.logo {
+  max-inline-size: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-md);
+  color: var(--clr-black);
+}
+
+.logo__text--light {
+  color: var(--clr-white);
+}
+
+/*----------  Icon  ----------*/
+/*----------  GifModal  ----------*/
+.gif-modal {
+  position: fixed;
+  width: 90vw;
+  max-width: 600px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: var(--z-modal);
+}
+
+.gif-modal img {
+  max-width: 100%;
+}
+
+.gif-modal__header {
+  background: var(--clr-green);
+  width: 100%;
+}
+
+.gif-modal .btn {
+  color: var(--clr-white);
+}
+
+.gif-modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--clr-black);
+  opacity: 0.9;
+  z-index: var(--z-modal);
+}
+
+/*----------  Button  ----------*/
 .btn {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -108,6 +158,7 @@ header nav .nav__link.header__link {
   color: var(--clr-purple);
 }
 
+/*----------  ButtonsGroup  ----------*/
 .btns-group {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -135,9 +186,131 @@ header nav .nav__link.header__link {
           flex-direction: column;
 }
 
+/*----------  Header  ----------*/
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: var(--spacing-sm);
+  position: relative;
+  /*----------  NavMenu  ----------*/
+}
+
+header .header__menu__icon {
+  font-size: 2rem;
+}
+
+header nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: var(--clr-green);
+  padding: var(--spacing-md);
+  z-index: var(--z-top);
+}
+
+header nav.large-screen {
+  position: unset;
+  padding: unset;
+  background: transparent;
+}
+
+header nav.large-screen .header__nav__menu {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+header nav .header__nav__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--spacing-md);
+}
+
+/*----------  PluginCard  ----------*/
+.plugin-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: var(--spacing-sm);
+  -webkit-box-shadow: var(--shadow--card);
+          box-shadow: var(--shadow--card);
+  background: var(--clr-gray--light);
+  border-radius: 6px;
+  overflow: hidden;
+  padding-top: var(--spacing-sm);
+  max-width: 360px;
+}
+
+.plugin-card__icon {
+  inline-size: 80px;
+  block-size: 80px;
+}
+
+.plugin-card__title {
+  font-size: 1rem;
+}
+
+.plugin-card__description {
+  text-align: center;
+  line-height: 1.4;
+  font-size: var(--fs-xs);
+  padding-inline: var(--spacing-sm);
+}
+
+.plugin-card .btns-group {
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+  padding-inline: var(--spacing-sm);
+}
+
+.plugin-card__footer {
+  background: var(--clr-green);
+  width: 100%;
+  text-align: center;
+  color: var(--clr-white);
+}
+
+/*----------  PluginCards  ----------*/
+.plugins-cards {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-md);
+  place-items: center;
+  background: var(--clr-purple);
+  padding: var(--spacing-sm);
+}
+
 /*=============================================
-=            main            =
+=            Blocks            =
 =============================================*/
+/*----------  Main  ----------*/
 main {
   padding: var(--spacing-sm);
   position: relative;
@@ -149,10 +322,6 @@ main {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: var(--spacing-md);
-}
-
-main svg {
-  z-index: var(--z-behind);
 }
 
 main svg:nth-of-type(1) {
@@ -194,6 +363,7 @@ main .main__icon {
   position: absolute;
   inline-size: 15vmin;
   block-size: 15vmin;
+  z-index: var(--z-behind);
 }
 
 main .main__title {
@@ -222,75 +392,7 @@ main .main__subtitle span:nth-of-type(3) {
   color: var(--clr-green);
 }
 
-/*=============================================
-=            plugins cards            =
-=============================================*/
-.plugins-cards {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-md);
-  place-items: center;
-  background: var(--clr-purple);
-  padding: var(--spacing-sm);
-}
-
-.plugins-cards .plugin-card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: var(--spacing-sm);
-  -webkit-box-shadow: var(--shadow--card);
-          box-shadow: var(--shadow--card);
-  background: var(--clr-gray--light);
-  border-radius: 6px;
-  overflow: hidden;
-  padding-top: var(--spacing-sm);
-  max-width: 360px;
-}
-
-.plugins-cards .plugin-card__icon {
-  inline-size: 80px;
-  block-size: 80px;
-}
-
-.plugins-cards .plugin-card__title {
-  font-size: 1rem;
-}
-
-.plugins-cards .plugin-card__description {
-  text-align: center;
-  line-height: 1.4;
-  font-size: var(--fs-text-1);
-  padding-inline: var(--spacing-sm);
-}
-
-.plugins-cards .plugin-card .btns-group {
-  -ms-flex-item-align: stretch;
-      -ms-grid-row-align: stretch;
-      align-self: stretch;
-  padding-inline: var(--spacing-sm);
-}
-
-.plugins-cards .plugin-card__footer {
-  background: var(--clr-green);
-  width: 100%;
-  text-align: center;
-  padding: var(--spacing-xs);
-  color: var(--clr-white);
-}
-
-/*=============================================
-=            Return section            =
-=============================================*/
+/*----------  Return  ----------*/
 .return {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -314,9 +416,7 @@ main .main__subtitle span:nth-of-type(3) {
       align-self: stretch;
 }
 
-/*=============================================
-=            new idea section            =
-=============================================*/
+/*----------  NewIdea  ----------*/
 .new-idea {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -353,11 +453,9 @@ main .main__subtitle span:nth-of-type(3) {
   block-size: 80px;
 }
 
-/*=============================================
-=            footer            =
-=============================================*/
+/*----------  Footer  ----------*/
 footer {
-  background: var(--clr-black--light);
+  background: var(--clr-gray--very-dark);
   padding: var(--spacing-sm);
   display: -ms-grid;
   display: grid;
@@ -405,7 +503,7 @@ footer .footer__social-menu .nav__link::before {
   inline-size: 3rem;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  background: var(--clr-black--light);
+  background: var(--clr-gray--very-dark);
   -webkit-filter: brightness(80%);
           filter: brightness(80%);
   z-index: var(--z-behind);
@@ -422,11 +520,6 @@ footer .footer__menu__title {
   text-transform: capitalize;
   color: var(--clr-green);
   font-size: 1rem;
-}
-
-footer .footer__menu .nav__link.footer__link {
-  color: var(--clr-white);
-  font-size: 0.8rem;
 }
 
 footer .footer__menu .nav__link svg {

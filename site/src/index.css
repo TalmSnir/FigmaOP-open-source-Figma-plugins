@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap");
+/*=============================================
+=            css resets            =
+=============================================*/
 *,
 *::before,
 *::after {
@@ -8,8 +11,20 @@
   padding: 0;
   color: inherit;
   font-family: inherit;
+  outline: 0;
 }
 
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=============================================
+=            css variables            =
+=============================================*/
 :root {
   --clr-pink: hsl(304, 100%, 50%);
   --clr-purple: hsl(250, 100%, 69%);
@@ -17,20 +32,18 @@
   --clr-red: hsl(11, 89%, 54%);
   --clr-gray--light: hsl(0, 0%, 94%);
   --clr-gray--dark: hsl(248, 26%, 73%);
-  --clr-black--light: hsl(248, 10%, 30%);
+  --clr-gray--very-dark: hsl(248, 10%, 30%);
+  --clr-black: hsl(0, 0%, 0%);
   --clr-white: hsl(0, 100%, 100%);
-  --fs-display: 2rem;
-  --fs-h1: 5rem;
-  --fs-h2: 1.4rem;
-  --fs-h3: 4rem;
-  --fs-h4: 3.5rem;
-  --fs-subtitle-1: 2.5rem;
-  --fs-subtitle-2: 2rem;
-  --fs-text-1: 1rem;
-  --fs-text-2: 1.5rem;
-  --fs-link: 1.3rem;
-  --fs-btn: 2rem;
-  --fs-logo: 1.2rem;
+  --fs-display--main: 2rem;
+  --fs-display--subtitle: 1.5rem;
+  --fs-h1: 1.4rem;
+  --fs-h2: 1.3rem;
+  --fs-xl: 1.6rem;
+  --fs-lg: 1.4rem;
+  --fs-md: 1.2rem;
+  --fs-sm: 1rem;
+  --fs-xs: 0.8rem;
   --fw-xl: 800;
   --fw-lg: 700;
   --fw-md: 500;
@@ -48,49 +61,34 @@
   --shadow--card: -1.95349px 3.90697px 43.9535px rgba(0, 0, 0, 0.13);
 }
 
-ul {
-  list-style: none;
+/*=============================================
+=            scrollbar            =
+=============================================*/
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--clr-black--light) var(--clr-pink);
 }
 
-a {
-  text-decoration: none;
+html::-webkit-scrollbar {
+  width: 10px;
 }
 
+html::-webkit-scrollbar-track {
+  background: var(--clr-black--light);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--clr-pink);
+  border-radius: 3rem;
+}
+
+/*=============================================
+=            global            =
+=============================================*/
 body {
   font-family: var(--ff-primary);
-}
-
-.nav__link {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: var(--spacing-xs);
-  text-transform: capitalize;
-}
-
-.nav__link__icon--left {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-}
-
-.logo {
-  max-inline-size: 100%;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: var(--spacing-xs);
-  font-size: var(--fs-logo);
-}
-
-.logo__icon--light {
-  color: var(--clr-white);
+  height: 100%;
 }
 /*# sourceMappingURL=index.css.map */

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   FiMenu,
   FiFigma,
@@ -33,3 +34,24 @@ function Icon({ name, className }) {
 }
 
 export default Icon;
+Icon.propTypes = {
+  name: PropTypes.oneOf([
+    'menu',
+    'figma',
+    'github',
+    'github-circle',
+    'star',
+    'dribbble',
+    'linkedin',
+    'close',
+    'thumbsUp',
+    'link',
+    'externalLink',
+    'repo',
+  ]),
+  className: PropTypes.oneOf([
+    'plugin-card__icon',
+    'main__icon ',
+    'header__menu__icon',
+  ]),
+};

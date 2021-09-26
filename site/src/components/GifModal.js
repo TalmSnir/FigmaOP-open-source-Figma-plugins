@@ -1,12 +1,19 @@
 import React from 'react';
+import ReactDom from 'react-dom';
 import Button from './Button';
 
-function GifModal({ gifSrc }) {
-  return (
-    <div className='gif-modal'>
-      <Button iconName='close' />
-      <img src={gifSrc} alt='gif example of a plugin' />
-    </div>
+function GifModal({ pluginGif, onClick }) {
+  return ReactDom.createPortal(
+    <>
+      <div className='gif-modal__overlay' onClick={onClick}></div>
+      <div className='gif-modal'>
+        <div className='gif-modal__header'>
+          <Button type='icon' iconName='close' onClick={onClick} />
+        </div>
+        <img src={pluginGif} alt='gif example of a plugin' />
+      </div>
+    </>,
+    document.getElementById('modal-portal')
   );
 }
 

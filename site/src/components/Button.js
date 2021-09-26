@@ -8,6 +8,7 @@ function Button({ onClick, children, iconName, iconSide, type, iconClasses }) {
     'btn--secondary': type === 'secondary',
     'btn__icon--right': iconSide === 'right',
   });
+
   return (
     <button className={className} onClick={onClick}>
       {iconName && <Icon name={iconName} className={iconClasses} />}
@@ -23,5 +24,5 @@ Button.propTypes = {
   children: PropTypes.any.isRequired,
   iconName: PropTypes.string,
   iconSide: PropTypes.string,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['primary', 'secondary', 'icon', 'text']).isRequired,
 };

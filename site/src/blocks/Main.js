@@ -3,6 +3,7 @@ import Button from '../components/Button';
 import ButtonsGroup from '../components/ButtonsGroup';
 import PluginIcon from '../components/PluginIcon';
 import Icon from '../components/Icon';
+import Container from '../components/Container';
 function Main() {
   return (
     <main>
@@ -12,9 +13,9 @@ function Main() {
         <span>faster</span>, <span>smarter</span> and <span>intentionally</span>
         .
       </h2>
-      <PluginIcon name={'fast-variants-properties'} className='main__icon ' />
-      <PluginIcon name={'icons-toolbox'} className='main__icon ' />
-      <PluginIcon name={'layout-handoff'} className='main__icon ' />
+      <PluginIcon name='fast variants properties' className='main__icon ' />
+      <PluginIcon name='icons toolbox' className='main__icon ' />
+      <PluginIcon name='layout handoff' className='main__icon ' />
       <Icon name='github-circle' className='main__icon ' />
       <Icon name='figma' className='main__icon ' />
       <ButtonsGroup direction='column'>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavMenu from './NavMenu';
 import Button from '../Button';
 import Logo from '../Logo';
+
 function Header() {
   const [showMenuButton, setShowMenuButton] = useState(true);
   const [showMenu, setShowMenu] = useState(false);

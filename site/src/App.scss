@@ -1,51 +1,114 @@
 /*=============================================
-=            header            =
+=            components            =
 =============================================*/
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--spacing-sm);
-  position: relative;
-  .header__menu__icon {
-    font-size: 2rem;
+@mixin responsive-screen($breakpoint) {
+  @if ($breakpoint== sm) {
+    @media (min-width: 768px) {
+      @content;
+    }
   }
-
-  nav {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    background: red;
-    padding: var(--spacing-md);
-    z-index: var(--z-top);
-    &.large-screen {
-      position: unset;
-      padding: unset;
-      background: transparent;
-      .header__nav__menu {
-        flex-direction: row;
-      }
+  @if ($breakpoint== md) {
+    @media (min-width: 1200px) {
+      @content;
     }
-    .header__nav__menu {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--spacing-md);
-    }
-    .nav__link {
-      text-transform: capitalize;
-      &.header__link {
-        font-size: var(--fs-link);
-        color: var(--clr-black--light);
-      }
+  }
+  @if ($breakpoint== sm) {
+    @media (min-width: 1440px) {
+      @content;
     }
   }
 }
 
-/*=============================================
-=            buttons            =
-=============================================*/
+/*----------  Container  ----------*/
+.container {
+  padding: var(--spacing-sm);
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+/*----------  NavLink  ----------*/
+.nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  text-transform: capitalize;
+  font-weight: var(--fw-md);
+  &__icon--left {
+    flex-direction: row-reverse;
+  }
+
+  &.header__link {
+    font-size: var(--fs-sm);
+    color: var(--clr-white);
+    @include responsive-screen(sm) {
+      color: var(--clr-gray--very-dark);
+    }
+    &:hover,
+    &:focus {
+      color: var(--clr-pink);
+    }
+    &.active {
+      color: var(--clr-purple);
+    }
+  }
+  &.footer__link {
+    font-size: var(--fs-xs);
+    color: var(--clr-white);
+    &:hover,
+    &:focus {
+      color: var(--clr-pink);
+    }
+  }
+}
+
+/*----------  Logo  ----------*/
+.logo {
+  max-inline-size: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-md);
+  color: var(--clr-black);
+
+  &__text--light {
+    color: var(--clr-white);
+  }
+}
+
+/*----------  Icon  ----------*/
+
+/*----------  GifModal  ----------*/
+.gif-modal {
+  position: fixed;
+  width: 90vw;
+  max-width: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+  overflow: hidden;
+  //! check why it doesn't work on the image
+  z-index: var(--z-modal);
+  img {
+    max-width: 100%;
+  }
+  &__header {
+    background: var(--clr-green);
+    width: 100%;
+  }
+  .btn {
+    color: var(--clr-white);
+  }
+}
+.gif-modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--clr-black);
+  opacity: 0.9;
+  z-index: var(--z-modal);
+}
+/*----------  Button  ----------*/
 .btn {
   appearance: none;
   padding: var(--spacing-xs);
@@ -70,6 +133,9 @@ header {
   box-shadow: inset 0 0 2px var(--clr-purple);
   color: var(--clr-purple);
 }
+
+/*----------  ButtonsGroup  ----------*/
+
 .btns-group {
   display: flex;
   align-items: center;
@@ -84,18 +150,105 @@ header {
   flex-direction: column;
 }
 
+/*----------  Header  ----------*/
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm);
+  position: relative;
+  .header__menu__icon {
+    font-size: 2rem;
+  }
+
+  /*----------  NavMenu  ----------*/
+
+  nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: var(--clr-green);
+    padding: var(--spacing-md);
+    z-index: var(--z-top);
+    &.large-screen {
+      position: unset;
+      padding: unset;
+      background: transparent;
+      .header__nav__menu {
+        flex-direction: row;
+      }
+    }
+    .header__nav__menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-md);
+    }
+  }
+}
+
+/*----------  PluginCard  ----------*/
+.plugin-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  box-shadow: var(--shadow--card);
+  background: var(--clr-gray--light);
+  border-radius: 6px;
+  overflow: hidden;
+  padding-top: var(--spacing-sm);
+  max-width: 360px;
+  &__icon {
+    inline-size: 80px;
+    block-size: 80px;
+  }
+  &__title {
+    font-size: 1rem;
+  }
+  &__description {
+    text-align: center;
+    line-height: 1.4;
+    font-size: var(--fs-xs);
+    padding-inline: var(--spacing-sm);
+  }
+  .btns-group {
+    align-self: stretch;
+    padding-inline: var(--spacing-sm);
+  }
+  &__footer {
+    background: var(--clr-green);
+    width: 100%;
+    text-align: center;
+    color: var(--clr-white);
+  }
+}
+
+/*----------  PluginCards  ----------*/
+.plugins-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-md);
+  place-items: center;
+  background: var(--clr-purple);
+  padding: var(--spacing-sm);
+}
+
 /*=============================================
-=            main            =
+=            Blocks            =
 =============================================*/
+
+/*----------  Main  ----------*/
+
 main {
   padding: var(--spacing-sm);
   position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
-  svg {
-    z-index: var(--z-behind);
-  }
+
   svg:nth-of-type(1) {
     top: 60%;
     left: 4%;
@@ -125,6 +278,7 @@ main {
     position: absolute;
     inline-size: 15vmin;
     block-size: 15vmin;
+    z-index: var(--z-behind);
   }
   .main__title {
     font-size: var(--fs-display);
@@ -149,57 +303,8 @@ main {
   }
 }
 
-/*=============================================
-=            plugins cards            =
-=============================================*/
-.plugins-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-md);
-  place-items: center;
-  background: var(--clr-purple);
-  padding: var(--spacing-sm);
-  .plugin-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-sm);
-    box-shadow: var(--shadow--card);
-    background: var(--clr-gray--light);
-    border-radius: 6px;
-    overflow: hidden;
-    padding-top: var(--spacing-sm);
-    max-width: 360px;
-    &__icon {
-      inline-size: 80px;
-      block-size: 80px;
-    }
-    &__title {
-      font-size: 1rem;
-    }
-    &__description {
-      text-align: center;
-      line-height: 1.4;
-      font-size: var(--fs-text-1);
-      padding-inline: var(--spacing-sm);
-    }
-    .btns-group {
-      align-self: stretch;
-      padding-inline: var(--spacing-sm);
-    }
-    &__footer {
-      background: var(--clr-green);
-      width: 100%;
-      text-align: center;
-      padding: var(--spacing-xs);
-      color: var(--clr-white);
-    }
-  }
-}
+/*----------  Return  ----------*/
 
-/*=============================================
-=            Return section            =
-=============================================*/
 .return {
   display: flex;
   flex-direction: column;
@@ -213,9 +318,8 @@ main {
   }
 }
 
-/*=============================================
-=            new idea section            =
-=============================================*/
+/*----------  NewIdea  ----------*/
+
 .new-idea {
   display: flex;
   flex-direction: column;
@@ -239,14 +343,14 @@ main {
   }
 }
 
-/*=============================================
-=            footer            =
-=============================================*/
+/*----------  Footer  ----------*/
+
 footer {
-  background: var(--clr-black--light);
+  background: var(--clr-gray--very-dark);
   padding: var(--spacing-sm);
   display: grid;
   gap: var(--spacing-md);
+
   .rights {
     font-size: 0.8rem;
     color: var(--clr-white);
@@ -275,7 +379,7 @@ footer {
         inline-size: 3rem;
         aspect-ratio: 1/1;
         border-radius: 50%;
-        background: var(--clr-black--light);
+        background: var(--clr-gray--very-dark);
         filter: brightness(80%);
         z-index: var(--z-behind);
       }
@@ -291,10 +395,6 @@ footer {
       font-size: 1rem;
     }
     .nav__link {
-      &.footer__link {
-        color: var(--clr-white);
-        font-size: 0.8rem;
-      }
       svg {
         block-size: 16px;
         inline-size: 16px;

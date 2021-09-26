@@ -10,7 +10,7 @@ function NavMenu({ largeScreenMenu }) {
           </NavLink>
         </li>
         <li className='header__nav__item'>
-          <NavLink href='black' location='header'>
+          <NavLink href='#footer' location='header'>
             plugins
           </NavLink>
         </li>
