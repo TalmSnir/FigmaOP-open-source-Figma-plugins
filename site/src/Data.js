@@ -57,3 +57,9 @@ export const supportSources = [
       'https://opensource.guide/how-to-contribute/#how-to-submit-a-contribution',
   },
 ];
+export const upVotesLinks = {
+  github: 'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins',
+  productHunt: 'url',
+};
+export const mainRepo =
+  'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins';

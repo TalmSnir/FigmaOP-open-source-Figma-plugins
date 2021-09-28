@@ -5,39 +5,33 @@ import Logo from '../Logo';
 import Container from '../Container';
 
 function Header() {
-  const [showMenuButton, setShowMenuButton] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
-  const [largeScreenMenu, setLargeScreenMenu] = useState(false);
+  const [largeScreen, setLargeScreen] = useState(false);
   const handleToggleMenu = () => {
     setShowMenu(!showMenu);
   };
-  const handleWindowResize = () => {
-    if (window.innerWidth > 768) {
-      setShowMenuButton(false);
-      setShowMenu(true);
-      setLargeScreenMenu(true);
-    } else {
-      setShowMenuButton(true);
-      setLargeScreenMenu(false);
-      !showMenu ? setShowMenu(true) : setShowMenu(true);
-    }
-  };
+
   useEffect(() => {
-    handleWindowResize();
-  }, []);
-  window.addEventListener('resize', handleWindowResize);
+    largeScreen ? setShowMenu(true) : setShowMenu(false);
+  }, [largeScreen]);
+  useEffect(() => {
+    const handleWindowResize = () => {
+      window.innerWidth >= 768 ? setLargeScreen(true) : setLargeScreen(false);
+    };
+    window.addEventListener('resize', handleWindowResize);
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, [largeScreen]);
+
   return (
-    <header>
+    <header id='header'>
       <Container>
         <Logo />
-        {showMenu && <NavMenu largeScreenMenu={largeScreenMenu} />}
-        {showMenuButton && (
-          <Button
-            iconClasses='header__menu__icon'
-            iconName={showMenu ? 'close' : 'menu'}
-            onClick={handleToggleMenu}
-          />
-        )}
+        <NavMenu show={showMenu} />
+        <Button
+          iconClasses='header__menu__icon'
+          iconName={showMenu ? 'close' : 'menu'}
+          onClick={handleToggleMenu}
+        />
       </Container>
     </header>
   );

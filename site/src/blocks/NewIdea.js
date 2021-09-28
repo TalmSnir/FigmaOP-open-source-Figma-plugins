@@ -1,19 +1,20 @@
 import React from 'react';
-import PluginIcon from '../components/PluginIcon';
-import Button from '../components/Button';
+import Form from '../components/Form';
+
 import Container from '../components/Container';
+import communityPluginCard from '../assets/Community-Plugin-card.png';
 function NewIdea() {
   return (
-    <section className='new-idea'>
+    <section className='new-idea' id='new-idea'>
       <Container>
         <h1 className='new-idea__title'>
           Have an idea for something new but dont have the skills yet ?
         </h1>
-        <PluginIcon name='unknown' className='new-idea__icon' />
+        <img src={communityPluginCard} alt='figma community plugin card' />
         <h2 className='new-idea__subtitle'>
           let us know and we will work together to make it
         </h2>
-        <Button type='primary'>explore plugins on the community</Button>
+        <Form />
       </Container>
     </section>
   );

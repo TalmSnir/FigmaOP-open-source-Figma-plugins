@@ -9,6 +9,7 @@ function FooterMenu({ title, items, dataTitle, dataSection, iconName }) {
         return (
           <NavLink
             key={item[dataTitle]}
+            type='link'
             href={item[dataSection]}
             target='_blank'
             location='footer'

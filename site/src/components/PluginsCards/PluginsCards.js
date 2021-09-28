@@ -4,7 +4,7 @@ import { plugins } from '../../Data';
 import Container from '../Container';
 function PluginsCards() {
   return (
-    <section className='plugins-cards'>
+    <section className='plugins-cards' id='plugins'>
       <Container>
         <h1 className='plugins-cards__title'>explore plugins</h1>
         {plugins.map(plugin => (

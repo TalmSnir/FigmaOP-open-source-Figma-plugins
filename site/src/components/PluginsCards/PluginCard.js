@@ -1,7 +1,7 @@
 import React from 'react';
 import PluginIcon from '../PluginIcon';
 import ButtonsGroup from '../ButtonsGroup';
-import Button from '../Button';
+import NavLink from '../NavLink';
 import CardFooter from '../CardFooter';
 import PropTypes from 'prop-types';
 function PluginCard({
@@ -13,7 +13,6 @@ function PluginCard({
     pluginFigmaCommunityPage,
   },
 }) {
-  console.log(pluginName);
   return (
     <div className='plugin-card'>
       <PluginIcon name={pluginName} className='plugin-card__icon' />
@@ -22,10 +21,20 @@ function PluginCard({
         <p className='plugin-card__text--description'>{pluginDescription}</p>
       </div>
       <ButtonsGroup>
-        <Button type='primary' as='link' href={pluginFigmaCommunityPage}>
+        <NavLink
+          target='_blank'
+          type='button'
+          btnVariant='primary'
+          href={pluginFigmaCommunityPage}>
           view plugin
-        </Button>
-        <Button type='secondary'>view source code</Button>
+        </NavLink>
+        <NavLink
+          target='_blank'
+          type='button'
+          btnVariant='secondary'
+          href={pluginRepo}>
+          view source code
+        </NavLink>
       </ButtonsGroup>
       <CardFooter pluginGif={pluginGif} />
     </div>

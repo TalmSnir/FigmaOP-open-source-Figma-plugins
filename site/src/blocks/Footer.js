@@ -4,14 +4,21 @@ import SocialsMenu from '../components/SocialsMenu';
 import FooterMenu from '../components/FooterMenu';
 import Logo from '../components/Logo';
 import Container from '../components/Container';
+import NavLink from '../components/NavLink';
 function Footer() {
   return (
     <footer id='footer'>
       <Container>
         <div className='footer__info'>
-          <Logo theme='light' />
+          <NavLink href='#header'>
+            <Logo theme='light' />
+          </NavLink>
+
           <SocialsMenu />
-          <span className='rights'>© 2021 TalmSnir All rights reserved</span>
+          <span className='footer__info__email'>FigmaOPsupport@gmail.com</span>
+          <span className='footer__info__rights'>
+            © 2021 TalmSnir All rights reserved
+          </span>
         </div>
 
         <div className='footer__menus'>

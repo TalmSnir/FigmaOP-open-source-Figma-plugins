@@ -11,6 +11,7 @@ import {
   FiThumbsUp,
   FiLink,
   FiExternalLink,
+  FiArrowRight,
 } from 'react-icons/fi';
 import { FaGithub } from 'react-icons/fa';
 import { ReactComponent as RepoIcon } from '../assets/github-repo.svg';
@@ -27,6 +28,7 @@ const iconsMap = {
   link: FiLink,
   externalLink: FiExternalLink,
   repo: RepoIcon,
+  'arrow-right': FiArrowRight,
 };
 function Icon({ name, className }) {
   const IconName = iconsMap[name];
@@ -48,6 +50,7 @@ Icon.propTypes = {
     'link',
     'externalLink',
     'repo',
+    'arrow-right',
   ]),
   className: PropTypes.oneOf([
     'plugin-card__icon',

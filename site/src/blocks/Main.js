@@ -1,33 +1,54 @@
 import React from 'react';
-import Button from '../components/Button';
+import NavLink from '../components/NavLink';
 import ButtonsGroup from '../components/ButtonsGroup';
 import PluginIcon from '../components/PluginIcon';
 import Icon from '../components/Icon';
 import Container from '../components/Container';
+import { upVotesLinks } from '../Data';
 function Main() {
+  const { github, productHunt } = upVotesLinks;
+  console.log(github);
   return (
-    <main className='main'>
+    <main className='main' id='main'>
       <Container>
         <div className='main__text'>
-          <h1 className='main__text--title'>Open source Figma plugins </h1>
+          <h1 className='main__text--title'>
+            <Icon name='figma' />
+            igma <Icon name='github-circle' />
+            pen source <span>Plugins</span>
+          </h1>
+
           <h2 className='main__text--subtitle'>
             to help designers and developers work <br />
             <span>faster</span>, <span>smarter</span> and{' '}
             <span>intentionally</span>.
           </h2>
         </div>
-        <PluginIcon name='fast variants properties' className='main__icon ' />
-        <PluginIcon name='icons toolbox' className='main__icon ' />
-        <PluginIcon name='layout handoff' className='main__icon ' />
-        <Icon name='github-circle' className='main__icon ' />
-        <Icon name='figma' className='main__icon ' />
+        <div className='main__plugin-icons'>
+          <PluginIcon name='fast variants properties' />
+          <PluginIcon name='icons toolbox' />
+          <PluginIcon name='layout handoff' />
+        </div>
+
         <ButtonsGroup direction='column'>
-          <Button iconName='star' type='primary'>
+          <NavLink
+            href={github}
+            target='_blank'
+            iconName='star'
+            iconSide='left'
+            type='button'
+            btnVariant='primary'>
             on github
-          </Button>
-          <Button iconName='thumbsUp' type='secondary'>
+          </NavLink>
+          <NavLink
+            href={productHunt}
+            target='_blank'
+            iconName='thumbsUp'
+            iconSide='left'
+            type='button'
+            btnVariant='secondary'>
             on product hunt
-          </Button>
+          </NavLink>
         </ButtonsGroup>
       </Container>
     </main>
