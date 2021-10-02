@@ -84,6 +84,10 @@
     &:hover,
     &:focus {
       color: var(--clr-pink);
+
+      svg #repo {
+        fill: var(--clr-pink);
+      }
     }
   }
 }
@@ -151,6 +155,7 @@
   max-inline-size: 200px;
   font-size: var(--fs-xs);
   font-weight: var(--fw-md);
+  -webkit-tap-highlight-color: transparent;
   &.btn__icon--right {
     flex-direction: row-reverse;
   }
@@ -216,14 +221,16 @@ header {
     background: var(--clr-green);
     padding: var(--spacing-md);
     z-index: var(--z-top);
-    transform: scale(1, 0);
     opacity: 0;
+    transform: translateY(-100%);
     transform-origin: top center;
+    pointer-events: none;
 
     transition: all 0.3s ease-in-out;
     &.show {
-      transform: scale(1, 1);
+      transform: translateY(0);
       opacity: 1;
+      pointer-events: auto;
     }
     &__menu {
       display: flex;
@@ -236,9 +243,10 @@ header {
       position: unset;
       padding: unset;
       background: transparent;
-      transform: scale(1, 1);
+      transform: translateY(0);
       opacity: 1;
       transition: unset;
+      pointer-events: auto;
 
       .header__nav__menu {
         flex-direction: row;
@@ -352,6 +360,7 @@ header {
     }
     &::before {
       content: '';
+      position: relative;
       grid-area: icon;
       inline-size: 2rem;
       aspect-ratio: 1/1;

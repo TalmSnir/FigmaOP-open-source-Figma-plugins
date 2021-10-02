@@ -20,7 +20,7 @@ function NavMenu({ show }) {
         </li>
         <li className='header__nav__item'>
           <NavLink href='#new-idea' location='header' type='link'>
-            have an idea?
+            have an idea ?
           </NavLink>
         </li>
         <li className='header__nav__item'>

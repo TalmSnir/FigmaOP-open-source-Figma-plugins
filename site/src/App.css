@@ -80,6 +80,10 @@
   color: var(--clr-pink);
 }
 
+.nav__link.footer__link:hover svg #repo, .nav__link.footer__link:focus svg #repo {
+  fill: var(--clr-pink);
+}
+
 /*----------  Logo  ----------*/
 .logo {
   max-inline-size: 100%;
@@ -160,6 +164,7 @@
   max-inline-size: 200px;
   font-size: var(--fs-xs);
   font-weight: var(--fw-md);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn.btn__icon--right {
@@ -254,19 +259,21 @@ header .header__nav {
   background: var(--clr-green);
   padding: var(--spacing-md);
   z-index: var(--z-top);
-  -webkit-transform: scale(1, 0);
-          transform: scale(1, 0);
   opacity: 0;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
   -webkit-transform-origin: top center;
           transform-origin: top center;
+  pointer-events: none;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
 header .header__nav.show {
-  -webkit-transform: scale(1, 1);
-          transform: scale(1, 1);
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
   opacity: 1;
+  pointer-events: auto;
 }
 
 header .header__nav__menu {
@@ -288,11 +295,12 @@ header .header__nav__menu {
     position: unset;
     padding: unset;
     background: transparent;
-    -webkit-transform: scale(1, 1);
-            transform: scale(1, 1);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
     opacity: 1;
     -webkit-transition: unset;
     transition: unset;
+    pointer-events: auto;
   }
   header .header__nav .header__nav__menu {
     -webkit-box-orient: horizontal;
@@ -444,6 +452,7 @@ header .header__nav__menu {
 
 .footer__social-menu .nav__link::before {
   content: '';
+  position: relative;
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: icon;

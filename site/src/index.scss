@@ -79,7 +79,7 @@ html {
   height: 100%;
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: var(--clr-gray--very-dark) var(--clr-pink);
+  scrollbar-color: var(--clr-pink) var(--clr-gray--very-dark);
 }
 
 html::-webkit-scrollbar {

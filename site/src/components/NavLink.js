@@ -22,7 +22,11 @@ function NavLink({
     'nav__link__icon--left': iconSide === 'left',
   });
   return (
-    <a href={href} target={target} className={className}>
+    <a
+      href={href}
+      target={target}
+      className={className}
+      rel={location === 'footer' ? 'noopener' : null}>
       {children}
       {iconName && <Icon name={iconName} />}
     </a>
