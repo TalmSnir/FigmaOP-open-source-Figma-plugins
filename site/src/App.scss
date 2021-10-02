@@ -115,10 +115,11 @@
   transform: translate(-50%, -50%);
   border-radius: 6px;
   overflow: hidden;
-  //! check why it doesn't work on the image
   z-index: var(--z-modal);
   img {
     max-width: 100%;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
   }
   &__header {
     background: var(--clr-green);
@@ -252,12 +253,18 @@ header {
   flex-direction: column;
   align-items: center;
   gap: var(--spacing-md);
-  box-shadow: var(--shadow--card);
+  box-shadow: var(--shadow-card);
   background: var(--clr-gray--light);
   border-radius: 6px;
   overflow: hidden;
   padding-top: var(--spacing-md);
   max-width: 340px;
+  transition: all 0.2s ease-in-out;
+  &:hover,
+  &:focus {
+    box-shadow: var(--shadow-card--hover);
+    transform: scale(1.02);
+  }
 
   &__text {
     text-align: center;
@@ -268,9 +275,13 @@ header {
       margin-block-end: var(--spacing-sm);
     }
     &--description {
-      line-height: 1.4;
       font-size: var(--fs-xs);
       padding-inline: var(--spacing-sm);
+      -webkit-line-clamp: 5;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
   &__icon {

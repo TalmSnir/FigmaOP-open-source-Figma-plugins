@@ -116,6 +116,8 @@
 
 .gif-modal img {
   max-width: 100%;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 
 .gif-modal__header {
@@ -313,13 +315,22 @@ header .header__nav__menu {
       -ms-flex-align: center;
           align-items: center;
   gap: var(--spacing-md);
-  -webkit-box-shadow: var(--shadow--card);
-          box-shadow: var(--shadow--card);
+  -webkit-box-shadow: var(--shadow-card);
+          box-shadow: var(--shadow-card);
   background: var(--clr-gray--light);
   border-radius: 6px;
   overflow: hidden;
   padding-top: var(--spacing-md);
   max-width: 340px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.plugin-card:hover, .plugin-card:focus {
+  -webkit-box-shadow: var(--shadow-card--hover);
+          box-shadow: var(--shadow-card--hover);
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
 }
 
 .plugin-card__text {
@@ -333,9 +344,13 @@ header .header__nav__menu {
 }
 
 .plugin-card__text--description {
-  line-height: 1.4;
   font-size: var(--fs-xs);
   padding-inline: var(--spacing-sm);
+  -webkit-line-clamp: 5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .plugin-card__icon {

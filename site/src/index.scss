@@ -68,7 +68,8 @@ h2 {
   --spacing-lg: 4rem;
   --spacing-xl: 8rem;
 
-  --shadow--card: -1.95349px 3.90697px 43.9535px rgba(0, 0, 0, 0.13);
+  --shadow-card: 4px 8px 8px 0 hsla(250, 41%, 46%, 0.5);
+  --shadow-card--hover: 8px 16px 16px 0 hsla(250, 41%, 46%, 0.2);
 }
 
 /*=============================================
