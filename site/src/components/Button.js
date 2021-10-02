@@ -21,7 +21,7 @@ export default Button;
 
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
-  children: PropTypes.any.isRequired,
+  children: PropTypes.any,
   iconName: PropTypes.string,
   iconSide: PropTypes.string,
   type: PropTypes.oneOf(['primary', 'secondary', 'icon', 'text']).isRequired,

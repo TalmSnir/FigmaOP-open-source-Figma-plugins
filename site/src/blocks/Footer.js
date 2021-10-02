@@ -15,7 +15,8 @@ function Footer() {
           </NavLink>
 
           <SocialsMenu />
-          <span className='footer__info__email'>FigmaOPsupport@gmail.com</span>
+
+          <span className='footer__info__email'>talmsnirplugins@gmail.com</span>
           <span className='footer__info__rights'>
             © 2021 TalmSnir All rights reserved
           </span>

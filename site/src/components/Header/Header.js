@@ -16,7 +16,7 @@ function Header() {
   }, [largeScreen]);
   useEffect(() => {
     const handleWindowResize = () => {
-      window.innerWidth >= 768 ? setLargeScreen(true) : setLargeScreen(false);
+      window.innerWidth >= 1000 ? setLargeScreen(true) : setLargeScreen(false);
     };
     window.addEventListener('resize', handleWindowResize);
     return () => window.removeEventListener('resize', handleWindowResize);
@@ -28,6 +28,7 @@ function Header() {
         <Logo />
         <NavMenu show={showMenu} />
         <Button
+          type='icon'
           iconClasses='header__menu__icon'
           iconName={showMenu ? 'close' : 'menu'}
           onClick={handleToggleMenu}

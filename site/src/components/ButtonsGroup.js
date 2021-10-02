@@ -10,6 +10,5 @@ function ButtonsGroup({ children, direction }) {
 
 export default ButtonsGroup;
 ButtonsGroup.propTypes = {
-  children: PropTypes.elementType,
   direction: PropTypes.string,
 };

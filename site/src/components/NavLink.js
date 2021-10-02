@@ -31,7 +31,7 @@ function NavLink({
 
 export default NavLink;
 NavLink.propTypes = {
-  type: PropTypes.oneOf(['button,text']),
+  type: PropTypes.oneOf(['button', 'link']),
   href: PropTypes.string.isRequired,
   target: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
