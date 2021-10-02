@@ -11,7 +11,7 @@ FigmaOp is a project dedicated to creating simple but effective tools to help wi
 
 ## Plugins:
 
-- <img align='center' src='site\src\assets\fast-variants-properties.svg'  width='48' height='48'> [Fast Variants Properties](https://github.com/TalmSnir/Figma-Plugins/tree/main/Fast%20Variants%20Properties)
+- <img align='center' src='site\src\assets\fast-variants-properties.svg'  width='48' height='48'> [Fast Variants Properties](https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Fast%20Variants%20Properties)
   </br>
 - <img align='center' src='site\src\assets\layout-handoff.svg'  width='48' height='48'> [Layout Handoff](https://github.com/TalmSnir/Figma-Plugins/tree/main/Fast%20Variants%20Properties)
   </br>
