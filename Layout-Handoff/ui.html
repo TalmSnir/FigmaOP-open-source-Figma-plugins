@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Figma Plugin-Layout Handoff</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&display=swap');
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        font-size: 10px;
+      }
+      :root {
+        --clr-blue: hsl(204, 97%, 54%);
+        --clr-dark: hsl(0, 0%, 0%);
+        --clr-light: hsl(0, 0%, 100%);
+        --clr-hover: hsla(0, 0%, 0%, 0.1);
+
+        --fs-h1: 2rem;
+        --fs-text-1: 1.6rem;
+
+        --fw-title: 800;
+
+        --fw-btn: 500;
+        --fw-text: 400;
+
+        --ff-primary: 'inter', sans-serif;
+      }
+
+      body {
+        font-family: var(--ff-primary);
+        font-size: var(--fs-text-1);
+        font-weight: var(--fw-text);
+        color: var(--clr-dark);
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem;
+      }
+
+      h1 {
+        font-size: var(--fs-h1);
+        font-weight: var(--fw-title);
+        text-transform: capitalize;
+        text-align: center;
+      }
+
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      }
+      form .inputs {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      label {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+        align-items: center;
+        text-transform: capitalize;
+        font-weight: var(--fw-btn);
+        font-size: 1.4rem;
+      }
+
+      input {
+        box-shadow: 0 0 0 1px var(--clr-hover);
+        border: 0;
+        transition: 0.2s;
+      }
+
+      input:hover {
+        box-shadow: 0 0 0 2px var(--clr-hover);
+        cursor: pointer;
+      }
+      input:focus {
+        outline: 0;
+        box-shadow: 0 0 0 2px var(--clr-blue);
+      }
+      button {
+        appearance: none;
+        border: 0;
+        background: var(--clr-blue);
+        color: var(--clr-light);
+        border-radius: 1rem;
+        font-weight: var(--fw-btn);
+        padding: 1.5rem 2rem;
+        margin-block-start: 2rem;
+        text-transform: capitalize;
+        cursor: pointer;
+        transition: 0.1s;
+        width: 100%;
+      }
+      button:disabled {
+        background: gray;
+        color: black;
+      }
+      button:is(:hover, :focus) {
+        outline: 0;
+        box-shadow: inset 0 0 0 2px hsla(0, 0%, 0%, 0.3);
+      }
+      button:active {
+        transform: scale(1.02);
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 class="title">select borders colors</h1>
+    <form>
+      <div class="inputs">
+        <label for="main-frame-border-color"
+          >main frame border
+          <input
+            type="color"
+            name="main-frame-border-color"
+            id="main-frame-border-color"
+            value="#907CFF"
+          />
+        </label>
+        <label for="element-frame-border-color"
+          >element frame border
+          <input
+            type="color"
+            name="element-frame-border-color"
+            id="element-frame-border-color"
+            value="#F24822"
+          />
+        </label>
+      </div>
+      <button type="submit">run</button>
+    </form>
+    <script>
+      const form = document.querySelector('form');
+      const inputs = document.querySelectorAll('.inputs');
+      const button = document.querySelector('button');
+
+      function handleChangeColor(e) {
+        const selectedColor = e.target.value;
+        handlePostMessage(e.target.name, selectedColor);
+      }
+      function handleSubmit() {
+        handlePostMessage('run');
+      }
+
+      inputs.forEach(input =>
+        input.addEventListener('change', handleChangeColor)
+      );
+      button.addEventListener('click', handleSubmit);
+
+      function handlePostMessage(type, data = '') {
+        parent.postMessage({ pluginMessage: { type, data } }, '*');
+      }
+
+      onmessage = e => {
+        const { pluginMessage } = e.data;
+        switch (pluginMessage) {
+          case 'enable':
+            button.disabled = false;
+            break;
+          case 'disable':
+            button.disabled = true;
+        }
+      };
+    </script>
+  </body>
+</html>
