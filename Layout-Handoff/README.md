@@ -1,11 +1,22 @@
-# <img align="left" alt="figma" width="48px" src="Layout-Handoff\plugin-cover art.png" /> Layout Handoff
+# <img align="center" alt="figma" width="48px" src="https://raw.githubusercontent.com/TalmSnir/FigmaOP-open-source-Figma-plugins/main/Layout-Handoff/plugin-icon.png" /> Layout Handoff
 
-Set variants properties fast and easy using toggles.
+Select frames or variants, run the plugin and in a blink of an eye, you will have 3 frames of each selection with borders around the children frames and variants.
 
-No more writing each variant’s property over and over with every component in your design system.  
-Now you can select from a pre-made list of properties the ones you want using toggles or add more by writing the property once.
+ 
 
-![Cover Art](Layout-Handoff\plugin-coverArt.png)
+Each frame created is one nesting level deeper than the other.
+
+the 4th and the last frame (furthest to the right) will contain all the variants of components found in each selection.
+
+ 
+
+With the help of this plugin, the developer and the designer will have the ability to see clearly the layout of each frame and the variants of components that were used to build it.
+
+ 
+
+All that without extra effort..
+
+![Cover Art](https://raw.githubusercontent.com/TalmSnir/FigmaOP-open-source-Figma-plugins/main/Layout-Handoff/plugin-coverArt.png)
 
 ## 🔗 Links
 
