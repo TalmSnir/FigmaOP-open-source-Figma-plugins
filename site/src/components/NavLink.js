@@ -11,6 +11,7 @@ function NavLink({
   iconSide,
   type,
   btnVariant,
+  onClick,
 }) {
   const className = classNames({
     nav__link: type === 'link',
@@ -26,7 +27,8 @@ function NavLink({
       href={href}
       target={target}
       className={className}
-      rel={location === 'footer' ? 'noopener' : null}>
+      rel={location === 'footer' ? 'noopener' : null}
+      onClick={onClick}>
       {children}
       {iconName && <Icon name={iconName} />}
     </a>

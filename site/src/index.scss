@@ -100,4 +100,5 @@ html::-webkit-scrollbar-thumb {
 body {
   font-family: var(--ff-primary);
   height: 100%;
+  overflow-x: hidden;
 }

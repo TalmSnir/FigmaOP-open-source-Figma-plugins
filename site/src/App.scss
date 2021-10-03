@@ -221,16 +221,10 @@ header {
     background: var(--clr-green);
     padding: var(--spacing-md);
     z-index: var(--z-top);
-    opacity: 0;
-    transform: translateY(-100%);
-    transform-origin: top center;
-    pointer-events: none;
-
+    transform: translateX(100%);
     transition: all 0.3s ease-in-out;
     &.show {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: auto;
+      transform: translateX(0);
     }
     &__menu {
       display: flex;
@@ -243,10 +237,8 @@ header {
       position: unset;
       padding: unset;
       background: transparent;
-      transform: translateY(0);
-      opacity: 1;
+
       transition: unset;
-      pointer-events: auto;
 
       .header__nav__menu {
         flex-direction: row;

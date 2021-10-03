@@ -18,12 +18,10 @@ export default function useForm(formValidation, callback) {
     setIsSubmitting(true);
   };
   const sendForm = useCallback(async () => {
-    console.log('sent');
     const USER_ID = process.env.REACT_APP_USER_ID;
-    console.log(USER_ID);
     const SERVICE_ID = process.env.REACT_APP_SERVICE_ID;
     const TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_ID;
-    console.log(values);
+
     try {
       send(SERVICE_ID, TEMPLATE_ID, values, USER_ID);
     } catch (err) {
@@ -32,7 +30,6 @@ export default function useForm(formValidation, callback) {
   }, [values]);
 
   useEffect(() => {
-    console.log(errors);
     if (Object.values(errors).length === 0 && isSubmitting) {
       callback(true);
       sendForm();

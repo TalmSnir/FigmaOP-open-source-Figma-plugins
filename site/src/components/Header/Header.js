@@ -26,7 +26,7 @@ function Header() {
     <header id='header'>
       <Container>
         <Logo />
-        <NavMenu show={showMenu} />
+        <NavMenu show={showMenu} setShowMenu={setShowMenu} />
         <Button
           type='icon'
           iconClasses='header__menu__icon'

@@ -259,21 +259,15 @@ header .header__nav {
   background: var(--clr-green);
   padding: var(--spacing-md);
   z-index: var(--z-top);
-  opacity: 0;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
-  pointer-events: none;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
 header .header__nav.show {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 
 header .header__nav__menu {
@@ -295,12 +289,8 @@ header .header__nav__menu {
     position: unset;
     padding: unset;
     background: transparent;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
     -webkit-transition: unset;
     transition: unset;
-    pointer-events: auto;
   }
   header .header__nav .header__nav__menu {
     -webkit-box-orient: horizontal;
