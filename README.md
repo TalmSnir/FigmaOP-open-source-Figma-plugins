@@ -29,7 +29,7 @@ FigmaOp is a project dedicated to creating simple but effective tools to help wi
 - [TypeScript](https://www.typescriptlang.org/).
 - [how to contribute to open source](https://opensource.guide/how-to-contribute/#how-to-submit-a-contribution).
 
-## support The Creator
+## Support The Creator
 
 <a href="https://www.buymeacoffee.com/TalmSnir" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
