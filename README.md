@@ -1,4 +1,4 @@
-# FigmaOP:
+# FigmaOP
 
 <img src='socialpreview.png' align="left">
 
@@ -9,7 +9,7 @@ FigmaOp is a project dedicated to creating simple but effective tools to help wi
 
 [FigmaOP Site](https://figmaop.netlify.app/)
 
-## Plugins:
+## Plugins
 
 - <img align='center' src='site\src\assets\fast-variants-properties.svg'  width='48' height='48'> [Fast Variants Properties](https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Fast%20Variants%20Properties)
   </br>
@@ -28,6 +28,11 @@ FigmaOp is a project dedicated to creating simple but effective tools to help wi
 - [Figma Plugin Helper functions](https://github.com/figma-plugin-helper-functions).
 - [TypeScript](https://www.typescriptlang.org/).
 - [how to contribute to open source](https://opensource.guide/how-to-contribute/#how-to-submit-a-contribution).
+
+## Support The Creator
+
+<a href="https://www.buymeacoffee.com/TalmSnir" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
 
 ## License
 
