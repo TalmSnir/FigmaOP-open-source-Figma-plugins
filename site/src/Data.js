@@ -11,15 +11,6 @@ export const plugins = [
       'https://www.figma.com/community/plugin/1014435448527160306/Fast-Variants-Properties',
   },
   {
-    pluginName: 'icons toolbox',
-    pluginDescription: `Set variants properties fast and easy using toggles.
-    No more writing each variant’s property over and over with every component in your design system.
-    Now you can select from a pre-made list of properties the ones you want using toggles or add more by writing the property once.`,
-    pluginGif: 'gif',
-    pluginRepo: 'url',
-    pluginFigmaCommunityPage: 'url',
-  },
-  {
     pluginName: 'layout handoff',
     pluginDescription: `Select frames or variants, run the plugin and in a blink of an eye, you will have 3 frames of each selection with borders around the children frames and variants.
 
@@ -40,6 +31,24 @@ export const plugins = [
     pluginRepo: 'url',
     pluginFigmaCommunityPage:
       'https://www.figma.com/community/plugin/1025794954481152114/Layout-Handoff',
+  },
+  {
+    pluginName: 'icons toolbox',
+    pluginDescription: `Set variants properties fast and easy using toggles.
+    No more writing each variant’s property over and over with every component in your design system.
+    Now you can select from a pre-made list of properties the ones you want using toggles or add more by writing the property once.`,
+    pluginGif: 'gif',
+    pluginRepo: 'url',
+    pluginFigmaCommunityPage: 'url',
+  },
+  {
+    pluginName: 'saved prototypes',
+    pluginDescription: `Set variants properties fast and easy using toggles.
+    No more writing each variant’s property over and over with every component in your design system.
+    Now you can select from a pre-made list of properties the ones you want using toggles or add more by writing the property once.`,
+    pluginGif: 'gif',
+    pluginRepo: 'url',
+    pluginFigmaCommunityPage: 'url',
   },
 ];
 export const supportSources = [

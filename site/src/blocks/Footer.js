@@ -13,8 +13,16 @@ function Footer() {
           <NavLink href='#header'>
             <Logo theme='light' />
           </NavLink>
-
           <SocialsMenu />
+          <NavLink
+            href='https://www.buymeacoffee.com/TalmSnir'
+            iconName='buyMeaCoffee'
+            type='button'
+            btnVariant='primary'
+            iconSide='left'
+            target='_blank'>
+            Buy me a coffee
+          </NavLink>
 
           <span className='footer__info__email'>talmsnirplugins@gmail.com</span>
           <span className='footer__info__rights'>

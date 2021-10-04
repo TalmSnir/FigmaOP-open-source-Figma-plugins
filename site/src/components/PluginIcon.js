@@ -3,12 +3,14 @@ import { ReactComponent as FastVariantPropertiesIcon } from '../assets/fast-vari
 import { ReactComponent as IconsToolBoxIcon } from '../assets/icons-toolbox.svg';
 import { ReactComponent as LayoutHandoffIcon } from '../assets/layout-handoff.svg';
 import { ReactComponent as UnknownIcon } from '../assets/unknown.svg';
+import { ReactComponent as SavedPrototypes } from '../assets/saved-prototypes.svg';
 import PropTypes from 'prop-types';
 const iconsMap = {
   'fast variants properties': FastVariantPropertiesIcon,
   'icons toolbox': IconsToolBoxIcon,
   'layout handoff': LayoutHandoffIcon,
   unknown: UnknownIcon,
+  'saved prototypes': SavedPrototypes,
 };
 function PluginIcon({ name, className }) {
   const IconName = iconsMap[name];
@@ -22,6 +24,7 @@ PluginIcon.propTypes = {
     'icons toolbox',
     'layout handoff',
     'unknown',
+    'saved-prototypes',
   ]),
   className: PropTypes.oneOf([
     'plugin-card__icon',

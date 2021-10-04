@@ -1,0 +1,8 @@
+{
+  "name": "Icons Toolbox",
+  "api": "1.0.0",
+  "editorType": ["figma"],
+  "main": "code.js",
+  "ui": "ui.html",
+  "id": "1026762327285154536"
+}

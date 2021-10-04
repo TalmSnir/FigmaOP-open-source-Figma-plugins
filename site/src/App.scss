@@ -237,7 +237,7 @@ header {
       position: unset;
       padding: unset;
       background: transparent;
-
+      transform: translateX(0);
       transition: unset;
 
       .header__nav__menu {

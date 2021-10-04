@@ -289,6 +289,8 @@ header .header__nav__menu {
     position: unset;
     padding: unset;
     background: transparent;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
     -webkit-transition: unset;
     transition: unset;
   }

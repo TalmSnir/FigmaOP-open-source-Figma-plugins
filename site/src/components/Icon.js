@@ -15,6 +15,7 @@ import {
 } from 'react-icons/fi';
 import { FaGithub } from 'react-icons/fa';
 import { ReactComponent as RepoIcon } from '../assets/github-repo.svg';
+import { ReactComponent as BuyMeaCoffee } from '../assets/BuyMeaCoffee.svg';
 const iconsMap = {
   menu: FiMenu,
   figma: FiFigma,
@@ -29,6 +30,7 @@ const iconsMap = {
   externalLink: FiExternalLink,
   repo: RepoIcon,
   'arrow-right': FiArrowRight,
+  buyMeaCoffee: BuyMeaCoffee,
 };
 function Icon({ name, className }) {
   const IconName = iconsMap[name];
@@ -51,6 +53,7 @@ Icon.propTypes = {
     'externalLink',
     'repo',
     'arrow-right',
+    'buyMeaCoffee',
   ]),
   className: PropTypes.oneOf([
     'plugin-card__icon',
