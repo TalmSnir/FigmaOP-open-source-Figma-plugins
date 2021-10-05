@@ -18,7 +18,7 @@ All that without extra effort..
 
 ![Cover Art](https://raw.githubusercontent.com/TalmSnir/FigmaOP-open-source-Figma-plugins/main/Layout-Handoff/plugin-coverArt.png)
 
-## 🔗 Links
+##  Links
 
 <img align="left" alt="figma" width="26px" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Software/figma.svg" />[Install on Figma](https://www.figma.com/community/plugin/1025794954481152114/Layout-Handoff).
 
