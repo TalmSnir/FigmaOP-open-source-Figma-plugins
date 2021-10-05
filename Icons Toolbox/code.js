@@ -7,6 +7,8 @@ const handleMessage = {
     warning: {
       noSelection: '✘ select at least one frame or component',
       notAllowedSelection: '✘ select only frames or components',
+      notAllowedSelectionInstances:
+        '✘ instances are not allowed  in the selections',
       alreadyFlattened: '✘ all selections are seemed to be flatten',
       reject: '✘ something went wrong please run again',
     },
@@ -94,6 +96,20 @@ const iconsFunctions = {
     let { frameSize, iconMaxWidth } = data;
     frameSize = parseInt(frameSize);
     iconMaxWidth = parseInt(iconMaxWidth);
+    let hasComponents = false;
+    for (const selection of selections) {
+      hasComponents = !!selection.findAll(node =>
+        ['INSTANCE', 'COMPONENT'].includes(node.type)
+      ).length;
+
+      if (hasComponents) break;
+    }
+
+    if (hasComponents) {
+      handleMessage.showNotification('warning', 'notAllowedSelectionInstances');
+      return;
+    }
+
     selections.forEach(node => {
       let group;
       if (node.children.length > 1) {
