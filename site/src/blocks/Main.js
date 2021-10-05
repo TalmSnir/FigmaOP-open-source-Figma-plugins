@@ -28,7 +28,7 @@ function Main() {
           <PluginIcon name='fast variants properties' />
           <PluginIcon name='icons toolbox' />
           <PluginIcon name='layout handoff' />
-          <PluginIcon name='saved' />
+          <PluginIcon name='saved prototypes' />
           <PluginIcon name='grid system' />
         </div>
 

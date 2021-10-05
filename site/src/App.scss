@@ -259,7 +259,12 @@ header {
   overflow: hidden;
   padding-top: var(--spacing-md);
   max-width: 340px;
+  flex: 1 0 100%;
+
   transition: all 0.2s ease-in-out;
+  & > * {
+    flex: 1 1 100%;
+  }
   &:hover,
   &:focus {
     box-shadow: var(--shadow-card--hover);
@@ -313,7 +318,7 @@ header {
   &__content {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    // align-items: stretch;
     justify-content: center;
     gap: var(--spacing-md);
   }

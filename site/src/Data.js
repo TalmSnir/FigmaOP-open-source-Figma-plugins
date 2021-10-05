@@ -47,14 +47,14 @@ export const plugins = [
   },
   {
     pluginName: 'saved prototypes',
-    pluginDescription: `coming soon`,
+    pluginDescription: `Coming Soon`,
     pluginGif: 'gif',
     pluginRepo: 'url',
     pluginFigmaCommunityPage: 'url',
   },
   {
     pluginName: 'grid system',
-    pluginDescription: `coming soon`,
+    pluginDescription: `Coming Soon`,
     pluginGif: 'gif',
     pluginRepo: 'url',
     pluginFigmaCommunityPage: 'url',
