@@ -34,18 +34,25 @@ const handleMessage = {
     const actions = {
       flattenSelection: () => iconsFunctions.flattenSelectedIcons(selections),
       flattenAll: () => iconsFunctions.flattenAllIcons(),
-      resize: () => iconsFunctions.resizeIcons(data),
+      resize: () => iconsFunctions.resizeIcons(data, selections),
       addSizeButton: () => iconsFunctions.addResizeButton(data),
       removeResizeButton: () => iconsFunctions.removeResizeButton(data),
       setIsEditMode: () => {
         isEditMode = data;
       },
+      duplicate: () => iconsFunctions.duplicateIcons(data),
+      preserveStrokeWeight: () =>
+        (preserveStrokeWeight = !preserveStrokeWeight),
     };
 
     actions[type]();
   },
 };
 
+figma.ui.onmessage = msg => {
+  const { type, data } = msg;
+  handleMessage.receiveMessage({ type, data });
+};
 /*=============================================
 =            Icons Functions            =
 =============================================*/
@@ -78,7 +85,12 @@ const iconsFunctions = {
     });
     this.flattenSelectedIcons(iconsInPage);
   },
-  resizeIcons(data) {
+  computeStrokeWeight(node, newWidth, currentWidth) {
+    const { strokeWeight } = node;
+
+    return strokeWeight * (newWidth / currentWidth);
+  },
+  resizeIcons(data, selections) {
     let { frameSize, iconMaxWidth } = data;
     frameSize = parseInt(frameSize);
     iconMaxWidth = parseInt(iconMaxWidth);
@@ -93,10 +105,12 @@ const iconsFunctions = {
         ? group.findAll(child => child.type !== 'GROUP')
         : [group];
 
-      notGroupType.forEach(
-        child =>
-          (child.constraints = { horizontal: 'SCALE', vertical: 'SCALE' })
-      );
+      notGroupType.forEach(child => {
+        child.constraints = { horizontal: 'SCALE', vertical: 'SCALE' };
+        child.strokeWeight = preserveStrokeWeight
+          ? child.strokeWeight
+          : this.computeStrokeWeight(child, iconMaxWidth, group.width);
+      });
 
       node.resize(frameSize, frameSize);
 
@@ -113,6 +127,27 @@ const iconsFunctions = {
   },
   removeResizeButton(key) {
     sizes.splice(key, 1);
+  },
+  duplicateIcons(sizes) {
+    const offsetX = 32;
+    const padding = 8;
+
+    if (sizes.length !== 0) {
+      sizes.forEach((iconMaxWidth, id) => {
+        const selectionsCopies = selections.map(selection => {
+          const clone = selection.clone();
+          clone.x =
+            selection.absoluteTransform[0][2] +
+            selection.width * (id + 1) +
+            offsetX;
+          clone.y = selection.absoluteTransform[1][2];
+          return clone;
+        });
+        const frameSize = iconMaxWidth + padding;
+
+        this.resizeIcons({ frameSize, iconMaxWidth }, selectionsCopies);
+      });
+    }
   },
 };
 
@@ -142,20 +177,10 @@ function handleSelectionChange() {
     handleMessage.postMessage('disable');
   }
 }
-let selections = [];
-let isEditMode = false;
-const InitialSizes = [
-  { frameSize: 48, iconMaxWidth: 32 },
-  { frameSize: 64, iconMaxWidth: 48 },
-  { frameSize: 32, iconMaxWidth: 24 },
-];
-let sizes = [];
 
-figma.ui.onmessage = msg => {
-  const { type, data } = msg;
-  handleMessage.receiveMessage({ type, data });
-};
-
+/*=============================================
+=            Local storage Functions            =
+=============================================*/
 const handleLocalStorage = {
   async saveToStorage(key, data) {
     try {
@@ -176,6 +201,10 @@ const handleLocalStorage = {
   },
 };
 
+/*=============================================
+=            onEvent Functions            =
+=============================================*/
+
 async function onRun() {
   const data = await handleLocalStorage.getFromStorage('sizes');
   sizes = data ? data : InitialSizes;
@@ -185,6 +214,20 @@ async function onRun() {
 async function onClose() {
   await handleLocalStorage.saveToStorage('sizes', sizes);
 }
+
+/*=============================================
+=            Variables and Events            =
+=============================================*/
+
+let selections = [];
+let isEditMode = false;
+let preserveStrokeWeight = true;
+const InitialSizes = [
+  { frameSize: 48, iconMaxWidth: 32 },
+  { frameSize: 64, iconMaxWidth: 48 },
+  { frameSize: 32, iconMaxWidth: 24 },
+];
+let sizes = [];
 
 figma.on('selectionchange', handleSelectionChange);
 figma.on('run', onRun);

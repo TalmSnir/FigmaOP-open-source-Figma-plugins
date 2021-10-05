@@ -55,8 +55,8 @@
         --svg-info: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 14C11.314 14 14 11.314 14 8C14 4.686 11.314 2 8 2C4.686 2 2 4.686 2 8C2 11.314 4.686 14 8 14ZM8 13C5.054 13 3 10.946 3 8C3 5.054 5.054 3 8 3C10.946 3 13 5.054 13 8C13 10.946 10.946 13 8 13ZM7.5 7.333H8.5V9.5V11.333H7.5V9.5V7.333ZM7.334 5.333C7.334 4.965 7.632 4.667 8.001 4.667C8.369 4.667 8.667 4.965 8.667 5.333C8.667 5.702 8.369 6 8.001 6C7.632 6 7.334 5.702 7.334 5.333Z' fill='black' fill-opacity='0.3'/%3E%3C/svg%3E%0A");
       }
       /*=============================================
-      =            scrollbar customization            =
-      =============================================*/
+        =            scrollbar customization            =
+        =============================================*/
       html {
         font-size: 10px;
         scrollbar-width: thin;
@@ -136,12 +136,13 @@
         flex-direction: column;
         gap: 0.5rem;
         align-items: start;
-        color: var(--clr-black-3);
+        color: var(--clr-black-8);
+        cursor: var(--svg-cursor-pointer);
       }
 
       /*=============================================
-    =            inputs            =
-    =============================================*/
+      =            inputs            =
+      =============================================*/
 
       /*----------  number  ----------*/
 
@@ -165,8 +166,8 @@
       /*----------  checkbox  ----------*/
       input[type='checkbox'] {
         appearance: none;
-        block-size: 1.2rem;
-        inline-size: 1.2rem;
+        block-size: 1.4rem;
+        inline-size: 1.4rem;
         box-shadow: var(--shadow--states-sm) var(--clr-black);
         border-radius: var(--br-controls);
         flex-shrink: 0;
@@ -203,8 +204,13 @@
       input[type='checkbox']:not(:checked):disabled {
         box-shadow: var(--shadow--states-sm) var(--clr-black-3);
       }
-      input:disabled {
-        cursor: not-allowed;
+      input[type='checkbox']:not(:checked):is(:focus, :hover) {
+        outline: 0;
+        box-shadow: 0 0 0 2px var(--clr-blue);
+      }
+      input[type='checkbox']:checked:is(:focus, :hover) {
+        outline: 0;
+        box-shadow: 0 0 0 2px var(--clr-blue), inset 0 0 0 1px var(--clr-white);
       }
       /*----------  buttons  ----------*/
 
@@ -252,6 +258,12 @@
       .col {
         flex-direction: column;
       }
+      .col--center {
+        align-items: center;
+      }
+      .row {
+        flex-direction: row;
+      }
       button.btn--primary:disabled {
         background: var(--clr-black-3);
         color: var(--clr-black-3);
@@ -266,6 +278,7 @@
       }
       .warning-text {
         color: var(--clr-red);
+        font-size: var(--fs-label);
       }
       #flatten-all-icons-btn {
         position: relative;
@@ -304,9 +317,9 @@
       }
       .info {
         display: inline-flex;
-        gap: 1rem;
+        gap: 0.5rem;
         letter-spacing: 0.05em;
-        align-items: flex-start;
+        align-items: center;
         font-size: var(--fs-info);
         color: var(--clr-black-3);
       }
@@ -325,7 +338,7 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        margin-block-end: -4rem;
+        margin-block-end: -3rem;
       }
 
       .edit-mode__icon {
@@ -336,9 +349,16 @@
         display: inline-flex;
         align-items: center;
         padding: unset;
+        padding-inline-end: 1rem;
+      }
+      .edit-mode__btn:is(:hover, :focus) {
+        outline: 1px solid var(--clr-black-8);
       }
       .edit-mode__btn span.in-edit-mode {
         color: var(--clr-red);
+      }
+      :is(input, button):disabled {
+        cursor: not-allowed;
       }
     </style>
   </head>
@@ -365,6 +385,35 @@
         <span>enter edit mode</span>
       </button>
     </div>
+    <div class="stroke-in-resize subsection">
+      <label for="preserve-stroke-weight" class="row"
+        ><input
+          type="checkbox"
+          name="preserve-stroke-weight"
+          id="preserve-stroke-weight"
+          data-function-name="preserveStroke"
+          checked
+        />preserve stroke weight in resize</label
+      >
+      <div class="info">
+        <svg
+          class="info__icon"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 14C11.314 14 14 11.314 14 8C14 4.686 11.314 2 8 2C4.686 2 2 4.686 2 8C2 11.314 4.686 14 8 14ZM8 13C5.054 13 3 10.946 3 8C3 5.054 5.054 3 8 3C10.946 3 13 5.054 13 8C13 10.946 10.946 13 8 13ZM7.5 7.333H8.5V9.5V11.333H7.5V9.5V7.333ZM7.334 5.333C7.334 4.965 7.632 4.667 8.001 4.667C8.369 4.667 8.667 4.965 8.667 5.333C8.667 5.702 8.369 6 8.001 6C7.632 6 7.334 5.702 7.334 5.333Z"
+            fill="black"
+            fill-opacity="0.3"
+          />
+        </svg>
+        this rule will apply to all scaling functions
+      </div>
+    </div>
+
     <section class="icons-resize">
       <h1>resize</h1>
       <form
@@ -484,18 +533,66 @@
     <section class="duplicate-icons">
       <h1>duplicate</h1>
 
-      <form class="duplicate-icons__form subsection">
-        <label for="duplicate-icon__checkbox-size-1" class="col"
-          >16<input
-            type="checkbox"
-            name="duplicate-icon__checkbox-size-1"
-            id="duplicate-icon__checkbox-size-1"
-        /></label>
+      <form
+        class="duplicate-icons__form subsection"
+        data-function-name="duplicate"
+      >
+        <div class="form__row">
+          <label for="duplicate-icon__checkbox-size-1" class="col--center"
+            >16<input
+              type="checkbox"
+              name="duplicate-icon__checkbox-size-1"
+              data-size="16"
+              id="duplicate-icon__checkbox-size-1"
+              data-function-name="duplicate"
+          /></label>
+
+          <label for="duplicate-icon__checkbox-size-2" class="col--center"
+            >24<input
+              type="checkbox"
+              name="duplicate-icon__checkbox-size-2"
+              data-size="24"
+              id="duplicate-icon__checkbox-size-2"
+              data-function-name="duplicate"
+          /></label>
+          <label for="duplicate-icon__checkbox-size-3" class="col--center"
+            >32<input
+              type="checkbox"
+              name="duplicate-icon__checkbox-size-3"
+              data-size="32"
+              id="duplicate-icon__checkbox-size-3"
+              data-function-name="duplicate"
+          /></label>
+          <label for="duplicate-icon__checkbox-size-4" class="col--center"
+            >48<input
+              type="checkbox"
+              name="duplicate-icon__checkbox-size-4"
+              data-size="48"
+              data-function-name="duplicate"
+              id="duplicate-icon__checkbox-size-4"
+          /></label>
+
+          <label for="duplicate-icon__checkbox-size-5" class="col--center"
+            >64<input
+              type="checkbox"
+              name="duplicate-icon__checkbox-size-5"
+              data-size="64"
+              data-function-name="duplicate"
+              id="duplicate-icon__checkbox-size-5"
+          /></label>
+          <label for="duplicate-icon__checkbox-size-6" class="col--center"
+            >128<input
+              type="checkbox"
+              name="duplicate-icon__checkbox-size-6"
+              data-size="128"
+              data-function-name="duplicate"
+              id="duplicate-icon__checkbox-size-6"
+          /></label>
+        </div>
         <button
           type="submit"
           id="duplicate-icons-btn"
           class="btn--primary"
-          data-function-name="duplicate"
           data-selection-dependent="true"
         >
           duplicate selected sizes
@@ -517,7 +614,7 @@
             fill-opacity="0.3"
           />
         </svg>
-        duplicates and creates component set with variants
+        duplicates,resizes and sets to canvas next to the original selection
       </div>
     </section>
     <div class="info details">
@@ -548,7 +645,7 @@
     <script>
       /*=============================================
               =            constants            =
-              =============================================*/
+        =============================================*/
       const forms = [...document.querySelectorAll('form')];
       const allActionButtons = [
         ...document.querySelectorAll('button:not([type="submit"])'),
@@ -556,7 +653,7 @@
       const allSubmitButtons = [
         ...document.querySelectorAll('button[type="submit"]'),
       ];
-      const AllInputs = document.querySelectorAll('input');
+      const allInputs = [...document.querySelectorAll('input')];
       const sizesInputs = [
         ...document.querySelectorAll('input[data-function-name="resize" ]'),
       ];
@@ -567,16 +664,22 @@
             !btn.classList.contains('edit-mode__btn') ||
             btn.classList.contains('editable')
         ),
-        ...AllInputs,
+        ...allInputs,
         ...allSubmitButtons,
       ];
+      const preserveStrokeInput = document.querySelector(
+        'input[data-function-name="preserveStroke"]'
+      );
 
       const savedSizesButtonContainer =
         document.querySelector('.saved-sizes__btns');
+
+      //states
       let isSelectionsValid = false;
       let isEditMode = false;
+
       /*=============================================
-            =            submit event functions            =
+            =            Submit Event Functions            =
             =============================================*/
 
       function handleSubmit(e) {
@@ -597,20 +700,28 @@
           savedSizesButtonContainer.appendChild(newBtn);
           handlePostMessage('addSizeButton', { frameSize, iconMaxWidth });
         };
-        const handleSubmitDuplicate = () => {};
 
-        /*----------  runs function according to dataset-function-name  attached to the forms----------*/
+        const submitDuplicate = () => {
+          const duplicationSizes = allInputs
+            .filter(
+              input =>
+                input.dataset.functionName === 'duplicate' && input.checked
+            )
+            .map(input => parseInt(input.dataset.size));
+
+          handlePostMessage('duplicate', duplicationSizes);
+        };
 
         const actions = {
           addResizeButton: () => addResizeButton(),
-          submitDuplicate: () => submitDuplicate(),
+          duplicate: () => submitDuplicate(),
         };
         actions[functionName]();
       }
 
       /*=============================================
-            =            button click event functions            =
-            =============================================*/
+            =           Button click Event Functions            =
+       =============================================*/
 
       function handleClick() {
         const functionName = this.dataset.functionName;
@@ -677,7 +788,7 @@
           const warning = document.createElement('div');
           warning.classList.add('warning-text');
           warning.innerText =
-            "warning: click on a button will delete it's data";
+            "warning!!! click on a button will delete it's data";
 
           section
             .querySelector('h2')
@@ -699,6 +810,10 @@
         };
         actions[functionName]();
       }
+
+      /*=============================================
+=            Buttons creations Functions           =
+=============================================*/
 
       function createSavedSizeButton(size, id) {
         const btn = document.createElement('button');
@@ -725,7 +840,7 @@
       }
 
       /*=============================================
-      =            post and get messages functions            =
+      =            Post and Get Messages Functions            =
       =============================================*/
 
       function handlePostMessage(type, data = '') {
@@ -759,7 +874,7 @@
       };
 
       /*=============================================
-            =            load and set data functions            =
+            =            Load and Set Data Functions            =
             =============================================*/
 
       function handleLoad(data) {
@@ -775,6 +890,9 @@
       });
 
       forms.forEach(form => form.addEventListener('submit', handleSubmit));
+      preserveStrokeInput.addEventListener('change', () =>
+        handlePostMessage('preserveStrokeWeight')
+      );
     </script>
   </body>
 </html>
