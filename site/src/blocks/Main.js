@@ -28,6 +28,8 @@ function Main() {
           <PluginIcon name='fast variants properties' />
           <PluginIcon name='icons toolbox' />
           <PluginIcon name='layout handoff' />
+          <PluginIcon name='saved' />
+          <PluginIcon name='grid system' />
         </div>
 
         <ButtonsGroup direction='column'>

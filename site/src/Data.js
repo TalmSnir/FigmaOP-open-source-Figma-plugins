@@ -6,7 +6,8 @@ export const plugins = [
     No more writing each variant’s property over and over with every component in your design system.
     Now you can select from a pre-made list of properties the ones you want using toggles or add more by writing the property once.`,
     pluginGif: FastVariantsPropertiesGif,
-    pluginRepo: 'url',
+    pluginRepo:
+      'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Fast%20Variants%20Properties',
     pluginFigmaCommunityPage:
       'https://www.figma.com/community/plugin/1014435448527160306/Fast-Variants-Properties',
   },
@@ -28,7 +29,8 @@ export const plugins = [
     
     All that without extra effort.`,
     pluginGif: 'gif',
-    pluginRepo: 'url',
+    pluginRepo:
+      'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Layout-Handoff',
     pluginFigmaCommunityPage:
       'https://www.figma.com/community/plugin/1025794954481152114/Layout-Handoff',
   },
@@ -38,14 +40,21 @@ export const plugins = [
     No more writing each variant’s property over and over with every component in your design system.
     Now you can select from a pre-made list of properties the ones you want using toggles or add more by writing the property once.`,
     pluginGif: 'gif',
+    pluginRepo:
+      'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Icons%20Toolbox',
+    pluginFigmaCommunityPage:
+      'https://www.figma.com/community/plugin/1026762327285154536',
+  },
+  {
+    pluginName: 'saved prototypes',
+    pluginDescription: `coming soon`,
+    pluginGif: 'gif',
     pluginRepo: 'url',
     pluginFigmaCommunityPage: 'url',
   },
   {
-    pluginName: 'saved prototypes',
-    pluginDescription: `Set variants properties fast and easy using toggles.
-    No more writing each variant’s property over and over with every component in your design system.
-    Now you can select from a pre-made list of properties the ones you want using toggles or add more by writing the property once.`,
+    pluginName: 'grid system',
+    pluginDescription: `coming soon`,
     pluginGif: 'gif',
     pluginRepo: 'url',
     pluginFigmaCommunityPage: 'url',
