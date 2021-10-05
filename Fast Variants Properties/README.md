@@ -8,9 +8,9 @@ Now you can select from a pre-made list of properties the ones you want using to
 ![plugin-cover art](https://user-images.githubusercontent.com/72248784/136018159-5d11e24d-e735-41b7-9f10-f9f68030713c.png)
 
 
-## 🔗 Links
+##  Links
 
-<img align="left" alt="figma" width="26px" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Software/figma.svg" />[Install on Figma](https://www.figma.com/community/explore).
+<img align="left" alt="figma" width="26px" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Software/figma.svg" />[Install on Figma](https://www.figma.com/community/plugin/1014435448527160306/Fast-Variants-Properties).
 
 ## Tech Stack
 
