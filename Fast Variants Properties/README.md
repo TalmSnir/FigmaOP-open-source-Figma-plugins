@@ -1,11 +1,12 @@
-# <img align="left" alt="figma" width="48px" src="https://raw.githubusercontent.com/TalmSnir/Figma-Plugins/main/Fast%20Variants%20Properties/svgs/plugin-icon.svg" /> Fast Variants Properties
+# <img align="center" alt="figma" width="48px" src="https://user-images.githubusercontent.com/72248784/136018007-cc9d8cd4-588a-4b02-a510-0835666fac16.png" /> Fast Variants Properties
 
 Set variants properties fast and easy using toggles.
 
 No more writing each variant’s property over and over with every component in your design system.  
 Now you can select from a pre-made list of properties the ones you want using toggles or add more by writing the property once.
 
-![Cover Art](https://raw.githubusercontent.com/TalmSnir/Figma-Plugins/main/Fast%20Variants%20Properties/svgs/plugin-cover%20art.svg)
+![plugin-cover art](https://user-images.githubusercontent.com/72248784/136018159-5d11e24d-e735-41b7-9f10-f9f68030713c.png)
+
 
 ## 🔗 Links
 
