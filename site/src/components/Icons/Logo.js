@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as LogoIcon } from '../assets/logo-icon.svg';
+import { ReactComponent as LogoIcon } from '../../assets/logo-icon.svg';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 function Logo({ theme }) {

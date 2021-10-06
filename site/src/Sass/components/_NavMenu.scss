@@ -1,0 +1,37 @@
+.header__nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: var(--clr-green);
+  padding: var(--spacing-md);
+  z-index: var(--z-top);
+  transform: translateX(100%);
+  transition: all 0.3s ease-in-out;
+  &.show {
+    transform: translateX(0);
+  }
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  @include responsive-screen(md) {
+    position: unset;
+    padding: unset;
+    background: transparent;
+    transform: translateX(0);
+    transition: unset;
+
+    .header__nav__menu {
+      flex-direction: row;
+    }
+  }
+  @include responsive-screen(lg){
+    .header__nav__menu {
+      gap:var(--spacing-lg);
+    } 
+  }
+}

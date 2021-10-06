@@ -1,0 +1,61 @@
+@mixin responsive-screen($breakpoint) {
+  @if ($breakpoint== xs) {
+    @media (min-width: 550px) {
+      @content;
+    }
+  }
+  @if ($breakpoint== sm) {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  @if ($breakpoint== md) {
+    @media (min-width: 1000px) {
+      @content;
+    }
+  }
+  @if ($breakpoint== lg) {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+  @if ($breakpoint== xl) {
+    @media (min-width: 1440px) {
+      @content;
+    }
+  }
+  @if ($breakpoint== xxl) {
+    @media (min-width: 1900px) {
+      @content;
+    }
+  }
+}
+
+
+@mixin containerBreakPoints(
+  $spacing-xs:var(--spacing-xs),
+  $spacing-sm:var(--spacing-sm),
+  $spacing-md:var(--spacing-md),
+  $spacing-lg:var(--spacing-lg),
+  $spacing-xl:var(--spacing-xl),
+  $spacing-xxl:var(--spacing-xl)
+  ){
+  @include responsive-screen(xs) {
+    padding:$spacing-xs;
+  }
+  @include responsive-screen(sm) {
+    padding:$spacing-sm;
+  }
+  @include responsive-screen(md) {
+    padding: $spacing-md;
+  }
+  @include responsive-screen(lg) {
+    padding: $spacing-lg;
+  }
+  @include responsive-screen(xl) {
+    padding: $spacing-xl;
+  }
+  @include responsive-screen(xxl) {
+    padding: $spacing-xl;
+  }
+}

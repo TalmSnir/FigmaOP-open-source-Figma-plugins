@@ -1,0 +1,30 @@
+.gif-modal {
+  position: fixed;
+  width: 90vw;
+  max-width: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: var(--z-modal);
+  img {
+    max-width: 100%;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+  &__header {
+    background: var(--clr-green);
+    width: 100%;
+  }
+  .btn {
+    color: var(--clr-white);
+  }
+}
+.gif-modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--clr-black);
+  opacity: 0.9;
+  z-index: var(--z-modal);
+}

@@ -1,5 +1,6 @@
 import React from 'react';
-import Form from '../components/Form';
+import { Form } from '../components/Form';
+
 import Container from '../components/Container';
 import communityPluginCard from '../assets/Community-Plugin-card.png';
 function NewIdea() {
@@ -11,13 +12,12 @@ function NewIdea() {
             Have an idea for something new but dont have the skills yet ?
           </h1>
           <img src={communityPluginCard} alt='figma community plugin card' />
-        </div>
-        <div className='new-idea__form'>
           <h2 className='new-idea__subtitle'>
             let us know and we will work together to make it
           </h2>
-          <Form />
         </div>
+          <Form />
+        
       </Container>
     </section>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import NavLink from './NavLink';
+import NavLink from '../Navigation/NavLink';
 
 function FooterMenu({ title, items, dataTitle, dataSection, iconName }) {
   return (

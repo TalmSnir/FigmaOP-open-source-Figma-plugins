@@ -1,0 +1,16 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font-family: inherit;
+  outline: 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}

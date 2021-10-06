@@ -14,8 +14,13 @@ import {
   FiArrowRight,
 } from 'react-icons/fi';
 import { FaGithub } from 'react-icons/fa';
-import { ReactComponent as RepoIcon } from '../assets/github-repo.svg';
-import { ReactComponent as BuyMeaCoffee } from '../assets/BuyMeaCoffee.svg';
+import { ReactComponent as RepoIcon } from '../../assets/github-repo.svg';
+import { ReactComponent as BuyMeaCoffee } from '../../assets/BuyMeaCoffee.svg';
+import { ReactComponent as Settings } from '../../assets/adjust.svg';
+import { ReactComponent as Info } from '../../assets/info.svg';
+import { ReactComponent as SmallClose } from '../../assets/x.svg';
+//! TODO: add title to svgs
+
 const iconsMap = {
   menu: FiMenu,
   figma: FiFigma,
@@ -31,6 +36,9 @@ const iconsMap = {
   repo: RepoIcon,
   'arrow-right': FiArrowRight,
   buyMeaCoffee: BuyMeaCoffee,
+  settings: Settings,
+  info: Info,
+  'small-close': SmallClose,
 };
 function Icon({ name, className }) {
   const IconName = iconsMap[name];
@@ -54,6 +62,9 @@ Icon.propTypes = {
     'repo',
     'arrow-right',
     'buyMeaCoffee',
+    'settings',
+    'info',
+    'small-close',
   ]),
   className: PropTypes.oneOf([
     'plugin-card__icon',

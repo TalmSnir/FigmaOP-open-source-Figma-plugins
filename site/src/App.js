@@ -1,10 +1,9 @@
-import './App.css';
+import './Sass/App.scss';
+import { Main, Return, NewIdea, Footer ,Separator} from './blocks';
 import Header from './components/Header/Header';
-import Main from './blocks/Main';
-import Return from './blocks/Return';
-import PluginsCards from './components/PluginsCards/PluginsCards';
-import NewIdea from './blocks/NewIdea';
-import Footer from './blocks/Footer';
+
+import { PluginsCards } from './components/PluginsCards';
+
 function App() {
   return (
     <div className='App'>
@@ -12,6 +11,7 @@ function App() {
       <Main />
       <PluginsCards />
       <Return />
+    <Separator/>
       <NewIdea />
       <Footer />
     </div>

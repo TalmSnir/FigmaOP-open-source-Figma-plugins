@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import { NewIdeaFormSubmitted, NewIdeaForm } from './';
 
-import { NewIdeaForm, NewIdeaFormSubmitted } from './NewIdeaForms';
 export default function Form() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 

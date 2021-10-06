@@ -1,0 +1,13 @@
+.logo {
+  max-inline-size: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-md);
+  color: var(--clr-black);
+
+  &__text--light {
+    color: var(--clr-white);
+  }
+}

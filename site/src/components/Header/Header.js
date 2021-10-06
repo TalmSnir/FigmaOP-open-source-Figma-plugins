@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NavMenu from './NavMenu';
-import Button from '../Button';
-import Logo from '../Logo';
+import Button from '../Buttons/Button';
+import Logo from '../Icons/Logo';
 import Container from '../Container';
 
 function Header() {

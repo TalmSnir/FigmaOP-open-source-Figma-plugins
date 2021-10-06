@@ -1,0 +1,17 @@
+.footer__menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+
+  &__title {
+    text-align:start;
+    color: var(--clr-green);
+    font-size: var(--fs-h3);
+  }
+  .nav__link {
+    svg {
+      block-size: 16px;
+      inline-size: 16px;
+    }
+  }
+}

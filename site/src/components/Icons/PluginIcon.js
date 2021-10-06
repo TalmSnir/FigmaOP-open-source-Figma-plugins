@@ -1,10 +1,10 @@
 import React from 'react';
-import { ReactComponent as FastVariantPropertiesIcon } from '../assets/fast-variants-properties.svg';
-import { ReactComponent as IconsToolBoxIcon } from '../assets/icons-toolbox.svg';
-import { ReactComponent as LayoutHandoffIcon } from '../assets/layout-handoff.svg';
-import { ReactComponent as UnknownIcon } from '../assets/unknown.svg';
-import { ReactComponent as SavedPrototypes } from '../assets/saved-prototypes.svg';
-import { ReactComponent as gridSystem } from '../assets/grid-system.svg';
+import { ReactComponent as FastVariantPropertiesIcon } from '../../assets/fast-variants-properties.svg';
+import { ReactComponent as IconsToolBoxIcon } from '../../assets/icons-toolbox.svg';
+import { ReactComponent as LayoutHandoffIcon } from '../../assets/layout-handoff.svg';
+import { ReactComponent as UnknownIcon } from '../../assets/unknown.svg';
+import { ReactComponent as SavedPrototypes } from '../../assets/saved-prototypes.svg';
+import { ReactComponent as gridSystem } from '../../assets/grid-system.svg';
 import PropTypes from 'prop-types';
 const iconsMap = {
   'fast variants properties': FastVariantPropertiesIcon,

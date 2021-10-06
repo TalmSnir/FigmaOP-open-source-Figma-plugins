@@ -36,9 +36,27 @@ export const plugins = [
   },
   {
     pluginName: 'icons toolbox',
-    pluginDescription: `Set variants properties fast and easy using toggles.
-    No more writing each variant’s property over and over with every component in your design system.
-    Now you can select from a pre-made list of properties the ones you want using toggles or add more by writing the property once.`,
+    pluginDescription: `Set of tools to save you from redoing the same thing over and over again while designing or using your favorite icons.
+
+
+
+Tools:
+
+Save frame sizes and icons max-width preferences in a form of a button to have for future use.
+save as many preferences as you like and delete unused ones.
+
+Flatten multiple selected icons. 
+Flatten all icons on a page.
+Duplicate multiple selected icons and rescale them to different sizes.
+
+
+All of the above with a press of a button!!!
+
+
+
+Last but not least, you have the option to preserve the stroke width in each resize or, you can let the plugin do the computations for you and change the weight according to the scaling ratio.
+
+`,
     pluginGif: 'gif',
     pluginRepo:
       'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Icons%20Toolbox',
@@ -47,14 +65,14 @@ export const plugins = [
   },
   {
     pluginName: 'saved prototypes',
-    pluginDescription: `Coming Soon`,
+    pluginDescription: `Coming Soon...`,
     pluginGif: 'gif',
     pluginRepo: 'url',
     pluginFigmaCommunityPage: 'url',
   },
   {
     pluginName: 'grid system',
-    pluginDescription: `Coming Soon`,
+    pluginDescription: `Coming Soon...`,
     pluginGif: 'gif',
     pluginRepo: 'url',
     pluginFigmaCommunityPage: 'url',

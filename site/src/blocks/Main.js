@@ -1,10 +1,10 @@
 import React from 'react';
-import NavLink from '../components/NavLink';
-import ButtonsGroup from '../components/ButtonsGroup';
-import PluginIcon from '../components/PluginIcon';
-import Icon from '../components/Icon';
+import NavLink from '../components/Navigation/NavLink';
+import { ButtonsGroup } from '../components/Buttons';
+import PluginIcon from '../components/Icons/PluginIcon';
+import Icon from '../components/Icons/Icon';
 import Container from '../components/Container';
-import { upVotesLinks } from '../Data';
+import { upVotesLinks } from '../data';
 function Main() {
   const { github, productHunt } = upVotesLinks;
   console.log(github);

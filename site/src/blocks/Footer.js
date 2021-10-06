@@ -1,10 +1,11 @@
 import React from 'react';
-import { plugins, supportSources } from '../Data';
-import SocialsMenu from '../components/SocialsMenu';
-import FooterMenu from '../components/FooterMenu';
-import Logo from '../components/Logo';
+
+import { plugins, supportSources } from '../data';
+import { FooterMenu, SocialsMenu } from '../components/Footer';
+
+import Logo from '../components/Icons/Logo';
 import Container from '../components/Container';
-import NavLink from '../components/NavLink';
+import NavLink from '../components/Navigation/NavLink';
 function Footer() {
   return (
     <footer id='footer'>

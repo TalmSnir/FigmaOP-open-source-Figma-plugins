@@ -1,0 +1,35 @@
+/*----------  Footer  ----------*/
+
+footer {
+  background: var(--clr-gray--very-dark);
+  .container {
+    display: grid;
+    gap: var(--spacing-md);
+    @include responsive-screen(sm) {
+      grid-template-columns: auto 1fr;
+      justify-items: center;
+    }
+  }
+  .footer__info {
+    display: flex;
+    flex-direction: column;
+    font-size:var(--fs-xs);
+    gap: var(--spacing-sm);
+    &__rights,
+    &__email {
+      
+      color: var(--clr-white);
+    }
+  }
+.footer__social-menu + .btn{
+  padding-block:0.5rem;
+  #liquid{
+    fill:var(--clr-white);
+  }
+}
+  .footer__menus {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+}

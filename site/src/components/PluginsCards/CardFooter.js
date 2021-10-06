@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GifModal from './GifModal';
-import Button from './Button';
-function CardFooter({ pluginGif }) {
+import Button from '../Buttons/Button';
+function CardFooter({ pluginGif ,disabled}) {
   const [showModal, setShowModal] = useState(false);
   const handleWatchDemo = () => {
     setShowModal(!showModal);
@@ -11,7 +11,7 @@ function CardFooter({ pluginGif }) {
       {showModal && (
         <GifModal pluginGif={pluginGif} onClick={handleWatchDemo} />
       )}
-      <Button type='text' onClick={handleWatchDemo}>
+      <Button type='text' onClick={handleWatchDemo} disabled={disabled}>
         watch demo
       </Button>
     </div>

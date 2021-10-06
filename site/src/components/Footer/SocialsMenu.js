@@ -1,5 +1,5 @@
 import React from 'react';
-import NavLink from './NavLink';
+import NavLink from '../Navigation/NavLink';
 function SocialsMenu() {
   return (
     <div className='footer__social-menu'>

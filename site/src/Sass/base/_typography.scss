@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+
+h1,
+h2,h3 {
+  text-transform: capitalize;
+  text-align:center;
+  
+}
+h1{
+  font-size:var(--fs-h1);
+  font-weight:var(--fw-lg);
+}
+h2{
+  font-size:var(--fs-h2);
+  font-weight:var(--fw-md);
+}
+
+
+
+
+
+@include responsive-screen(xs){
+:root{
+  --fs-display--main: 4rem;
+  --fs-display--subtitle: 1.4rem;
+  --fs-h1: 1.6rem;
+  --fs-h2: 1.2rem;
+--fs-h3:1rem;
+
+  --fs-xl:1.7rem;
+  --fs-lg:1.5rem;
+  --fs-md:1.2rem;
+  --fs-sm:1.1rem;
+  --fs-xs:0.9rem;
+ 
+    
+    }
+}
+
+@include responsive-screen(lg){
+    :root{
+      --fs-display--main: 5rem;
+      --fs-display--subtitle: 1.8rem;
+      --fs-h1: 3rem;
+      --fs-h2:1.4rem;
+      
+     
+     
+        
+        }
+    }

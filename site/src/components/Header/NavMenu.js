@@ -1,5 +1,5 @@
 import React from 'react';
-import NavLink from '../NavLink';
+import NavLink from '../Navigation/NavLink';
 import classNames from 'classnames';
 function NavMenu({ show, setShowMenu }) {
   const className = classNames('header__nav', {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon from './Icon';
+import Icon from '../Icons/Icon';
 function NavLink({
   children,
   href,
@@ -12,8 +12,11 @@ function NavLink({
   type,
   btnVariant,
   onClick,
+  disabled,
+  linkRef,
 }) {
   const className = classNames({
+    disabled: disabled,
     nav__link: type === 'link',
     btn: type === 'button',
     'btn--primary': btnVariant === 'primary',
@@ -24,6 +27,7 @@ function NavLink({
   });
   return (
     <a
+      ref={linkRef}
       href={href}
       target={target}
       className={className}

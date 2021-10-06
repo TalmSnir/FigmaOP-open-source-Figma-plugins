@@ -1,6 +1,6 @@
 import React from 'react';
 import PluginCard from './PluginCard';
-import { plugins } from '../../Data';
+import { plugins } from '../../data';
 import Container from '../Container';
 function PluginsCards() {
   return (

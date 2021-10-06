@@ -1,0 +1,19 @@
+header {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block-end: unset;
+    @include responsive-screen(md) {
+      .btn {
+        display: none;
+        opacity: 0;
+      }
+    }
+  }
+
+  position: relative;
+  .header__menu__icon {
+    font-size: 2rem;
+  }
+}

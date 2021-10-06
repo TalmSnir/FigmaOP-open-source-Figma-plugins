@@ -1,0 +1,14 @@
+/*----------  Container  ----------*/
+.container {
+  padding: var(--spacing-md) var(--spacing-sm);
+  margin: 0 auto;
+  max-width: 1200px;
+  @include containerBreakPoints(
+    var(--spacing-md),
+    var(--spacing-lg) var(--spacing-md),
+    var(--spacing-lg) ,
+    var(--spacing-lg) ,
+    var(--spacing-lg) ,
+    var(--spacing-lg)
+    );
+}
