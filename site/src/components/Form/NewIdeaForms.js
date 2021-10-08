@@ -9,6 +9,7 @@ export function NewIdeaForm({ setIsSubmitted }) {
 
   return (
     <form className='form' noValidate onSubmit={handleSubmit}>
+    
       <div className={`form__input-container ${errors.name && 'input-error'}`}>
         <input
           type='text'

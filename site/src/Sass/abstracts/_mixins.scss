@@ -31,20 +31,19 @@
   }
 }
 
-
 @mixin containerBreakPoints(
-  $spacing-xs:var(--spacing-xs),
-  $spacing-sm:var(--spacing-sm),
-  $spacing-md:var(--spacing-md),
-  $spacing-lg:var(--spacing-lg),
-  $spacing-xl:var(--spacing-xl),
-  $spacing-xxl:var(--spacing-xl)
-  ){
+  $spacing-xs: var(--spacing-xs),
+  $spacing-sm: var(--spacing-sm),
+  $spacing-md: var(--spacing-md),
+  $spacing-lg: var(--spacing-lg),
+  $spacing-xl: var(--spacing-xl),
+  $spacing-xxl: var(--spacing-xl)
+) {
   @include responsive-screen(xs) {
-    padding:$spacing-xs;
+    padding: $spacing-xs;
   }
   @include responsive-screen(sm) {
-    padding:$spacing-sm;
+    padding: $spacing-sm;
   }
   @include responsive-screen(md) {
     padding: $spacing-md;
@@ -59,3 +58,24 @@
     padding: $spacing-xl;
   }
 }
+
+@mixin pseudo(
+  $parent-position: relative,
+  $element: before,
+  $content: '',
+  $pos: absolute
+) {
+  position: $parent-position;
+  &::#{$element} {
+    content: $content;
+    position: $pos;
+  }
+}
+@mixin grow-hover-focus() {
+  &:focus,
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 1px var(--black-15);
+  }
+}
+// @mixin animation($name,$timing:var(--animation-timing),$delay:var(--animation-delay))//addd more props

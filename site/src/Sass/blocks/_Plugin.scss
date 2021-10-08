@@ -1,13 +1,21 @@
 .plugin {
-  font-size: 10px;
-
-  height: 500px;
-  width: 300px;
-
+  display: none;
+  @include responsive-screen(md) {
+    display: block;
+  }
+  z-index: 100;
+  height: 300px;
+  width: 250px;
+  user-select: none;
   background: var(--clr-white);
-  box-shadow: 0 0 0 0.5px var(--clr-black), var(--plugin-shadow-body);
+  box-shadow: 0 0 0 0.5px var(--clr-black-15), var(--plugin-shadow-body);
   margin: 0 auto;
-
+  cursor: default;
+  transition: box-shadow 0.05s ease;
+  &.moving {
+    box-shadow: 0 0 0 0.5px var(--clr-black-15),
+      var(--plugin-shadow-body-moving);
+  }
   &__top-bar {
     border-bottom: 1px solid var(--clr-black-1);
     display: flex;
@@ -15,6 +23,7 @@
     justify-content: space-between;
     padding: var(--spacing-xs);
     font-size: var(--plugin-fs-xl);
+    cursor: move;
 
     text-transform: capitalize;
     .left-side {

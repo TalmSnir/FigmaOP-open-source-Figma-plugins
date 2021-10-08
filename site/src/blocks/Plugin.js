@@ -1,44 +1,101 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import PluginIcon from '../components/Icons/PluginIcon';
 import { ButtonsGroup, Button } from '../components/Buttons';
 import Icon from '../components/Icons/Icon';
-import usePlugin from './usePlugin';
-export default function Plugin({ header, text, link }) {
-  const { handleAddBorders, handleCreateShape, handleEditMode, inEditMode } =
-    usePlugin({
-      header,
-      text,
-      link,
-    });
+// import usePlugin from './usePlugin';
+import useDragAndDrop from './useDragAndDrop';
+export default function Plugin({ pluginRef, containerRef }) {
+  // const { handleAddBorders, handleCreateShape, handleEditMode, inEditMode } =
+  //   usePlugin({
+  //     header,
+  //     text,
+  //     link,
+  //   });
+  const [isMoved, setIsMoved] = useState(false);
+  const topBarRef = useRef();
+  const onMouseDown = e => {
+    if (!isMoved) {
+      const top =
+        pluginRef.current.getBoundingClientRect().top -
+        containerRef.current.getBoundingClientRect().top;
+      const left = pluginRef.current.getBoundingClientRect().left;
+      pluginRef.current.style.left = `${left}px`;
+      pluginRef.current.style.top = `${top}px`;
+      pluginRef.current.style.position = 'absolute';
+      setIsMoved(true);
+    }
+  };
+
+  const onMouseMove = e => {
+    let left =
+      e.clientX -
+      offset.left -
+      containerRef.current.getBoundingClientRect().left;
+    let top =
+      e.clientY - offset.top - containerRef.current.getBoundingClientRect().top;
+
+    const bottomEdge =
+      containerRef.current.getBoundingClientRect().bottom +
+      offset.top +
+      pluginRef.current.innerHeight;
+    const topEdge = 40; //40 px-top bar size
+    const leftEdge = 0;
+    const rightEdge =
+      containerRef.current.getBoundingClientRect().right -
+      containerRef.current.getBoundingClientRect().left;
+    console.log(
+      containerRef.current.getBoundingClientRect().right -
+        containerRef.current.getBoundingClientRect().left -
+        pluginRef.current.offsetWidth
+    );
+    //! change this
+
+    //if the user is trying to drag outside the container from the top side.
+    top = top < topEdge ? topEdge : top;
+    //if the user is trying to drag outside the container from the bottom side.
+    top = top > bottomEdge ? bottomEdge : top;
+    //if the user is trying to drag outside the container from the left  side.
+    left = left < leftEdge ? leftEdge : left;
+    left = left > rightEdge ? rightEdge : left;
+    //if the user is trying to drag outside the container from the  right side.
+
+    pluginRef.current.style.left = `${left}px`;
+    pluginRef.current.style.top = `${top}px`;
+  };
+  const {
+    handleMouseLeave,
+    handleMouseMove,
+    handleMouseDown,
+    handleMouseUp,
+    isMoving,
+    offset,
+  } = useDragAndDrop({
+    onMouseDown,
+    onMouseMove,
+  });
+
   return (
-    <div className='plugin'>
-      <section className='plugin__top-bar'>
+    <div
+      className={`plugin ${isMoving ? 'moving' : ''}`}
+      onMouseMove={handleMouseMove}
+      ref={pluginRef}>
+      <section
+        className='plugin__top-bar'
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
+        ref={topBarRef}>
         <div className='left-side'>
-        
           <PluginIcon name='unknown' />
-          unknown
+          try me
         </div>
 
         <Icon name='small-close' />
       </section>
       <section className='plugin__body'>
-        <div
-          className={`plugin__body__edit-mode ${inEditMode ? 'active' : ''}`}>
-          <Button
-            iconName='settings'
-            iconSide='left'
-            type='icon'
-            onClick={handleEditMode}>
-            {inEditMode ? 'exit edit mode' : 'enter edit mode'}
-          </Button>
-        </div>
         <ButtonsGroup>
-          <Button type='plugin' onClick={handleCreateShape}>
-            create shapes
-          </Button>
-          <Button type='plugin' onClick={handleAddBorders}>
-            add Borders
-          </Button>
+          <Button type='plugin'>create shapes</Button>
+          <Button type='plugin'>add Borders</Button>
         </ButtonsGroup>
       </section>
     </div>

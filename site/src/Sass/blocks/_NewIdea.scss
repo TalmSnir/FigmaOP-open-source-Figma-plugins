@@ -1,6 +1,10 @@
 /*----------  NewIdea  ----------*/
-
+.new-idea::selection {
+  color: red;
+}
 .new-idea {
+  position: relative;
+
   .container {
     display: flex;
     flex-direction: column;
@@ -9,7 +13,8 @@
 
     text-align: center;
     @include responsive-screen(md) {
-      flex-direction: row-reverse;
+      flex-direction: row;
+      justify-content: center;
 
       gap: var(--spacing-xl);
       & > * {
@@ -23,7 +28,9 @@
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-md);
-
+    @include responsive-screen(md) {
+      align-items: flex-start;
+    }
     img {
       max-width: 300px;
       filter: drop-shadow(var(--shadow-card--2));

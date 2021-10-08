@@ -1,0 +1,48 @@
+.element-overlay {
+  --square-size: 8px;
+  border: 2px solid var(--clr-blue);
+  position: absolute;
+  z-index: var(--z-modal);
+  pointer-events: none;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: calc(0 - var(--square-size));
+    block-size: var(--square-size);
+    inline-size: var(--square-size);
+    background: var(--clr-white);
+    border: 1px solid var(--clr-blue);
+    z-index: var(--z-top);
+  }
+  &::before {
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+  &::after {
+    right: 0;
+    transform: translate(+50%, -50%);
+  }
+  &__inner {
+    position: absolute;
+    inset: 0;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      block-size: var(--square-size);
+      inline-size: var(--square-size);
+      background: var(--clr-white);
+      border: 1px solid var(--clr-blue);
+    }
+    &::before {
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
+    &::after {
+      right: 0;
+      transform: translate(+50%, -50%);
+    }
+  }
+}

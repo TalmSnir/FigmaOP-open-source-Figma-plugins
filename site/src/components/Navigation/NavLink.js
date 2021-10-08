@@ -13,7 +13,6 @@ function NavLink({
   btnVariant,
   onClick,
   disabled,
-  linkRef,
 }) {
   const className = classNames({
     disabled: disabled,
@@ -27,7 +26,6 @@ function NavLink({
   });
   return (
     <a
-      ref={linkRef}
       href={href}
       target={target}
       className={className}

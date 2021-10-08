@@ -30,7 +30,7 @@ function Button({
 export default Button;
 
 Button.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  // onClick: PropTypes.func.isRequired,
   children: PropTypes.any,
   iconName: PropTypes.string,
   iconSide: PropTypes.string,

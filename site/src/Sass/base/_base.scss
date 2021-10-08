@@ -1,4 +1,3 @@
-
 /*=============================================
 =            css variables            =
 =============================================*/
@@ -10,9 +9,8 @@ html {
   height: 100%;
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  
 }
-*{
+* {
   scrollbar-color: var(--clr-pink) var(--clr-gray--very-dark);
 }
 *::-webkit-scrollbar {
@@ -35,7 +33,7 @@ body {
   height: 100%;
   overflow-x: hidden;
 }
-*::selection{
-  background:var(--clr-green);
-  color:var(--clr-white);
+*::selection {
+  background: var(--clr-green);
+  color: var(--clr-white);
 }
