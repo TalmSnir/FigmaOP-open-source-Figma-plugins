@@ -365,7 +365,7 @@ h2 {
 .plugin-card__text--description {
   font-size: var(--fs-xs);
   line-height: 1.3;
-  padding-inline: var(--spacing-sm);
+  padding: 0 var(--spacing-sm);
   -webkit-line-clamp: 5;
   display: -webkit-box;
   -webkit-box-orient: vertical;

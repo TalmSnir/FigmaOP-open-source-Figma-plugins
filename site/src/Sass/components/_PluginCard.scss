@@ -13,7 +13,7 @@
   flex: 1 1 100%;
 
   transition: all 0.2s ease-in-out;
-  
+
   &:hover,
   &:focus {
     box-shadow: var(--shadow-card--hover);
@@ -24,14 +24,12 @@
     text-align: center;
     flex: 1 0 auto;
     &--title {
-      
-
       margin-block-end: var(--spacing-sm);
     }
     &--description {
       font-size: var(--fs-xs);
-      line-height:1.3;
-      padding-inline: var(--spacing-sm);
+      line-height: 1.3;
+      padding: 0 var(--spacing-sm);
       -webkit-line-clamp: 5;
       display: -webkit-box;
       -webkit-box-orient: vertical;
@@ -39,28 +37,27 @@
       text-overflow: ellipsis;
     }
   }
-  &__icon { 
+  &__icon {
     block-size: 80px;
-    inline-size:80px;
+    inline-size: 80px;
   }
 
   .btns-group {
     align-self: stretch;
     padding-inline: var(--spacing-sm);
     flex-wrap: wrap;
-    .btn.disabled{
-      display:none ;
-      
+    .btn.disabled {
+      display: none;
     }
   }
- 
+
   &__footer {
     background: var(--clr-green);
     width: 100%;
     text-align: center;
     color: var(--clr-white);
-    .btn:disabled{
-      display:none;
+    .btn:disabled {
+      display: none;
     }
   }
 }
