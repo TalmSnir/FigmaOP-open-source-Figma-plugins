@@ -20,6 +20,7 @@
 @import './components/NavMenu';
 @import './components/PluginCards';
 @import './components/ElementOverlay';
+@import './components/multiplayer';
 @import './components/Form';
 @import './blocks/Return';
 @import './blocks/Footer';
@@ -28,70 +29,3 @@
 @import './blocks/Separator';
 @import './blocks/Plugin';
 @import './blocks/FigmaWindow';
-
-.arrows {
-  position: relative;
-  .multiplayer {
-    z-index: 10;
-  }
-  .multiplayer-1 {
-    --id: 1;
-    position: absolute;
-
-    top: 10%;
-    left: 30%;
-    animation: multiplayer 10s linear alternate infinite;
-  }
-  .multiplayer-2 {
-    --id: 2;
-    position: absolute;
-    top: 20%;
-    left: 80%;
-    animation: multiplayer 10s linear alternate infinite;
-  }
-  .multiplayer-3 {
-    --id: 2;
-    position: absolute;
-    top: 40%;
-    left: 60%;
-    animation: multiplayer 10s linear alternate infinite;
-  }
-  .multiplayer-4 {
-    --id: 2;
-    position: absolute;
-    top: 60%;
-    left: 70%;
-
-    animation: multiplayer 10s linear alternate infinite;
-  }
-  .multiplayer-5 {
-    --id: 2;
-    position: absolute;
-    top: 80%;
-    left: 30%;
-    animation: multiplayer 10s linear alternate infinite;
-  }
-}
-@keyframes multiplayer {
-  10% {
-    transform: translate(calc(var(--id) * 20px), calc(var(--id) * 20px));
-  }
-  20% {
-    transform: translate(-40px, -80px);
-  }
-  30% {
-    transform: translate(120px, 60px);
-  }
-  40% {
-    transform: translate(20px, 20px);
-  }
-  50% {
-    transform: translate(20px, 20px);
-  }
-  80% {
-    transform: translate(80px, -100px);
-  }
-  100% {
-    transform: translate(20px, 20px);
-  }
-}

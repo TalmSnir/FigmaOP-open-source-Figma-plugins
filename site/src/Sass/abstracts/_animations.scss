@@ -1,11 +1,85 @@
 // @use 'sass:map';
 
+@keyframes jumping {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}
+@mixin multiplayer($multiplayer-number: 1) {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: multiplayer-#{$multiplayer-number} 10s alternate linear infinite;
+  }
+}
+@keyframes multiplayer-1 {
+  10% {
+    transform: translate(20px, 20px);
+  }
+  20% {
+    transform: translate(40px, 80px);
+  }
+  30% {
+    transform: translate(-120px, 60px);
+  }
+  40% {
+    transform: translate(20px, 20px);
+  }
+  50% {
+    transform: translate(40px, 20px);
+  }
+  80% {
+    transform: translate(80px, -100px);
+  }
+  100% {
+    transform: translate(20px, 20px);
+  }
+}
 
-@keyframes jumping{
-    from{
-        transform:translateY(0);
-    }
-    to{
-        transform:translateY(-20px);
-    }
+@keyframes multiplayer-2 {
+  10% {
+    transform: translate(-10px, -10px);
+  }
+  20% {
+    transform: translate(-20px, -80px);
+  }
+  30% {
+    transform: translate(80px, 60px);
+  }
+  40% {
+    transform: translate(20px, 20px);
+  }
+  50% {
+    transform: translate(60px, 30px);
+  }
+  80% {
+    transform: translate(50px, -90px);
+  }
+  100% {
+    transform: translate(-10px, -10px);
+  }
+}
+@keyframes multiplayer-3 {
+  10% {
+    transform: translate(-40px, -10px);
+  }
+  20% {
+    transform: translate(20px, 10px);
+  }
+  30% {
+    transform: translate(60px, 60px);
+  }
+  40% {
+    transform: translate(20px, 20px);
+  }
+  50% {
+    transform: translate(60px, 20px);
+  }
+  80% {
+    transform: translate(80px, -100px);
+  }
+  100% {
+    transform: translate(-10px, -10px);
+  }
 }

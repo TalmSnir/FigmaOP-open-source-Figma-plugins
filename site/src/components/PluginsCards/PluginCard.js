@@ -11,9 +11,9 @@ function PluginCard({
     pluginDescription,
     pluginRepo,
     pluginFigmaCommunityPage,
-  }
+  },
 }) {
-  const disabled=pluginDescription==='Coming Soon...';
+  const disabled = pluginDescription === 'Coming Soon...';
   return (
     <div className='plugin-card'>
       <PluginIcon name={pluginName} className='plugin-card__icon' />
@@ -23,7 +23,7 @@ function PluginCard({
       </div>
       <ButtonsGroup>
         <NavLink
-        disabled={disabled}
+          disabled={disabled}
           target='_blank'
           type='button'
           btnVariant='primary'
@@ -31,7 +31,7 @@ function PluginCard({
           view plugin
         </NavLink>
         <NavLink
-         disabled={disabled}
+          disabled={disabled}
           target='_blank'
           type='button'
           btnVariant='secondary'
@@ -39,7 +39,7 @@ function PluginCard({
           view source code
         </NavLink>
       </ButtonsGroup>
-      <CardFooter pluginGif={pluginGif}  disabled={disabled}/>
+      <CardFooter pluginGif={pluginGif} disabled={disabled} />
     </div>
   );
 }

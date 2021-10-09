@@ -1,24 +1,22 @@
-
 .plugins-cards {
-    background: var(--clr-purple);
-    
-    .container {
-      display:flex;
-      flex-direction:column;
-      gap:var(--spacing-lg);
- 
-    }
-    &__content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--spacing-md);
-    }
-    &__title {
-      grid-column: 1/-1;
-      color: var(--clr-white);
-      
-      
+  background: var(--clr-purple);
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    @include responsive-screen(lg) {
+      padding: var(--spacing-lg) var(--spacing-md);
     }
   }
-  
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md);
+  }
+  &__title {
+    grid-column: 1/-1;
+    color: var(--clr-white);
+  }
+}

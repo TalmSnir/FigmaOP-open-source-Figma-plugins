@@ -31,7 +31,7 @@
       align-items: center;
       gap: var(--spacing-xs);
     }
-    svg {
+    img {
       block-size: 32px;
       inline-size: 32px;
       border-radius: 6px;
@@ -76,7 +76,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    align-items: start;
+    align-items: flex-start;
     color: var(--clr-black-8);
   }
 

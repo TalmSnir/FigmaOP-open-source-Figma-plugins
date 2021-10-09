@@ -1,10 +1,10 @@
 import React from 'react';
-import { ReactComponent as FastVariantPropertiesIcon } from '../../assets/fast-variants-properties.svg';
-import { ReactComponent as IconsToolBoxIcon } from '../../assets/icons-toolbox.svg';
-import { ReactComponent as LayoutHandoffIcon } from '../../assets/layout-handoff.svg';
-import { ReactComponent as UnknownIcon } from '../../assets/unknown.svg';
-import { ReactComponent as SavedPrototypes } from '../../assets/saved-prototypes.svg';
-import { ReactComponent as gridSystem } from '../../assets/grid-system.svg';
+import FastVariantPropertiesIcon from '../../assets/fast-variants-properties.svg';
+import IconsToolBoxIcon from '../../assets/icons-toolbox.svg';
+import LayoutHandoffIcon from '../../assets/layout-handoff.svg';
+import UnknownIcon from '../../assets/unknown.svg';
+import SavedPrototypes from '../../assets/saved-prototypes.svg';
+import gridSystem from '../../assets/grid-system.svg';
 import PropTypes from 'prop-types';
 const iconsMap = {
   'fast variants properties': FastVariantPropertiesIcon,
@@ -16,7 +16,7 @@ const iconsMap = {
 };
 function PluginIcon({ name, className }) {
   const IconName = iconsMap[name];
-  return <IconName className={className} />;
+  return <img src={IconName} alt='plugin-icon' className={className} />;
 }
 
 export default PluginIcon;

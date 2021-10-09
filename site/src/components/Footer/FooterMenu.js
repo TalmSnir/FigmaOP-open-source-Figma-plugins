@@ -15,7 +15,9 @@ function FooterMenu({ title, items, dataTitle, dataSection, iconName }) {
             location='footer'
             iconName={iconName}
             iconSide='right'>
-            {item[dataTitle]}
+            {`${item[dataTitle]} ${
+              item[dataSection] === '#' ? '-Coming Soon' : ''
+            }`}
           </NavLink>
         );
       })}

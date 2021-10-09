@@ -1,94 +1,89 @@
 .main {
- 
-  
-    .container {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-md);
-  
-      position: relative;
-      @include responsive-screen(xs) {
-        gap: var(--spacing-lg);
-      }
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+
+    position: relative;
+    @include responsive-screen(xs) {
+      gap: var(--spacing-lg);
     }
-    &__plugin-icons {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--spacing-sm);
-      
-    
-      svg {
-        inline-size: 10vmin;
-        block-size: 10vmin;
-        min-inline-size: 48px;
-        min-block-size: 48px;
-        border-radius:6px;
-        @media (prefers-reduced-motion: no-preference) { 
-            animation:jumping 1s ease-in-out alternate infinite;
-            &:nth-child(1){ 
-              animation:jumping 1s ease-in-out alternate infinite;
-          }
-          
-          &:nth-child(2){
-            animation:jumping 1s ease-in-out alternate infinite 0.2s;
-          }
-          &:nth-child(3){
-            animation:jumping 1s ease-in-out alternate infinite 0.4s;
-          }
-          &:nth-child(4){
-            animation:jumping 1s ease-in-out alternate infinite 0.6s;
-          }
-          
-          &:nth-child(5){
-            animation:jumping 1s ease-in-out alternate infinite 0.8s;
-          }
-          }
-        
-      }
-    }
-    .btns-group--col {
-      @include responsive-screen(xs) {
-        flex-direction: row;
-      }
-    }
-  
-    &__text {
-      text-align: center;
-      &--title {
-        svg:nth-of-type(1) {
-          stroke: var(--clr-purple);
-          margin-inline-end: -4px;
+  }
+  &__plugin-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+
+    img {
+      inline-size: 10vmin;
+      block-size: 10vmin;
+      min-inline-size: 48px;
+      min-block-size: 48px;
+      border-radius: 6px;
+      @media (prefers-reduced-motion: no-preference) {
+        animation: jumping 1s ease-in-out alternate infinite;
+        &:nth-child(1) {
+          animation: jumping 1s ease-in-out alternate infinite;
         }
-        svg:nth-of-type(2) {
-          fill: var(--clr-pink);
+
+        &:nth-child(2) {
+          animation: jumping 1s ease-in-out alternate infinite 0.2s;
         }
-        span {
-          display: inline-block;
-          &::first-letter {
-            color: var(--clr-green);
-          }
+        &:nth-child(3) {
+          animation: jumping 1s ease-in-out alternate infinite 0.4s;
         }
-  
-        font-size: var(--fs-display--main);
-        text-transform: unset;
-        font-weight: var(--fw-xl);
-        margin-block-end: var(--spacing-md);
-      }
-      &--subtitle {
-        font-size: var(--fs-display--subtitle);
-        color: var(--clr-gray--dark);
-        font-weight: var(--fw-lg);
-        span:nth-of-type(1) {
-          color: var(--clr-purple);
+        &:nth-child(4) {
+          animation: jumping 1s ease-in-out alternate infinite 0.6s;
         }
-        span:nth-of-type(2) {
-          color: var(--clr-pink);
-        }
-        span:nth-of-type(3) {
-          color: var(--clr-green);
+
+        &:nth-child(5) {
+          animation: jumping 1s ease-in-out alternate infinite 0.8s;
         }
       }
     }
   }
-  
+  .btns-group--col {
+    @include responsive-screen(xs) {
+      flex-direction: row;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    &--title {
+      svg:nth-of-type(1) {
+        stroke: var(--clr-purple);
+        margin-inline-end: -4px;
+      }
+      svg:nth-of-type(2) {
+        fill: var(--clr-pink);
+      }
+      span {
+        display: inline-block;
+        &::first-letter {
+          color: var(--clr-green);
+        }
+      }
+
+      font-size: var(--fs-display--main);
+      text-transform: unset;
+      font-weight: var(--fw-xl);
+      margin-block-end: var(--spacing-md);
+    }
+    &--subtitle {
+      font-size: var(--fs-display--subtitle);
+      color: var(--clr-gray--dark);
+      font-weight: var(--fw-lg);
+      span:nth-of-type(1) {
+        color: var(--clr-purple);
+      }
+      span:nth-of-type(2) {
+        color: var(--clr-pink);
+      }
+      span:nth-of-type(3) {
+        color: var(--clr-green);
+      }
+    }
+  }
+}

@@ -67,15 +67,15 @@ Last but not least, you have the option to preserve the stroke width in each res
     pluginName: 'saved prototypes',
     pluginDescription: `Coming Soon...`,
     pluginGif: 'gif',
-    pluginRepo: 'url',
-    pluginFigmaCommunityPage: 'url',
+    pluginRepo: '#',
+    pluginFigmaCommunityPage: '#',
   },
   {
     pluginName: 'grid system',
     pluginDescription: `Coming Soon...`,
     pluginGif: 'gif',
-    pluginRepo: 'url',
-    pluginFigmaCommunityPage: 'url',
+    pluginRepo: '#',
+    pluginFigmaCommunityPage: '#',
   },
 ];
 export const supportSources = [
