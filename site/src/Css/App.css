@@ -686,6 +686,9 @@ header .header__menu__icon {
   gap: var(--spacing-md);
   align-items: center;
 }
+.return__text.add-borders > * {
+  box-shadow: 0 0 0 2px var(--clr-red);
+}
 @media (min-width: 1000px) {
   .return__text {
     text-align: start;

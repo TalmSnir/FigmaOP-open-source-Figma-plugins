@@ -2,23 +2,34 @@ import React, { useRef, useState } from 'react';
 import PluginIcon from '../components/Icons/PluginIcon';
 import { ButtonsGroup, Button } from '../components/Buttons';
 import Icon from '../components/Icons/Icon';
-// import usePlugin from './usePlugin';
+import usePlugin from './usePlugin';
 import useDragAndDrop from './useDragAndDrop';
-export default function Plugin({ pluginRef, containerRef }) {
-  // const { handleAddBorders, handleCreateShape, handleEditMode, inEditMode } =
-  //   usePlugin({
-  //     header,
-  //     text,
-  //     link,
-  //   });
+export default function Plugin({
+  pluginRef,
+  containerRef,
+  pluginStates,
+  setPluginStates,
+}) {
+  const { handleAddBorders, handleCreateShape } = usePlugin({
+    pluginStates,
+    setPluginStates,
+  });
   const [isMoved, setIsMoved] = useState(false);
   const topBarRef = useRef();
   const onMouseDown = e => {
     if (!isMoved) {
+      const margin = parseInt(
+        window.getComputedStyle(containerRef.current).marginLeft
+      );
+
       const top =
         pluginRef.current.getBoundingClientRect().top -
         containerRef.current.getBoundingClientRect().top;
-      const left = pluginRef.current.getBoundingClientRect().left;
+      const left =
+        pluginRef.current.getBoundingClientRect().left -
+        containerRef.current.getBoundingClientRect().left +
+        margin;
+
       pluginRef.current.style.left = `${left}px`;
       pluginRef.current.style.top = `${top}px`;
       pluginRef.current.style.position = 'absolute';
@@ -27,28 +38,36 @@ export default function Plugin({ pluginRef, containerRef }) {
   };
 
   const onMouseMove = e => {
+    const margin = parseInt(
+      window.getComputedStyle(containerRef.current).marginLeft
+    );
+    const sidePanelSize = 220; //220px-side panel svg size
     let left =
       e.clientX -
       offset.left -
-      containerRef.current.getBoundingClientRect().left;
+      containerRef.current.getBoundingClientRect().left +
+      margin;
     let top =
       e.clientY - offset.top - containerRef.current.getBoundingClientRect().top;
 
     const bottomEdge =
-      containerRef.current.getBoundingClientRect().bottom +
-      offset.top +
-      pluginRef.current.innerHeight;
-    const topEdge = 40; //40 px-top bar size
-    const leftEdge = 0;
+      containerRef.current.getBoundingClientRect().bottom -
+      containerRef.current.getBoundingClientRect().top -
+      pluginRef.current.offsetHeight;
+
+    const topEdge = 40; //40px top bar svg size
+    const leftEdge = window.innerWidth < 1440 ? 0 : sidePanelSize;
     const rightEdge =
-      containerRef.current.getBoundingClientRect().right -
-      containerRef.current.getBoundingClientRect().left;
-    console.log(
-      containerRef.current.getBoundingClientRect().right -
-        containerRef.current.getBoundingClientRect().left -
-        pluginRef.current.offsetWidth
-    );
-    //! change this
+      window.innerWidth < 1440
+        ? containerRef.current.getBoundingClientRect().right -
+          containerRef.current.getBoundingClientRect().left -
+          pluginRef.current.offsetWidth +
+          2 * margin
+        : containerRef.current.getBoundingClientRect().right -
+          containerRef.current.getBoundingClientRect().left -
+          pluginRef.current.offsetWidth +
+          2 * margin -
+          sidePanelSize;
 
     //if the user is trying to drag outside the container from the top side.
     top = top < topEdge ? topEdge : top;
@@ -93,9 +112,11 @@ export default function Plugin({ pluginRef, containerRef }) {
         <Icon name='small-close' />
       </section>
       <section className='plugin__body'>
-        <ButtonsGroup>
+        <ButtonsGroup direction='column'>
           <Button type='plugin'>create shapes</Button>
-          <Button type='plugin'>add Borders</Button>
+          <Button type='plugin' onClick={handleAddBorders}>
+            {pluginStates.addBorders ? 'remove borders' : 'add borders'}
+          </Button>
         </ButtonsGroup>
       </section>
     </div>

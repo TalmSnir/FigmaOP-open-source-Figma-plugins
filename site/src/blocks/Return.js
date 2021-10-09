@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Plugin from './Plugin';
 
 import NavLink from '../components/Navigation/NavLink';
@@ -11,7 +11,10 @@ function Return() {
   const figmaWindowRef = useRef();
   const containerRef = useRef();
   const overlayRef = useRef();
-
+  const [pluginStates, setPluginStates] = useState({
+    addBorders: false,
+    skew: false,
+  }); //! !!!use object with state
   const { handleClick, handleMouseOver, handleMouseLeave, elementClicked } =
     useFigmaWindow({ pluginRef, figmaWindowRef, containerRef, overlayRef });
 
@@ -24,9 +27,17 @@ function Return() {
         onClick={handleClick}
         containerRef={containerRef}>
         <div className='return__plugin'>
-          <Plugin containerRef={containerRef} pluginRef={pluginRef} />
+          <Plugin
+            containerRef={containerRef}
+            pluginRef={pluginRef}
+            pluginStates={pluginStates}
+            setPluginStates={setPluginStates}
+          />
         </div>
-        <div className='return__text'>
+        <div
+          className={`return__text ${
+            pluginStates.addBorders ? 'add-borders' : ''
+          }`}>
           <h1
             className='return__title'
             onClick={handleClick}

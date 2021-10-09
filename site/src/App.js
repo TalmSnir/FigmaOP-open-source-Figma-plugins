@@ -13,11 +13,11 @@ function App() {
     <div className='App'>
       <Header />
       <div className='arrows'>
-        <MultiplayerOne class='multiplayer-1' />
-        <MultiplayerTwo class='multiplayer-2' />
-        <MultiplayerThree class='multiplayer-3' />
-        <MultiplayerFour class='multiplayer-4' />
-        <MultiplayerFive class='multiplayer-5' />
+        <MultiplayerOne className='multiplayer-1 multiplayer' />
+        <MultiplayerTwo className='multiplayer-2 multiplayer' />
+        <MultiplayerThree className='multiplayer-3 multiplayer' />
+        <MultiplayerFour className='multiplayer-4 multiplayer' />
+        <MultiplayerFive className='multiplayer-5 multiplayer' />
         <Main />
         <PluginsCards />
       </div>

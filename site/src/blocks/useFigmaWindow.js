@@ -1,6 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 
-export default function useFigmaWindow({ containerRef, overlayRef }) {
+export default function useFigmaWindow({
+  containerRef,
+  overlayRef,
+  figmaWindowRef,
+  pluginRef,
+}) {
   const [elementClicked, setElementClicked] = useState(false);
   const [elementRect, setElementRect] = useState({
     offsetLeft: 0,
@@ -14,18 +19,23 @@ export default function useFigmaWindow({ containerRef, overlayRef }) {
   const handleClick = e => {
     e.stopPropagation();
     const target = e.target;
-    if (!['h1', 'p', 'a'].includes(target.nodeName.toLowerCase())) {
+
+    if (target === containerRef.current) {
       element.current = containerRef.current;
       setElementClicked(false);
-    } else if (e.currentTarget !== element.current) {
-      if (element.current !== null) {
-        element.current.setAttribute('contenteditable', false);
-      }
+    } else if (
+      target !== element.current &&
+      ['h1', 'a', 'p'].includes(target.nodeName.toLowerCase())
+    ) {
+      // if (element.current !== null) {
+      //   element.current.setAttribute('contenteditable', false);
+      // }
       element.current = e.currentTarget;
-      element.current.setAttribute('contenteditable', true);
+
+      // element.current.setAttribute('contenteditable', true);
       element.current.style.outline = '';
       const { width, height, left } = element.current.getBoundingClientRect();
-      // target.style.maxWidth = `${width}px`;
+
       let { offsetTop } = element.current;
 
       setElementRect({ width, height, offsetTop, left });

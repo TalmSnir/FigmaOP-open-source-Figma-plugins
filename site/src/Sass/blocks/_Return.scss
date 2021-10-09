@@ -18,6 +18,9 @@
     flex-direction: column;
     gap: var(--spacing-md);
     align-items: center;
+    &.add-borders>*{
+box-shadow:0 0 0 2px  var(--clr-red);
+    }
     @include responsive-screen(md) {
       text-align: start;
       align-items: flex-start;
