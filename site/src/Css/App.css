@@ -378,7 +378,7 @@ h2 {
 }
 .plugin-card .btns-group {
   align-self: stretch;
-  padding-inline: var(--spacing-sm);
+  padding: 0 var(--spacing-sm);
   flex-wrap: wrap;
 }
 .plugin-card .btns-group .btn.disabled {
@@ -502,7 +502,7 @@ header .header__menu__icon {
   padding: var(--spacing-md);
   z-index: var(--z-top);
   transform: translateX(100%);
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 .header__nav.show {
   transform: translateX(0);

@@ -44,7 +44,7 @@
 
   .btns-group {
     align-self: stretch;
-    padding-inline: var(--spacing-sm);
+    padding: 0 var(--spacing-sm);
     flex-wrap: wrap;
     .btn.disabled {
       display: none;

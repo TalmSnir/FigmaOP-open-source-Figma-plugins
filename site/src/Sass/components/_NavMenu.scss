@@ -7,7 +7,7 @@
   padding: var(--spacing-md);
   z-index: var(--z-top);
   transform: translateX(100%);
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   &.show {
     transform: translateX(0);
   }
@@ -29,9 +29,9 @@
       flex-direction: row;
     }
   }
-  @include responsive-screen(lg){
+  @include responsive-screen(lg) {
     .header__nav__menu {
-      gap:var(--spacing-lg);
-    } 
+      gap: var(--spacing-lg);
+    }
   }
 }
