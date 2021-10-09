@@ -19,7 +19,7 @@ import { ReactComponent as BuyMeaCoffee } from '../../assets/BuyMeaCoffee.svg';
 import { ReactComponent as Settings } from '../../assets/adjust.svg';
 import { ReactComponent as Info } from '../../assets/info.svg';
 import { ReactComponent as SmallClose } from '../../assets/x.svg';
-//! TODO: add title to svgs
+import { ReactComponent as FigmaLarge } from '../../assets/figmalarge.svg';
 
 const iconsMap = {
   menu: FiMenu,
@@ -39,6 +39,7 @@ const iconsMap = {
   settings: Settings,
   info: Info,
   'small-close': SmallClose,
+  'figma-lg': FigmaLarge,
 };
 function Icon({ name, className }) {
   const IconName = iconsMap[name];
@@ -65,10 +66,6 @@ Icon.propTypes = {
     'settings',
     'info',
     'small-close',
-  ]),
-  className: PropTypes.oneOf([
-    'plugin-card__icon',
-    'main__icon ',
-    'header__menu__icon',
+    'figma-lg',
   ]),
 };

@@ -63,6 +63,7 @@
   --plugin-fs-h1: 14px;
   --plugin-fs-h2: 12px;
   --plugin-fs-label: 11px;
+  --plugin-fs-info: 8px;
   --plugin-fs-button: 11px;
   --plugin-fs-info: 10px;
   --plugin-fs-tooltip: 11px;
@@ -689,6 +690,9 @@ header .header__menu__icon {
 .return__text.add-borders > * {
   box-shadow: 0 0 0 2px var(--clr-red);
 }
+.return__text.add-rotate > * {
+  transform: rotateY(180deg);
+}
 @media (min-width: 1000px) {
   .return__text {
     text-align: start;
@@ -724,6 +728,36 @@ header .header__menu__icon {
 .return .nav__link:hover svg, .return .nav__link:focus svg {
   transform: scale(1.5) translateX(10px);
   transition: all 0.1s ease;
+}
+
+.icons-group {
+  position: absolute;
+  z-index: var(--z-top);
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+.icons-group .plugin-add-icon-16 {
+  block-size: 16px;
+  inline-size: 16px;
+}
+.icons-group .plugin-add-icon-24 {
+  block-size: 24px;
+  inline-size: 24px;
+}
+.icons-group .plugin-add-icon-32 {
+  block-size: 32px;
+  inline-size: 32px;
+}
+.icons-group .plugin-add-icon-48 {
+  block-size: 48px;
+  inline-size: 48px;
+}
+.icons-group .plugin-add-icon-64 {
+  block-size: 64px;
+  inline-size: 64px;
 }
 
 /*----------  Footer  ----------*/
@@ -915,7 +949,7 @@ footer .footer__menus {
 .plugin {
   display: none;
   z-index: 100;
-  height: 300px;
+  height: 380px;
   width: 250px;
   user-select: none;
   background: var(--clr-white);
@@ -964,6 +998,85 @@ footer .footer__menus {
 }
 .plugin__body__edit-mode.active {
   color: var(--clr-red);
+}
+
+.duplicate {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+.duplicate .btn {
+  align-self: center;
+  width: 100%;
+}
+.duplicate .btn:disabled {
+  background: var(--clr-black-3);
+  color: var(--clr-black-3);
+}
+.duplicate__info {
+  font-size: var(--plugin-fs-info);
+}
+.duplicate__checkboxes {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
+}
+.duplicate label {
+  font-size: var(--plugin-fs-label);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: start;
+  color: var(--clr-black-8);
+}
+.duplicate input[type=checkbox] {
+  appearance: none;
+  block-size: 1rem;
+  inline-size: 1rem;
+  box-shadow: var(--plugin-shadow--states-sm) var(--clr-black);
+  border-radius: var(--plugin-br-controls);
+  flex-shrink: 0;
+  display: grid;
+  align-items: center;
+  grid-template-areas: "checkbox";
+  position: relative;
+}
+.duplicate input[type=checkbox]::before {
+  content: "";
+  grid-area: checkbox;
+  place-items: center;
+  background-image: var(--svg-on);
+  background-position: center;
+  background-size: 80%;
+  border-radius: var(--plugin-br-controls);
+  block-size: 100%;
+  inline-size: 100%;
+  background-repeat: no-repeat;
+  transition: all 0.2s;
+  opacity: 0;
+}
+.duplicate input[type=checkbox]:checked::before {
+  opacity: 1;
+}
+.duplicate input[type=checkbox]:checked {
+  background: var(--clr-blue);
+  box-shadow: var(--plugin-shadow--states-sm) var(--clr-blue);
+}
+.duplicate input[type=checkbox]:checked:disabled {
+  background: var(--clr-black-3);
+  box-shadow: var(--plugin-shadow--states-sm) var(--clr-black-3);
+}
+.duplicate input[type=checkbox]:not(:checked):disabled {
+  box-shadow: var(--plugin-shadow--states-sm) var(--clr-black-3);
+}
+.duplicate input[type=checkbox]:not(:checked):is(:focus, :hover) {
+  outline: 0;
+  box-shadow: 0 0 0 2px var(--clr-blue);
+}
+.duplicate input[type=checkbox]:checked:is(:focus, :hover) {
+  outline: 0;
+  box-shadow: 0 0 0 2px var(--clr-blue), inset 0 0 0 1px var(--clr-white);
 }
 
 .figma-window {

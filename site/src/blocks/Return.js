@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import Plugin from './Plugin';
-
+import Icon from '../components/Icons/Icon';
 import NavLink from '../components/Navigation/NavLink';
 import { mainRepo } from '../data';
 import ElementOverlay from '../components/ElementOverlay';
@@ -13,7 +13,9 @@ function Return() {
   const overlayRef = useRef();
   const [pluginStates, setPluginStates] = useState({
     addBorders: false,
-    skew: false,
+    rotate: false,
+    showIcon: false,
+    duplicateIcons: { action: false, sizes: [] },
   }); //! !!!use object with state
   const { handleClick, handleMouseOver, handleMouseLeave, elementClicked } =
     useFigmaWindow({ pluginRef, figmaWindowRef, containerRef, overlayRef });
@@ -34,10 +36,26 @@ function Return() {
             setPluginStates={setPluginStates}
           />
         </div>
+        <div className='icons-group'>
+          {pluginStates.showIcon ? (
+            <Icon name='figma-lg' className='plugin-add-icon' />
+          ) : null}
+          {pluginStates.duplicateIcons.action
+            ? pluginStates.duplicateIcons.sizes.map((size, id) => {
+                return (
+                  <Icon
+                    name='figma-lg'
+                    className={`plugin-add-icon-${size}`}
+                    key={id}
+                  />
+                );
+              })
+            : null}
+        </div>
         <div
           className={`return__text ${
             pluginStates.addBorders ? 'add-borders' : ''
-          }`}>
+          } ${pluginStates.rotate ? 'add-rotate' : ''}`}>
           <h1
             className='return__title'
             onClick={handleClick}

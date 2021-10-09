@@ -18,8 +18,11 @@
     flex-direction: column;
     gap: var(--spacing-md);
     align-items: center;
-    &.add-borders>*{
-box-shadow:0 0 0 2px  var(--clr-red);
+    &.add-borders > * {
+      box-shadow: 0 0 0 2px var(--clr-red);
+    }
+    &.add-rotate > * {
+      transform: rotateY(180deg);
     }
     @include responsive-screen(md) {
       text-align: start;
@@ -55,5 +58,34 @@ box-shadow:0 0 0 2px  var(--clr-red);
         transition: all 0.1s ease;
       }
     }
+  }
+}
+.icons-group {
+  position: absolute;
+  z-index: var(--z-top);
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  .plugin-add-icon-16 {
+    block-size: 16px;
+    inline-size: 16px;
+  }
+  .plugin-add-icon-24 {
+    block-size: 24px;
+    inline-size: 24px;
+  }
+  .plugin-add-icon-32 {
+    block-size: 32px;
+    inline-size: 32px;
+  }
+  .plugin-add-icon-48 {
+    block-size: 48px;
+    inline-size: 48px;
+  }
+  .plugin-add-icon-64 {
+    block-size: 64px;
+    inline-size: 64px;
   }
 }
