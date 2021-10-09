@@ -1,0 +1,42 @@
+/*----------  NavLink  ----------*/
+.nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-weight: var(--fw-md);
+  font-size: var(--fs-sm);
+  text-transform: capitalize;
+  &:disabled {
+    color: var(--clr-black-3);
+  }
+  &__icon--left {
+    flex-direction: row-reverse;
+  }
+
+  &.header__link {
+    font-size: var(--fs-md);
+    color: var(--clr-white);
+    @include responsive-screen(md) {
+      color: var(--clr-gray--very-dark);
+    }
+    &:hover,
+    &:focus {
+      color: var(--clr-pink);
+    }
+    &.active {
+      color: var(--clr-purple);
+    }
+  }
+  &.footer__link {
+    font-size: var(--fs-xs);
+    color: var(--clr-white);
+    &:hover,
+    &:focus {
+      color: var(--clr-pink);
+
+      svg #repo {
+        fill: var(--clr-pink);
+      }
+    }
+  }
+}
