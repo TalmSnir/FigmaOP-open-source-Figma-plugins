@@ -1,0 +1,32 @@
+.arrows {
+  position: relative;
+  .multiplayer {
+    z-index: var(--z-top);
+    position: absolute;
+  }
+  .multiplayer-1 {
+    top: 10%;
+    left: 10%;
+    @include multiplayer(1);
+  }
+  .multiplayer-2 {
+    top: 20%;
+    right: 20%;
+    @include multiplayer(2);
+  }
+  .multiplayer-3 {
+    top: 40%;
+    left: 6%;
+    @include multiplayer(3);
+  }
+  .multiplayer-4 {
+    top: 60%;
+    right: 10%;
+    @include multiplayer(2);
+  }
+  .multiplayer-5 {
+    top: 80%;
+    left: 5%;
+    @include multiplayer(1);
+  }
+}
