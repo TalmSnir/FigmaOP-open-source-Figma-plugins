@@ -2,8 +2,13 @@
   --square-size: 8px;
   border: 2px solid var(--clr-blue);
   position: absolute;
-  z-index: var(--z-modal);
+  inset: 0;
+  z-index: var(--z-behind);
   pointer-events: none;
+  display: none;
+  &.show {
+    display: block;
+  }
   &::before,
   &::after {
     content: '';

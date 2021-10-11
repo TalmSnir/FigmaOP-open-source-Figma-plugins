@@ -1,5 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import PluginIcon from '../components/Icons/PluginIcon';
+import useWindowSize from './useWindowSize';
 import { ButtonsGroup, Button } from '../components/Buttons';
 import Icon from '../components/Icons/Icon';
 import usePlugin from './usePlugin';
@@ -7,8 +8,10 @@ import useDragAndDrop from './useDragAndDrop';
 export default function Plugin({
   pluginRef,
   containerRef,
+
   pluginStates,
   setPluginStates,
+  figmaWindowRef,
 }) {
   const {
     handleAddBorders,
@@ -21,6 +24,19 @@ export default function Plugin({
   });
   const [isMoved, setIsMoved] = useState(false);
   const [sizes, setSizes] = useState([]);
+  const windowSize = useWindowSize();
+
+  useEffect(() => {
+    console.log(pluginRef.current.style.left);
+    if (
+      windowSize &&
+      pluginRef &&
+      parseInt(pluginRef.current.style.left) < 200 &&
+      windowSize.width > 1400
+    ) {
+      pluginRef.current.style.left = '25%';
+    }
+  }, [windowSize, pluginRef]);
   const handleUpdateSizes = e => {
     setSizes(sizes => {
       let newSizes = [];
@@ -43,14 +59,15 @@ export default function Plugin({
 
       const top =
         pluginRef.current.getBoundingClientRect().top -
-        containerRef.current.getBoundingClientRect().top;
+        figmaWindowRef.current.getBoundingClientRect().top;
       const left =
         pluginRef.current.getBoundingClientRect().left -
-        containerRef.current.getBoundingClientRect().left +
+        figmaWindowRef.current.getBoundingClientRect().left +
         margin;
 
       pluginRef.current.style.left = `${left}px`;
       pluginRef.current.style.top = `${top}px`;
+      pluginRef.current.style.transform = 'translateY(0)';
       pluginRef.current.style.position = 'absolute';
       setIsMoved(true);
     }
@@ -64,30 +81,29 @@ export default function Plugin({
     let left =
       e.clientX -
       offset.left -
-      containerRef.current.getBoundingClientRect().left +
+      figmaWindowRef.current.getBoundingClientRect().left +
       margin;
     let top =
-      e.clientY - offset.top - containerRef.current.getBoundingClientRect().top;
-
+      e.clientY -
+      offset.top -
+      figmaWindowRef.current.getBoundingClientRect().top;
     const bottomEdge =
-      containerRef.current.getBoundingClientRect().bottom -
-      containerRef.current.getBoundingClientRect().top -
+      figmaWindowRef.current.getBoundingClientRect().bottom -
+      figmaWindowRef.current.getBoundingClientRect().top -
       pluginRef.current.offsetHeight;
-
     const topEdge = 40; //40px top bar svg size
     const leftEdge = window.innerWidth < 1440 ? 0 : sidePanelSize;
     const rightEdge =
       window.innerWidth < 1440
-        ? containerRef.current.getBoundingClientRect().right -
-          containerRef.current.getBoundingClientRect().left -
+        ? figmaWindowRef.current.getBoundingClientRect().right -
+          figmaWindowRef.current.getBoundingClientRect().left -
           pluginRef.current.offsetWidth +
           2 * margin
-        : containerRef.current.getBoundingClientRect().right -
-          containerRef.current.getBoundingClientRect().left -
+        : figmaWindowRef.current.getBoundingClientRect().right -
+          figmaWindowRef.current.getBoundingClientRect().left -
           pluginRef.current.offsetWidth +
           2 * margin -
           sidePanelSize;
-
     //if the user is trying to drag outside the container from the top side.
     top = top < topEdge ? topEdge : top;
     //if the user is trying to drag outside the container from the bottom side.
@@ -96,9 +112,11 @@ export default function Plugin({
     left = left < leftEdge ? leftEdge : left;
     left = left > rightEdge ? rightEdge : left;
     //if the user is trying to drag outside the container from the  right side.
-
     pluginRef.current.style.left = `${left}px`;
     pluginRef.current.style.top = `${top}px`;
+  };
+  const onMouseUp = () => {
+    pluginRef.current.style.position = 'fixed';
   };
   const {
     handleMouseLeave,
@@ -110,6 +128,7 @@ export default function Plugin({
   } = useDragAndDrop({
     onMouseDown,
     onMouseMove,
+    onMouseUp,
   });
 
   return (

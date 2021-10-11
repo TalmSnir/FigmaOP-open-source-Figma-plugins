@@ -2,14 +2,14 @@ const errorOptions = {
   name: {
     empty: 'name must be provided',
     notAllLetter: 'name must contain only letters',
+    shortName: 'name must have at least 3 characters',
   },
   email: {
     empty: 'email must be provided',
-    missingAt: 'email must includes @',
+    invalidEmail: 'please provide a valid email address',
   },
   content: {
     empty: 'description must be provided',
-    length: 'description must be more than one line',
   },
 };
 
@@ -18,8 +18,21 @@ export default function formValidation({ values }) {
   if (values.name.trim().length === 0) {
     errors.name = errorOptions.name.empty;
   }
-  if (!values.email.includes('@')) {
-    errors.email = errorOptions.email.missingAt;
+  if (values.name.replace(/[ -]+/g, '').length < 3) {
+    errors.name = errorOptions.name.shortName;
   }
+  if (/^[A-Za-z]+$/.test(values.name.replace(' ', ''))) {
+    errors.name = errorOptions.name.notAllLetter;
+  }
+  if (values.email.length === 0) {
+    errors.email = errorOptions.email.empty;
+  }
+  if (/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/.test(values.email)) {
+    errors.email = errorOptions.email.invalidEmail;
+  }
+  if (!values.content.replace(' ', '').length === 0) {
+    errors.content = errorOptions.content.empty;
+  }
+
   return errors;
 }

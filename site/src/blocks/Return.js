@@ -7,22 +7,23 @@ import ElementOverlay from '../components/ElementOverlay';
 import useFigmaWindow from './useFigmaWindow';
 import FigmaWindow from './FigmaWindow';
 function Return() {
-  const pluginRef = useRef();
-  const figmaWindowRef = useRef();
-  const containerRef = useRef();
-  const overlayRef = useRef();
+  const pluginRef = useRef(null);
+  const figmaWindowRef = useRef(null);
+  const containerRef = useRef(null);
+  const overlayRef = useRef(null);
   const [pluginStates, setPluginStates] = useState({
     addBorders: false,
     rotate: false,
     showIcon: false,
     duplicateIcons: { action: false, sizes: [] },
-  }); //! !!!use object with state
+  });
   const { handleClick, handleMouseOver, handleMouseLeave, elementClicked } =
     useFigmaWindow({ pluginRef, figmaWindowRef, containerRef, overlayRef });
 
   return (
     <section className='return' id='return'>
-      {elementClicked ? <ElementOverlay overlayRef={overlayRef} /> : null}
+      <ElementOverlay overlayRef={overlayRef} elementClicked={elementClicked} />
+
       <FigmaWindow
         className='figma-window'
         figmaWindowRef={figmaWindowRef}
@@ -30,6 +31,7 @@ function Return() {
         containerRef={containerRef}>
         <div className='return__plugin'>
           <Plugin
+            figmaWindowRef={figmaWindowRef}
             containerRef={containerRef}
             pluginRef={pluginRef}
             pluginStates={pluginStates}

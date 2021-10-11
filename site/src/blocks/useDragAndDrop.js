@@ -1,6 +1,10 @@
 import { useState } from 'react';
 
-export default function useDragAndDrop({ onMouseDown, onMouseMove }) {
+export default function useDragAndDrop({
+  onMouseDown,
+  onMouseMove,
+  onMouseUp,
+}) {
   const [isMoving, setIsMoving] = useState(false);
   const [offset, setOffset] = useState({ top: 0, left: 0 });
   const handleMouseDown = e => {
@@ -12,9 +16,11 @@ export default function useDragAndDrop({ onMouseDown, onMouseMove }) {
   };
   const handleMouseUp = () => {
     setIsMoving(false);
+    onMouseUp();
   };
   const handleMouseLeave = () => {
     setIsMoving(false);
+    onMouseUp();
   };
 
   const handleMouseMove = e => {

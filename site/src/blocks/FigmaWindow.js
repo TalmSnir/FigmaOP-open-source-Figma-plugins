@@ -1,4 +1,7 @@
 import React from 'react';
+import LeftPanel from '../assets/Left Sidebar Panel.svg';
+import RightPanel from '../assets/Right Sidebar Panel.svg';
+import TopBar from '../assets/Toolbar.svg';
 export default function FigmaWindow({
   children,
   figmaWindowRef,
@@ -12,11 +15,19 @@ export default function FigmaWindow({
       ref={figmaWindowRef}
       onClick={onClick}
       onMouseMove={onMouseMove}>
-      <div className='figma-window__top'></div>
-      <div className='figma-window__right'></div>
-      <div className='figma-window__left'></div>
-      <div className='container' ref={containerRef} onClick={onClick}>
-        {children}
+      <div className='figma-window__top'>
+        <img src={TopBar} alt='left panel figma window' />
+      </div>
+      <div className='figma-window__right'>
+        <img src={RightPanel} alt='left panel figma window' />
+      </div>
+      <div className='figma-window__left'>
+        <img src={LeftPanel} alt='left panel figma window' />
+      </div>
+      <div className='wrapper'>
+        <div className='inner-container' onClick={onClick} ref={containerRef}>
+          {children}
+        </div>
       </div>
     </div>
   );

@@ -1,65 +1,63 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
-export default function useFigmaWindow({
-  containerRef,
-  overlayRef,
-  figmaWindowRef,
-  pluginRef,
-}) {
+export default function useFigmaWindow({ containerRef, overlayRef }) {
   const [elementClicked, setElementClicked] = useState(false);
-  const [elementRect, setElementRect] = useState({
-    offsetLeft: 0,
-    offsetTop: 0,
-    width: 0,
-    height: 0,
-  });
-
-  const element = useRef(null);
+  const [element, setElement] = useState(null);
 
   const handleClick = e => {
     e.stopPropagation();
     const target = e.target;
 
     if (target === containerRef.current) {
-      element.current = containerRef.current;
       setElementClicked(false);
+      setElement(containerRef.current);
     } else if (
-      target !== element.current &&
+      target !== element &&
       ['h1', 'a', 'p'].includes(target.nodeName.toLowerCase())
     ) {
-      // if (element.current !== null) {
-      //   element.current.setAttribute('contenteditable', false);
-      // }
-      element.current = e.currentTarget;
-
-      // element.current.setAttribute('contenteditable', true);
-      element.current.style.outline = '';
-      const { width, height, left } = element.current.getBoundingClientRect();
-
-      let { offsetTop } = element.current;
-
-      setElementRect({ width, height, offsetTop, left });
+      setElement(e.currentTarget);
       setElementClicked(true);
     }
   };
+  useEffect(() => {
+    if (element && elementClicked) {
+      const parentWidth = parseInt(
+        getComputedStyle(element.parentElement).width
+      );
+      const parentPaddingLeft = parseInt(
+        getComputedStyle(element.parentElement).paddingLeft
+      );
+      element.style.maxWidth = `${parentWidth - parentPaddingLeft * 2}px`;
+
+      element.setAttribute('contenteditable', true);
+      element.style.outline = '';
+      element.style.position = 'relative';
+    }
+    return () => {
+      if (element && elementClicked) {
+        element.setAttribute('contenteditable', false);
+      }
+    };
+  }, [element, elementClicked]);
+
+  useEffect(() => {
+    const overlay = overlayRef.current;
+    const ele = element;
+
+    if (elementClicked && overlay && overlayRef) {
+      ele.appendChild(overlay);
+    }
+  }, [elementClicked, overlayRef, element]);
+
   const handleMouseOver = e => {
     e.stopPropagation();
-    if (element.current !== e.currentTarget) {
+    if (element !== e.currentTarget) {
       e.target.style.outline = '2px solid var(--clr-blue)';
     }
   };
   const handleMouseLeave = e => {
     e.target.style.outline = '';
   };
-  useEffect(() => {
-    if (overlayRef !== null && elementClicked) {
-      const { left, offsetTop, width, height } = elementRect;
-      overlayRef.current.style.width = `${width}px`;
-      overlayRef.current.style.height = `${height}px`;
-      overlayRef.current.style.left = `${left}px`;
-      overlayRef.current.style.top = `${offsetTop}px`;
-    }
-  }, [elementClicked, elementRect, overlayRef]);
 
   return {
     handleMouseOver,
