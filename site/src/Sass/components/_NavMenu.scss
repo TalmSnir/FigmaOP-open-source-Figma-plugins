@@ -6,13 +6,15 @@
   background: var(--clr-green);
   padding: var(--spacing-md);
   z-index: var(--z-top);
-  transform: translateX(100%);
+  visibility: hidden;
+  opacity: 0;
   @media (prefers-reduced-motion: no-preference) {
-    transition: transform 300ms ease-in-out;
+    transition: opacity 300ms ease-in-out;
   }
 
   &.show {
-    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
   }
   &__menu {
     display: flex;
@@ -25,8 +27,8 @@
     position: unset;
     padding: unset;
     background: transparent;
-    transform: translateX(0);
-    transition: unset;
+    visibility: visible;
+    opacity: 1;
 
     .header__nav__menu {
       flex-direction: row;

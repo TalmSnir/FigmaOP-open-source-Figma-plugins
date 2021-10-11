@@ -27,16 +27,31 @@ export default function Plugin({
   const windowSize = useWindowSize();
 
   useEffect(() => {
-    console.log(pluginRef.current.style.left);
-    if (
-      windowSize &&
-      pluginRef &&
-      parseInt(pluginRef.current.style.left) < 200 &&
-      windowSize.width > 1400
-    ) {
-      pluginRef.current.style.left = '25%';
+    const windowWidth = windowSize.width;
+    const figmaFrameHeight = figmaWindowRef.current.offsetHeight;
+    const pluginWidth = pluginRef.current.offsetWidth;
+    const pluginHeight = pluginRef.current.offsetHeight;
+    const pluginLeftPos = pluginRef.current.style.left;
+    const pluginTopPos = pluginRef.current.style.top;
+    if (windowSize && pluginRef) {
+      //fixing overflow from the right
+      if (windowWidth - pluginWidth < parseInt(pluginLeftPos)) {
+        pluginRef.current.style.left = `${windowWidth - pluginWidth - 16}px`;
+      }
+      if (windowSize.width > 1400) {
+        //if the screen is more than 1400px than there is a need to shift the plugin frame inside the figma frame due to overflow from the left and right sides;
+        if (parseInt(pluginLeftPos) < 212) {
+          pluginRef.current.style.left = '25%';
+        } else if (parseInt(pluginRef.current.style.left) > 1000) {
+          pluginRef.current.style.left = `calc(100% - 212px - 16px - ${pluginWidth}px)`;
+        }
+      }
+      //if the screen is more less 1400px than there is a need to shift the plugin frame inside the figma frame due to overflow from the bottom;
+      else if (parseInt(pluginTopPos) > figmaFrameHeight - pluginHeight) {
+        pluginRef.current.style.top = `${figmaFrameHeight - pluginHeight}px`;
+      }
     }
-  }, [windowSize, pluginRef]);
+  }, [windowSize, pluginRef, figmaWindowRef]);
   const handleUpdateSizes = e => {
     setSizes(sizes => {
       let newSizes = [];

@@ -12,6 +12,7 @@ function NavLink({
   type,
   btnVariant,
   onClick,
+
   disabled,
 }) {
   const className = classNames({
