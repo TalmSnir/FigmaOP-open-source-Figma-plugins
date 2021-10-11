@@ -9,7 +9,6 @@ export function NewIdeaForm({ setIsSubmitted }) {
 
   return (
     <form className='form' noValidate onSubmit={handleSubmit}>
-    
       <div className={`form__input-container ${errors.name && 'input-error'}`}>
         <input
           type='text'
@@ -34,7 +33,8 @@ export function NewIdeaForm({ setIsSubmitted }) {
         <label htmlFor='email'>email address</label>
         {errors.email && <div className='error'>{errors.email}</div>}
       </div>
-      <div className='form__input-container'>
+      <div
+        className={`form__input-container ${errors.content && 'input-error'}`}>
         <textarea
           type='text'
           name='content'
@@ -44,6 +44,7 @@ export function NewIdeaForm({ setIsSubmitted }) {
           onChange={handleChange}
         />
         <label htmlFor='content'>write a description of your idea</label>
+        {errors.content && <div className='error'>{errors.content}</div>}
       </div>
       <button type='submit' className='btn btn--primary'>
         send

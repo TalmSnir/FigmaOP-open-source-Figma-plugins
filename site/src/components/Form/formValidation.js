@@ -21,16 +21,16 @@ export default function formValidation({ values }) {
   if (values.name.replace(/[ -]+/g, '').length < 3) {
     errors.name = errorOptions.name.shortName;
   }
-  if (/^[A-Za-z]+$/.test(values.name.replace(' ', ''))) {
+  if (!/^[A-Za-z]+$/.test(values.name.replace(' ', ''))) {
     errors.name = errorOptions.name.notAllLetter;
   }
   if (values.email.length === 0) {
     errors.email = errorOptions.email.empty;
   }
-  if (/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/.test(values.email)) {
+  if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(values.email)) {
     errors.email = errorOptions.email.invalidEmail;
   }
-  if (!values.content.replace(' ', '').length === 0) {
+  if (values.content.replace(' ', '').length === 0) {
     errors.content = errorOptions.content.empty;
   }
 
