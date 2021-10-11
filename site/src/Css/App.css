@@ -186,6 +186,7 @@ body {
   font-family: var(--ff-primary);
   height: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 *::selection {
@@ -578,7 +579,7 @@ header .header__menu__icon {
 }
 @media (prefers-reduced-motion: no-preference) {
   .header__nav {
-    transition: opacity 300ms ease-in-out;
+    transition: opacity 200ms ease-in-out;
   }
 }
 .header__nav.show {
@@ -1282,13 +1283,15 @@ footer .footer__menus {
   align-items: center;
   text-align: center;
   position: relative;
-  width: calc(100% + 16px);
+  padding: var(--spacing-md) var(--spacing-sm);
+  width: 100%;
   margin: 0 auto;
   cursor: var(--svg-cursor-figma), pointer;
 }
 @media (min-width: 1440px) {
   .figma-window .inner-container {
     max-width: 976px;
+    width: calc(100% + 16px);
   }
 }
 @media (min-width: 550px) {
@@ -1361,6 +1364,9 @@ footer .footer__menus {
   z-index: 1000;
 }
 .figma-window__top img {
+  position: absolute;
+  top: 0;
+  left: 0;
   max-width: 100%;
 }
 

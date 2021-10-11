@@ -47,11 +47,12 @@
     align-items: center;
     text-align: center;
     position: relative;
-
-    width: calc(100% + 16px);
+    padding: var(--spacing-md) var(--spacing-sm);
+    width: 100%;
     margin: 0 auto;
     @include responsive-screen(xl) {
       max-width: calc(1400px - 212px * 2);
+      width: calc(100% + 16px);
     }
     @include containerBreakPoints(
       var(--spacing-md),
@@ -99,6 +100,9 @@
   right: 0;
   z-index: 1000;
   img {
+    position: absolute;
+    top: 0;
+    left: 0;
     max-width: 100%;
   }
 }

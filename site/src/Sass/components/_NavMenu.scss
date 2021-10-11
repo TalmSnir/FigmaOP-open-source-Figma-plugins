@@ -9,7 +9,7 @@
   visibility: hidden;
   opacity: 0;
   @media (prefers-reduced-motion: no-preference) {
-    transition: opacity 300ms ease-in-out;
+    transition: opacity 200ms ease-in-out;
   }
 
   &.show {
