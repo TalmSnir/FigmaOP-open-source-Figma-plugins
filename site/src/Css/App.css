@@ -917,6 +917,36 @@ footer .container {
     justify-items: center;
   }
 }
+@media (min-width: 550px) {
+  footer .container {
+    padding: var(--spacing-md);
+  }
+}
+@media (min-width: 768px) {
+  footer .container {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+}
+@media (min-width: 1000px) {
+  footer .container {
+    padding: var(--spacing-lg);
+  }
+}
+@media (min-width: 1200px) {
+  footer .container {
+    padding: var(--spacing-lg);
+  }
+}
+@media (min-width: 1440px) {
+  footer .container {
+    padding: var(--spacing-md);
+  }
+}
+@media (min-width: 1900px) {
+  footer .container {
+    padding: var(--spacing-md);
+  }
+}
 footer .footer__info {
   display: flex;
   flex-direction: column;
