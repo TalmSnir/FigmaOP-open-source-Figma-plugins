@@ -125,7 +125,7 @@ export const supportSources = [
 ];
 export const upVotesLinks = {
   github: 'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins',
-  productHunt: 'url',
+  productHunt: 'https://www.producthunt.com/posts/figmaop',
 };
 export const mainRepo =
   'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins';
