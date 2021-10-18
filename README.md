@@ -4,7 +4,7 @@
 
 
 
-FigmaOp is a project dedicated to creating simple but effective tools to help with the day-to-day tasks of designers and developers. one of the main goals of this project is to allow junior developers to give back to the community by building small-scale applications with open source in mind; the best way to learn is to build and what is better than making something that people can actually use?!
+FigmaOP is a project dedicated to creating simple but effective tools to help with the day-to-day tasks of designers and developers. one of the main goals of this project is to allow junior developers to give back to the community by building small-scale applications with open source in mind; the best way to learn is to build and what is better than making something that people can actually use?!
 
 [FigmaOP Site](https://figmaop.netlify.app/)
 
