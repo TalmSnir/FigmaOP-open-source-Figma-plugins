@@ -1,38 +1,38 @@
 figma.showUI(__html__, { width: 350, height: 250 });
-
+let notificationHandler;
 const handleMessage = {
   messages: {
-    noSelection: '✘ select at least one frame or component instance',
-    notFrameSelection: '✘ select only frames or components instances',
-    reject: '✘ something went wrong please run again',
-    success: '✔ Layout Handoff ran successfully',
+    warning: {
+      noSelection: '✘ select at least one frame or component instance',
+      notFrameSelection: '✘ select only frames or components instances',
+      reject: '✘ something went wrong please run again',
+    },
+    success: {
+      layoutRan: '✔ Layout Handoff ran successfully',
+    },
+    post: {
+      enable: 'enable',
+      disable: 'disable',
+      loadData: 'loadData',
+    },
   },
-  showNotification(type) {
-    figma.notify(this.messages[type], { timeout: 2000 });
+  showNotification(state, message) {
+    notificationHandler ? notificationHandler.cancel() : '';
+    notificationHandler = figma.notify(this.messages[state][message], {
+      timeout: 2000,
+    });
+  },
+
+  postMessage(msg, data) {
+    figma.ui.postMessage({ msg, data });
   },
 };
 
-//adds border to a frame: if it's the main frame-the border color will be purple and dashed else the border color will be red and solid.
-function addBorder(frame, mainFrame = false) {
-  frame.strokeAlign =
-    frame.strokes.length === 0 ? 'OUTSIDE' : frame.strokeAlign;
-  frame.strokes = frame.strokes.concat([
-    {
-      blendMode: 'NORMAL',
-      color: mainFrame ? mainFrameColor : elementFrameColor,
-      opacity: 1,
-      type: 'SOLID',
-      visible: true,
-    },
-  ]);
-
-  mainFrame ? (frame.dashPattern = [24, 24]) : null;
-  frame.strokeWeight = 4;
-}
-//converting colors from HEX to FigmaRGB
+const namesRGB = ['r', 'g', 'b'];
+//converting colors from HEX to FigmaRGB and vice versa
 function webRGBToFigmaRGB(color) {
   const rgb = {};
-  const namesRGB = ['r', 'g', 'b'];
+
   namesRGB.forEach((e, i) => {
     rgb[e] = color[i] / 255;
   });
@@ -51,6 +51,54 @@ function hexToFigmaRGB(color) {
   {
     return webRGBToFigmaRGB(rgb);
   }
+}
+
+function figmaRGBToWebRGB(color) {
+  const rgb = [];
+
+  namesRGB.forEach((e, i) => {
+    rgb[i] = Math.round(color[e] * 255);
+  });
+
+  if (color['a'] !== undefined) rgb[3] = Math.round(color['a'] * 100) / 100;
+  return rgb;
+}
+
+function figmaRGBToHex(color) {
+  let hex = '#';
+
+  const rgb = figmaRGBToWebRGB(color);
+  hex += ((1 << 24) + (rgb[0] << 16) + (rgb[1] << 8) + rgb[2])
+    .toString(16)
+    .slice(1);
+
+  if (rgb[3] !== undefined) {
+    const a = Math.round(rgb[3] * 255).toString(16);
+    if (a.length == 1) {
+      hex += '0' + a;
+    } else {
+      if (a !== 'ff') hex += a;
+    }
+  }
+  return hex;
+}
+
+//adds border to a frame: if it's the main frame-the border color will be purple and dashed else the border color will be red and solid.
+function addBorder(frame, mainFrame = false) {
+  frame.strokeAlign =
+    frame.strokes.length === 0 ? 'OUTSIDE' : frame.strokeAlign;
+  frame.strokes = frame.strokes.concat([
+    {
+      blendMode: 'NORMAL',
+      color: mainFrame ? mainFrameColor : elementFrameColor,
+      opacity: 1,
+      type: 'SOLID',
+      visible: true,
+    },
+  ]);
+
+  mainFrame ? (frame.dashPattern = [24, 24]) : null;
+  frame.strokeWeight = 4;
 }
 //filters the children of the frame based on the the types[FRAME,INSTANCE]
 function filterFrames(frame) {
@@ -171,13 +219,13 @@ function addBordersToFrames(frame) {
 //checks if the selection is of type FRAME|| NODE-if false will show an appropriate message and will close the plugin ,else will return true.
 function checkSelections() {
   if (selections.length === 0) {
-    handleMessage.showNotification('noSelection');
+    handleMessage.showNotification('warning', 'noSelection');
   } else if (
     selections.find(
       selection => selection.type !== 'FRAME' && selection.type !== 'INSTANCE'
     )
   ) {
-    handleMessage.showNotification('notFrameSelection');
+    handleMessage.showNotification('warning', 'notFrameSelection');
   } else {
     return true;
   }
@@ -197,11 +245,11 @@ async function main() {
       addBordersToFrames(selection);
       createComponentsFrame(selection, mainFrame);
     });
-    handleMessage.showNotification('success');
+    handleMessage.showNotification('success', 'layoutRan');
   } catch (err) {
     //message for development mode
     console.log('in loadFont catch: ', err);
-    handleMessage.showNotification('reject');
+    handleMessage.showNotification('warning', 'reject');
   } finally {
     figma.closePlugin();
   }
@@ -211,9 +259,9 @@ function handleSelectionChange() {
   selections = figma.currentPage.selection;
   //if the selections are of type FRAME|| VARIANT will run the plugin's desired functionality
   if (checkSelections()) {
-    figma.ui.postMessage('enable');
+    handleMessage.postMessage('enable');
   } else {
-    figma.ui.postMessage('disable');
+    handleMessage.postMessage('disable');
   }
 }
 let selections = [];
@@ -226,16 +274,62 @@ let elementFrameColor = {
 };
 let mainFrameColor = { r: 0.5647059082984924, g: 0.48627451062202454, b: 1 };
 
+/*=============================================
+=            Local storage Functions            =
+=============================================*/
+const handleLocalStorage = {
+  async saveToStorage(key, data) {
+    try {
+      await figma.clientStorage.setAsync(key, data);
+    } catch (err) {
+      console.log('in saveToStorage catch: ', err);
+      handleMessage.showNotification('warning', 'reject');
+    }
+  },
+  async getFromStorage(key) {
+    try {
+      const data = await figma.clientStorage.getAsync(key);
+      return data;
+    } catch (err) {
+      console.log('in getFromStorage catch: ', err);
+      handleMessage.showNotification('warning', 'reject');
+    }
+  },
+};
+
+/*=============================================
+=            onEvent Functions            =
+=============================================*/
+
+async function onRun() {
+  const data = await handleLocalStorage.getFromStorage('colors');
+  [mainFrameColor, elementFrameColor] = data
+    ? data
+    : [mainFrameColor, elementFrameColor];
+  const colors = [mainFrameColor, elementFrameColor].map(color =>
+    figmaRGBToHex(color)
+  );
+  handleMessage.postMessage(handleMessage.messages.post.loadData, colors);
+  handleSelectionChange();
+}
+async function onClose() {
+  await handleLocalStorage.saveToStorage('colors', [
+    mainFrameColor,
+    elementFrameColor,
+  ]);
+}
+
 figma.ui.onmessage = message => {
-  switch (message.type) {
+  const { type, data } = message;
+  switch (type) {
     case 'run':
       main();
       break;
     case 'element-frame-border-color':
-      elementFrameColor = hexToFigmaRGB(message.data);
+      elementFrameColor = hexToFigmaRGB(data);
       break;
     case 'main-frame-border-color':
-      mainFrameColor = hexToFigmaRGB(message.data);
+      mainFrameColor = hexToFigmaRGB(data);
       break;
     default:
       return;
@@ -243,3 +337,5 @@ figma.ui.onmessage = message => {
 };
 
 figma.on('selectionchange', handleSelectionChange);
+figma.on('run', onRun);
+figma.on('close', onClose);

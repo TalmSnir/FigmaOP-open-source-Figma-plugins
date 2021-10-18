@@ -1,4 +1,6 @@
 import FastVariantsPropertiesGif from './assets/FastVariantsProperties.gif';
+import LayoutHandoffGif from './assets/layouthandoff.gif';
+import IconsToolboxGif from './assets/iconsToolbox.gif';
 export const plugins = [
   {
     pluginName: 'fast variants properties',
@@ -28,7 +30,7 @@ export const plugins = [
      
     
     All that without extra effort.`,
-    pluginGif: 'gif',
+    pluginGif: LayoutHandoffGif,
     pluginRepo:
       'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Layout-Handoff',
     pluginFigmaCommunityPage:
@@ -57,7 +59,7 @@ All of the above with a press of a button!!!
 Last but not least, you have the option to preserve the stroke width in each resize or, you can let the plugin do the computations for you and change the weight according to the scaling ratio.
 
 `,
-    pluginGif: 'gif',
+    pluginGif: IconsToolboxGif,
     pluginRepo:
       'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Icons%20Toolbox',
     pluginFigmaCommunityPage:

@@ -85,22 +85,22 @@
     transform: translate(20px, 20px);
   }
   20% {
-    transform: translate(40px, 80px);
+    transform: translate(60px, 80px);
   }
   30% {
-    transform: translate(-120px, 60px);
+    transform: translate(100px, 120px);
   }
   40% {
-    transform: translate(20px, 20px);
+    transform: translate(-60px, 60px);
   }
   50% {
-    transform: translate(40px, 20px);
+    transform: translate(-20px, -30px);
   }
   80% {
-    transform: translate(80px, -100px);
+    transform: translate(0px, 40px);
   }
   100% {
-    transform: translate(20px, 20px);
+    transform: translate(0, -60px);
   }
 }
 @keyframes multiplayer-2 {
@@ -1078,6 +1078,12 @@ footer .footer__menus {
 @media (min-width: 1000px) {
   .new-idea__subtitle {
     text-align: start;
+    font-size: var(--fs-lg);
+  }
+}
+@media (min-width: 1200px) {
+  .new-idea__subtitle {
+    font-size: var(--fs-xl);
   }
 }
 

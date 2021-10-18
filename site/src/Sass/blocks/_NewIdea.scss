@@ -46,6 +46,10 @@
     color: var(--clr-purple);
     @include responsive-screen(md) {
       text-align: start;
+      font-size: var(--fs-lg);
+    }
+    @include responsive-screen(lg) {
+      font-size: var(--fs-xl);
     }
   }
 }

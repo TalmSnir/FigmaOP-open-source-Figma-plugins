@@ -150,7 +150,7 @@
     </form>
     <script>
       const form = document.querySelector('form');
-      const inputs = document.querySelectorAll('.inputs');
+      const inputs = document.querySelectorAll('input');
       const button = document.querySelector('button');
 
       function handleChangeColor(e) {
@@ -166,20 +166,35 @@
       );
       button.addEventListener('click', handleSubmit);
 
+      /*=============================================
+      =            Post and Get Messages Functions            =
+      =============================================*/
+
       function handlePostMessage(type, data = '') {
         parent.postMessage({ pluginMessage: { type, data } }, '*');
       }
-
       onmessage = e => {
-        const { pluginMessage } = e.data;
-        switch (pluginMessage) {
-          case 'enable':
+        const { msg, data } = e.data.pluginMessage;
+        const actions = {
+          enable: () => {
             button.disabled = false;
-            break;
-          case 'disable':
+          },
+          disable: () => {
             button.disabled = true;
-        }
+          },
+          loadData: () => handleLoad(data),
+        };
+
+        actions[msg]();
       };
+
+      /*=============================================
+            =            Load and Set Data Functions            =
+            =============================================*/
+
+      function handleLoad(data) {
+        inputs.forEach((input, id) => (input.value = data[id]));
+      }
     </script>
   </body>
 </html>
