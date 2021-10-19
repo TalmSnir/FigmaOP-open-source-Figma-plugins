@@ -16,7 +16,7 @@ FigmaOP is a project dedicated to creating simple but effective tools to help wi
   </br>
 - <img align='center' src='site\src\assets\icons-toolbox.svg'  width='48' height='48'> [Icons Toolbox](https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Icons%20Toolbox)
 
-- <img align='center' src='site\src\assets\icons-toolbox.svg'  width='48' height='48'> [Icons Toolbox](/Icons Toolbox/README.md)
+- <img align='center' src='site\src\assets\icons-toolbox.svg'  width='48' height='48'> [Icons Toolbox](/Icons%20Toolbox/README.md)
 
 
 ## Sources
