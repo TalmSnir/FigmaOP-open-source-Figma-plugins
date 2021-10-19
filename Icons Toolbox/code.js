@@ -45,6 +45,7 @@ const handleMessage = {
       duplicate: () => iconsFunctions.duplicateIcons(data),
       preserveStrokeWeight: () =>
         (preserveStrokeWeight = !preserveStrokeWeight),
+      createFavicons: () => iconsFunctions.createFavicons(),
     };
 
     actions[type]();
@@ -144,26 +145,71 @@ const iconsFunctions = {
   removeResizeButton(key) {
     sizes.splice(key, 1);
   },
-  duplicateIcons(sizes) {
+  duplicateIcons(sizes, faviconOptions) {
     const offsetX = 32;
     const padding = 8;
-
+    let acc = 0;
     if (sizes.length !== 0) {
       sizes.forEach((iconMaxWidth, id) => {
         const selectionsCopies = selections.map(selection => {
           const clone = selection.clone();
-          clone.x =
-            selection.absoluteTransform[0][2] +
-            selection.width * (id + 1) +
-            offsetX;
           clone.y = selection.absoluteTransform[1][2];
           return clone;
         });
         const frameSize = iconMaxWidth + padding;
-
         this.resizeIcons({ frameSize, iconMaxWidth }, selectionsCopies);
+        acc += sizes[id - 1] ? sizes[id - 1] + 8 : 0;
+
+        selectionsCopies.forEach((copy, key) => {
+          copy.x =
+            selections[key].absoluteTransform[0][2] +
+            selections[key].width +
+            acc +
+            offsetX * (id + 1);
+        });
+
+        //if the function call was from duplicate to favicon formats
+        if (faviconOptions) {
+          selectionsCopies.forEach(selection => {
+            selection.exportSettings =
+              faviconOptions[id].format === 'PNG'
+                ? [
+                    {
+                      constraint: { type: 'SCALE', value: 1 },
+                      contentsOnly: true,
+                      format: 'PNG',
+                      suffix: `${faviconOptions[id].suffix}`,
+                    },
+                  ]
+                : [
+                    {
+                      contentsOnly: true,
+                      format: 'SVG',
+                      suffix: `${faviconOptions[id].suffix}`,
+                      svgIdAttribute: false,
+                      svgOutlineText: true,
+                      svgSimplifyStroke: true,
+                    },
+                  ];
+          });
+        }
       });
     }
+  },
+  createFavicons() {
+    //minus 8 to accommodate for the 8px padding
+    // real sizes: 192,180,152,32,16
+    const faviconOptions = [
+      { format: 'SVG', size: 8, suffix: 'svg-favicon-16' },
+      { format: 'SVG', size: 24, suffix: 'svg-favicon-32' },
+      { format: 'PNG', size: 144, suffix: 'android-icon-152' },
+      { format: 'PNG', size: 172, suffix: 'apple-touch-icon-180' },
+      { format: 'PNG', size: 184, suffix: 'android-icon-192' },
+    ];
+
+    const sizes = faviconOptions.map(options => parseInt(options.size));
+
+    this.duplicateIcons(sizes, faviconOptions);
   },
 };
 
