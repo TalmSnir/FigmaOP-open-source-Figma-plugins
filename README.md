@@ -14,7 +14,7 @@ FigmaOP is a project dedicated to creating simple but effective tools to help wi
   </br>
 - <img align='center' src='site\src\assets\layout-handoff.svg'  width='48' height='48'> [Layout Handoff](https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Layout-Handoff)
   </br>
-- <img align='center' src='site\src\assets\icons-toolbox.svg'  width='48' height='48'> [Icons Toolbox](https://github.com/TalmSnir/Figma-Plugins/tree/main/Fast%20Variants%20Properties)
+- <img align='center' src='site\src\assets\icons-toolbox.svg'  width='48' height='48'> [Icons Toolbox](../Icons Toolbox)
 
 ## Sources
 
