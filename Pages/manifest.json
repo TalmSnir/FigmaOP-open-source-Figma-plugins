@@ -1,0 +1,8 @@
+{
+  "name": "Pages",
+  "api": "1.0.0",
+  "editorType": ["figma"],
+  "main": "./dist/code.js",
+  "id": "1032966286384619512",
+  "ui": "./dist/ui.html"
+}

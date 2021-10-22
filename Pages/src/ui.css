@@ -1,0 +1,81 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+:root {
+  --clr-red: hsl(11, 89%, 54%);
+  --clr-blue: hsl(204, 97%, 54%);
+  --clr-white: hsl(0, 100%, 100%);
+  --clr-background-grey-f0: hsl(0, 0%, 94%);
+  --clr-black-1: hsla(0, 0%, 0%, 0.1);
+  --clr-black-15: hsla(0, 0%, 0%, 0.15);
+  --clr-black-3: hsla(0, 0%, 0%, 0.3);
+  --clr-black-8: hsla(0, 0%, 0%, 0.8);
+  --clr-black: hsl(0, 0%, 0%);
+  --clr-scrollbar: hsl(0, 0%, 62%);
+
+  --ff-primary: 'Inter', sans-serif;
+}
+/*=============================================
+  =            scrollbar customization            =
+  =============================================*/
+html {
+  /* font-size: 16px; */
+  scrollbar-width: thin;
+  scrollbar-color: var(--clr-scrollbar) transparent;
+  scroll-behavior: smooth;
+  padding: 1rem;
+}
+
+html::-webkit-scrollbar {
+  width: 0.6rem;
+
+  padding: 0 0.2rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--clr-scrollbar);
+  border-radius: 3rem;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-black-3);
+}
+
+body {
+  font-family: var(--ff-primary);
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  inline-size: 100%;
+}
+.flex-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.2rem;
+  inline-size: 100%;
+}
+section {
+  width: 100%;
+}
+
+form,
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  inline-size: 100%;
+}
+
+button.button {
+  margin-block-start: 0.5rem;
+}
+.modal {
+  background: var(--clr-white);
+}
