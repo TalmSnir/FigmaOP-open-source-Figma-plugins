@@ -17,21 +17,19 @@ const EllipsisText = styled(Text)`
   text-overflow: ellipsis;
 `;
 export default function PageTemplateContainer({
-  templateName,
-  templateId,
-  pages,
+  templateData,
   onClick,
   onEditClick,
 }) {
   return (
-    <StyledLi onClick={() => onClick(pages)}>
+    <StyledLi onClick={() => onClick(templateData.pages)}>
       <EllipsisText size='small' weight='medium'>
-        {templateName}
+        {templateData.templateName}
       </EllipsisText>
       <Icon
         color='black8'
         name='settings'
-        onClick={e => onEditClick(e, templateId)}></Icon>
+        onClick={e => onEditClick(e, templateData.id)}></Icon>
     </StyledLi>
   );
 }

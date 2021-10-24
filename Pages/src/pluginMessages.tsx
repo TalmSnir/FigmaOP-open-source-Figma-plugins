@@ -9,5 +9,6 @@ export const pluginMessages = {
     updatedTemplate: '✔ templates has been updated successfully',
     newTemplate: '✔ new template has been created successfully',
     deletedTemplate: '✔ template has been deleted successfully',
+    updatePages: '✔ pages list has been updated successfully',
   },
 };

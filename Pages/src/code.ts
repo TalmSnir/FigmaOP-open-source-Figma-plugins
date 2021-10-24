@@ -14,6 +14,7 @@ figma.ui.onmessage = message => {
     newTemplate: () => updateTemplate(msg, data),
     updatedTemplate: () => updateTemplate(msg, data),
     deletedTemplate: () => updateTemplate(msg, data),
+    updatePages: () => updatePages(msg),
   };
   actions[msg]();
 };
@@ -61,29 +62,34 @@ async function createIndex(msg) {
 
 function getPages() {
   pages = figma.root.children;
-  const pagesNames = pages.map(page => page.name);
-  postMessageToUI('pagesNames', pagesNames);
+  const returnPages = pages.map(page => {
+    return { name: page.name, id: page.id };
+  });
+  postMessageToUI('pages', returnPages);
 }
 
 function createPages(msg, data) {
-  data.forEach(page => {
+  data.forEach(name => {
     const newPage = figma.createPage();
-    newPage.name = page;
+    newPage.name =
+      name[0] === '-' && name[name.length - 1] === '-'
+        ? `— — — — ${name.replace('-', '')}— — — — `
+        : name;
   });
   getPages();
   showNotification('success', msg);
 }
 function deletePages(msg, data) {
-  const pagesToDelete = pages.filter(page => data.includes(page.name));
-  pages = pages.filter(page => !data.includes(page.name));
+  const pagesToDelete = pages.filter(page => data.includes(page.id));
+  pages = pages.filter(page => !data.includes(page.id));
 
   //if the user wants to remove all the pages- there is a need to insert at least one page to the Document Node
   if (pages.length === 0) {
     const newPage = figma.createPage();
-    newPage.name = 'new page';
+    newPage.name = 'page 1';
     figma.currentPage = newPage;
   } else {
-    figma.currentPage = pagesToDelete.includes(currentPage)
+    figma.currentPage = pagesToDelete.find(page => page.id === currentPage.id)
       ? pages[0]
       : currentPage;
   }
@@ -93,10 +99,12 @@ function deletePages(msg, data) {
   }
 
   getPages();
+
   showNotification('success', msg);
 }
-function updatePages() {
+function updatePages(msg = null) {
   currentPage = figma.currentPage;
+  if (msg) showNotification('success', msg);
   getPages();
 }
 /*=============================================

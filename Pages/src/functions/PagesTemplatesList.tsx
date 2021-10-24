@@ -15,7 +15,7 @@ export default function PagesTemplateList() {
   const [currentTemplateId, setCurrentTemplateId] = useState(null);
 
   const handleClick = data => {
-    postMessageToPlugin('createPages', data);
+    postMessageToPlugin('createPages', data.split(','));
   };
   const handleEdit = (e, templateId) => {
     e.stopPropagation();
@@ -27,10 +27,10 @@ export default function PagesTemplateList() {
   };
   return (
     <>
-      {finishedLoading && data.templates.length ? (
+      {finishedLoading && data && data.templates && data.templates.length ? (
         <section>
           <Label size='small' weight='medium'>
-            saved templates
+            Saved templates
           </Label>
           <ul>
             {isEdit ? (
@@ -42,15 +42,13 @@ export default function PagesTemplateList() {
               </Modal>
             ) : null}
             {finishedLoading &&
-              data.templates.map((template, id) => {
-                const { templateName, pages, templateId } = template;
+              data &&
+              data.templates.map(template => {
                 return (
                   <PageTemplateContainer
-                    templateName={templateName}
-                    pages={pages}
-                    key={templateName + id}
+                    key={template.id}
                     onClick={handleClick}
-                    templateId={templateId}
+                    templateData={template}
                     onEditClick={handleEdit}
                   />
                 );
