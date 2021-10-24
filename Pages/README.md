@@ -19,7 +19,7 @@ Functions to simplify your pages problems:
 
 And if you want to add a separator with a name e.g ----cover---- just type “-cover-” as a page name.
 
-check
+
 
 
 
