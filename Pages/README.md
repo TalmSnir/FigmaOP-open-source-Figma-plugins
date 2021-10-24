@@ -3,7 +3,7 @@
 
 
 
-
+Functions to simplify your pages problems:
 
 ✅ Select and delete multiple pages or choose to delete all of the pages in a file.
 
@@ -27,7 +27,8 @@ for example:
 
 -cover-,page 1,page 2,-,page 3    =>
 
-![Page list](https://user-images.githubusercontent.com/72248784/138590916-1e321f29-cade-472c-84b1-81b54ba0ce4c.png)
+<img align="center" alt="page-list" width="200px" src="https://user-images.githubusercontent.com/72248784/138590953-71a1945a-b22a-4eee-8955-e23725b2d071.png" />
+
 
 
 
