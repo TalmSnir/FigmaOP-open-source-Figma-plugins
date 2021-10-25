@@ -1,0 +1,8 @@
+{
+  "name": "Fast Variants Properties",
+  "api": "1.0.0",
+  "editorType": ["figma"],
+  "main": "./dist/code.js",
+  "id": "1014435448527160306",
+  "ui": "./dist/ui.html"
+}
