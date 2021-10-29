@@ -1,0 +1,8 @@
+{
+  "name": "Grid System",
+  "api": "1.0.0",
+  "editorType": ["figma"],
+  "main": "./dist/code.js",
+  "id": "1033367904576323011",
+  "ui": "./dist/ui.html"
+}
