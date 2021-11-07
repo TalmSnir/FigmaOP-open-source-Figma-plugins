@@ -18,8 +18,8 @@
   &.btn__icon--right {
     flex-direction: row-reverse;
   }
-  &:hover,
-  &:focus {
+  &:not(:disabled):hover,
+  &:not(:disabled):focus {
     transform: scale(1.05);
   }
 }
@@ -38,8 +38,8 @@
   font-weight: var(--plugin-fw-btn);
   padding: var(--spacing-sm);
 
-  &:hover,
-  &:focus {
+  &:not(:disabled):hover,
+  &:not(:disabled):focus {
     outline: 0;
     box-shadow: inset 0 0 0 2px var(--clr-black-3);
     transform: unset;
@@ -60,39 +60,3 @@
 .btns-group--col {
   flex-direction: column;
 }
-
-//     appearance: none;
-//     border: 0;
-//     cursor: var(--svg-cursor-pointer);
-//     transition: 0.2s;
-//     background: transparent;
-//     border-radius: 0.6rem;
-//     font-weight: var(--fw-btn);
-//     font-size: var(--fs-button);
-//     padding: 1.5rem 2rem;
-//     text-transform: capitalize;
-//     cursor: var(--svg-cursor-pointer);
-//   }
-//   button:disabled {
-//     cursor: not-allowed;
-//   }
-//   button.btn--primary {
-//     background: var(--clr-blue);
-//     color: var(--clr-white);
-//   }
-//   button.btn--standard {
-//     color: var(--clr-black-8);
-//     box-shadow: inset 0 0 0 1px var(--clr-black-8);
-//   }
-
-//   button.btn--primary:not(:disabled):is(:hover, :focus) {
-//     outline: 0;
-//     box-shadow: inset 0 0 0 2px var(--clr-black-3);
-//   }
-//   button.btn--standard:not(:disabled):is(:hover, :focus) {
-//     outline: 0;
-//     box-shadow: inset 0 0 0 2px var(--clr-blue);
-//   }
-//   button:active {
-//     transform: scale(1.025);
-//   }

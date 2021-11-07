@@ -1,21 +1,32 @@
 import FastVariantsPropertiesGif from './assets/FastVariantsProperties.gif';
 import LayoutHandoffGif from './assets/layouthandoff.gif';
 import IconsToolboxGif from './assets/iconsToolbox.gif';
+import PagesGif from './assets/pages.gif';
+import GridSystemGif from './assets/gridSystem.gif';
+
+import FastVariantPropertiesIcon from './assets/fast-variants-properties.svg';
+import IconsToolBoxIcon from './assets/icons-toolbox.svg';
+import LayoutHandoffIcon from './assets/layout-handoff.svg';
+import SavedPrototypes from './assets/saved-prototypes.svg';
+import GridSystem from './assets/grid-system.svg';
+import Pages from './assets/pages.svg';
+
 export const plugins = [
   {
-    pluginName: 'fast variants properties',
-    pluginDescription: `Set variants properties fast and easy using toggles.
+    name: 'fast variants properties',
+    icon: FastVariantPropertiesIcon,
+    description: `Set variants properties fast and easy using toggles.
     No more writing each variant’s property over and over with every component in your design system.
     Now you can select from a pre-made list of properties the ones you want using toggles or add more by writing the property once.`,
-    pluginGif: FastVariantsPropertiesGif,
-    pluginRepo:
-      'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Fast%20Variants%20Properties',
-    pluginFigmaCommunityPage:
+    gif: FastVariantsPropertiesGif,
+    repo: 'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Fast%20Variants%20Properties',
+    figmaCommunity:
       'https://www.figma.com/community/plugin/1014435448527160306/Fast-Variants-Properties',
   },
   {
-    pluginName: 'layout handoff',
-    pluginDescription: `Select frames or variants, run the plugin and in a blink of an eye, you will have 3 frames of each selection with borders around the children frames and variants.
+    name: 'layout handoff',
+    icon: LayoutHandoffIcon,
+    description: `Select frames or variants, run the plugin and in a blink of an eye, you will have 3 frames of each selection with borders around the children frames and variants.
 
  
 
@@ -30,15 +41,15 @@ export const plugins = [
      
     
     All that without extra effort.`,
-    pluginGif: LayoutHandoffGif,
-    pluginRepo:
-      'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Layout-Handoff',
-    pluginFigmaCommunityPage:
+    gif: LayoutHandoffGif,
+    repo: 'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Layout-Handoff',
+    figmaCommunity:
       'https://www.figma.com/community/plugin/1025794954481152114/Layout-Handoff',
   },
   {
-    pluginName: 'icons toolbox',
-    pluginDescription: `Set of tools to save you from redoing the same thing over and over again while designing or using your favorite icons.
+    name: 'icons toolbox',
+    icon: IconsToolBoxIcon,
+    description: `Set of tools to save you from redoing the same thing over and over again while designing or using your favorite icons.
 
 
 
@@ -59,68 +70,93 @@ All of the above with a press of a button!!!
 Last but not least, you have the option to preserve the stroke width in each resize or, you can let the plugin do the computations for you and change the weight according to the scaling ratio.
 
 `,
-    pluginGif: IconsToolboxGif,
-    pluginRepo:
-      'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Icons%20Toolbox',
-    pluginFigmaCommunityPage:
+    gif: IconsToolboxGif,
+    repo: 'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Icons%20Toolbox',
+    figmaCommunity:
       'https://www.figma.com/community/plugin/1026762327285154536',
   },
   {
-    pluginName: 'saved prototypes',
-    pluginDescription: `Coming Soon...`,
-    pluginGif: 'gif',
-    pluginRepo: '#',
-    pluginFigmaCommunityPage: '#',
+    name: 'pages',
+    icon: Pages,
+    description: `Functions to simplify your pages problems:\n
+Select and delete multiple pages or choose to delete all of the pages in a file,
+Add multiple pages in one go,
+Save pages templates,
+Create pages index in a click.
+
+If you want to create a separator page e.g -------------  just type “-” as a page name.
+    
+    And if you want to add a separator with a name e.g ----cover---- just type “-cover-” as a page name.
+    
+    check`,
+    gif: PagesGif,
+    repo: 'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Pages',
+    figmaCommunity:
+      'https://www.figma.com/community/plugin/1032966286384619512/Pages',
   },
   {
-    pluginName: 'grid system',
-    pluginDescription: `Coming Soon...`,
-    pluginGif: 'gif',
-    pluginRepo: '#',
-    pluginFigmaCommunityPage: '#',
+    name: 'grid system',
+    icon: GridSystem,
+    description: `No more searching for the right grid to match your frame size!!!
+Functions to simplify your grids problems:
+Save grid templates with min and max sizes.
+Apply auto grids to frames -the plugin detects the frame’s sizes and applies the right grid that you saved as a template. 
+Show all grids in selected frames with one click.
+Hide all grids in selected frames with one click.
+Delete and update templates.`,
+    gif: GridSystemGif,
+    repo: 'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Grid-System',
+    figmaCommunity:
+      'https://www.figma.com/community/plugin/1033367904576323011',
+  },
+  {
+    name: 'saved prototypes',
+    icon: SavedPrototypes,
+    description: `Coming Soon...`,
+    gif: 'gif',
+    repo: '#',
+    figmaCommunity: '#',
   },
 ];
 export const supportSources = [
   {
-    sourceName: 'Figma plugin API',
-    sourceUrl: 'https://www.figma.com/plugin-docs/intro/',
+    name: 'Figma plugin API',
+    url: 'https://www.figma.com/plugin-docs/intro/',
   },
   {
-    sourceName: 'Figma plugin API forum',
-    sourceUrl: 'https://forum.figma.com/c/plugin-api/20',
+    name: 'Figma plugin API forum',
+    url: 'https://forum.figma.com/c/plugin-api/20',
   },
   {
-    sourceName: 'The UX of Figma plugins',
-    sourceUrl:
-      'https://uxdesign.cc/the-ux-of-figma-plugins-f4f896f8cf35?utm_source=pocket_mylist',
+    name: 'The UX of Figma plugins',
+    url: 'https://uxdesign.cc/the-ux-of-figma-plugins-f4f896f8cf35?utm_source=pocket_mylist',
   },
   {
-    sourceName: 'Figma plugins samples',
-    sourceUrl: 'https://github.com/figma/plugin-samples',
+    name: 'Figma plugins samples',
+    url: 'https://github.com/figma/plugin-samples',
   },
   {
-    sourceName: 'create Figma plugin',
-    sourceUrl: 'https://github.com/yuanqing/create-figma-plugin',
-  },
-
-  {
-    sourceName: 'Plugin Kit - Figma Community',
-    sourceUrl: 'https://www.figma.com/community/file/1025375618827139141',
+    name: 'create Figma plugin',
+    url: 'https://github.com/yuanqing/create-figma-plugin',
   },
 
   {
-    sourceName: 'Figma Plugin Helper functions',
-    sourceUrl: 'https://github.com/figma-plugin-helper-functions',
+    name: 'Plugin Kit - Figma Community',
+    url: 'https://www.figma.com/community/file/1025375618827139141',
   },
 
   {
-    sourceName: 'TypeScript',
-    sourceUrl: 'https://www.typescriptlang.org/',
+    name: 'Figma Plugin Helper functions',
+    url: 'https://github.com/figma-plugin-helper-functions',
+  },
+
+  {
+    name: 'TypeScript',
+    url: 'https://www.typescriptlang.org/',
   },
   {
-    sourceName: 'how to contribute to open source',
-    sourceUrl:
-      'https://opensource.guide/how-to-contribute/#how-to-submit-a-contribution',
+    name: 'how to contribute to open source',
+    url: 'https://opensource.guide/how-to-contribute/#how-to-submit-a-contribution',
   },
 ];
 export const upVotesLinks = {

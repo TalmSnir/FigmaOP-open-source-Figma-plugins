@@ -1,13 +1,13 @@
 import React from 'react';
 import NavLink from '../components/Navigation/NavLink';
 import { ButtonsGroup } from '../components/Buttons';
-import PluginIcon from '../components/Icons/PluginIcon';
+
 import Icon from '../components/Icons/Icon';
 import Container from '../components/Container';
-import { upVotesLinks } from '../data';
+import { upVotesLinks, plugins } from '../data';
 function Main() {
   const { github, productHunt } = upVotesLinks;
-  console.log(github);
+
   return (
     <main className='main' id='main'>
       <Container>
@@ -25,11 +25,11 @@ function Main() {
           </h2>
         </div>
         <div className='main__plugin-icons'>
-          <PluginIcon name='fast variants properties' />
-          <PluginIcon name='icons toolbox' />
-          <PluginIcon name='layout handoff' />
-          <PluginIcon name='saved prototypes' />
-          <PluginIcon name='grid system' />
+          {plugins.map((plugin, id) => {
+            return (
+              <img src={plugin.icon} alt='plugin-icon' key={plugin.name + id} />
+            );
+          })}
         </div>
 
         <ButtonsGroup direction='column'>

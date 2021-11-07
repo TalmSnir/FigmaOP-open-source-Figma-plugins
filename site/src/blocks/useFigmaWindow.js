@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 export default function useFigmaWindow({ containerRef, overlayRef }) {
   const [elementClicked, setElementClicked] = useState(false);
@@ -66,3 +67,8 @@ export default function useFigmaWindow({ containerRef, overlayRef }) {
     elementClicked,
   };
 }
+
+useFigmaWindow.propTypes = {
+  containerRef: PropTypes.node,
+  overlayRef: PropTypes.node,
+};

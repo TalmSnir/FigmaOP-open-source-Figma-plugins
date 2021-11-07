@@ -34,22 +34,22 @@ function Footer() {
         <div className='footer__menus'>
           <FooterMenu
             title='FigmaOP plugins'
-            dataSection='pluginFigmaCommunityPage'
-            dataTitle='pluginName'
+            dataSection='figmaCommunity'
+            dataTitle='name'
             items={plugins}
             iconName='externalLink'
           />
           <FooterMenu
             title='Plugins repositories'
-            dataSection='pluginRepo'
-            dataTitle='pluginName'
+            dataSection='repo'
+            dataTitle='name'
             items={plugins}
             iconName='repo'
           />
           <FooterMenu
             title='support'
-            dataSection='sourceUrl'
-            dataTitle='sourceName'
+            dataSection='url'
+            dataTitle='name'
             items={supportSources}
             iconName='link'
           />

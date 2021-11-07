@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function usePlugin({ pluginStates, setPluginStates }) {
   const handleAddBorders = () => {
     setPluginStates(pluginStates => {
@@ -43,3 +45,8 @@ export default function usePlugin({ pluginStates, setPluginStates }) {
     handleDuplicateIcons,
   };
 }
+
+usePlugin.propTypes = {
+  pluginStates: PropTypes.object,
+  setPluginStates: PropTypes.func,
+};

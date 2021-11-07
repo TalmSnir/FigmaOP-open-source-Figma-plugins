@@ -9,7 +9,7 @@ function PluginsCards() {
         <h1 className='plugins-cards__title'>explore plugins</h1>
         <div className='plugins-cards__content'>
           {plugins.map(plugin => (
-            <PluginCard plugin={plugin} key={plugin.pluginName} />
+            <PluginCard plugin={plugin} key={plugin.name} />
           ))}
         </div>
       </Container>

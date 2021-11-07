@@ -1,6 +1,7 @@
 import React from 'react';
 import NavLink from '../Navigation/NavLink';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 function NavMenu({ show, setShowMenu }) {
   const className = classNames('header__nav', {
     show: show,
@@ -51,3 +52,7 @@ function NavMenu({ show, setShowMenu }) {
 }
 
 export default NavMenu;
+NavMenu.propTypes = {
+  show: PropTypes.bool,
+  setShowMenu: PropTypes.func,
+};

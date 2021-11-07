@@ -68,6 +68,7 @@
     &:disabled {
       background: var(--clr-black-3);
       color: var(--clr-black-3);
+      cursor: not-allowed;
     }
   }
   &__info {

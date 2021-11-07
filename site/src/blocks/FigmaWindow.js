@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import LeftPanel from '../assets/Left Sidebar Panel.svg';
 import RightPanel from '../assets/Right Sidebar Panel.svg';
 import TopBar from '../assets/Toolbar.svg';
+
 export default function FigmaWindow({
   children,
   figmaWindowRef,
@@ -32,3 +34,11 @@ export default function FigmaWindow({
     </div>
   );
 }
+
+FigmaWindow.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.object),
+  figmaWindowRef: PropTypes.object,
+  onClick: PropTypes.func,
+  onMouseMove: PropTypes.func,
+  containerRef: PropTypes.object,
+};

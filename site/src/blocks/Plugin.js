@@ -1,14 +1,15 @@
 import React, { useRef, useState, useEffect } from 'react';
-import PluginIcon from '../components/Icons/PluginIcon';
+import PropTypes from 'prop-types';
+import UnknownIcon from '../assets/unknown.svg';
 import useWindowSize from './useWindowSize';
 import { ButtonsGroup, Button } from '../components/Buttons';
 import Icon from '../components/Icons/Icon';
 import usePlugin from './usePlugin';
 import useDragAndDrop from './useDragAndDrop';
+
 export default function Plugin({
   pluginRef,
   containerRef,
-
   pluginStates,
   setPluginStates,
   figmaWindowRef,
@@ -158,7 +159,7 @@ export default function Plugin({
         onMouseLeave={handleMouseLeave}
         ref={topBarRef}>
         <div className='left-side'>
-          <PluginIcon name='unknown' />
+          <img src={UnknownIcon} alt='' />
           try me- (i can move)
         </div>
 
@@ -256,3 +257,11 @@ export default function Plugin({
     </div>
   );
 }
+
+Plugin.propTypes = {
+  pluginRef: PropTypes.object,
+  containerRef: PropTypes.object,
+  pluginStates: PropTypes.object,
+  setPluginStates: PropTypes.func,
+  figmaWindowRef: PropTypes.object,
+};

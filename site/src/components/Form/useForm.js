@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { send } from 'emailjs-com';
+import PropTypes from 'prop-types';
+
 const initialState = { name: '', email: '', content: '' };
 export default function useForm(formValidation, callback) {
   const [errors, setErrors] = useState({});
@@ -38,3 +40,7 @@ export default function useForm(formValidation, callback) {
 
   return { errors, values, handleChange, handleSubmit };
 }
+useForm.propTypes = {
+  formValidation: PropTypes.func,
+  callback: PropTypes.func,
+};

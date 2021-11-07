@@ -1,5 +1,6 @@
 import useForm from './useForm';
 import formValidation from './formValidation';
+import PropTypes from 'prop-types';
 
 export function NewIdeaForm({ setIsSubmitted }) {
   const { errors, values, handleChange, handleSubmit } = useForm(
@@ -59,3 +60,6 @@ export function NewIdeaFormSubmitted() {
     </div>
   );
 }
+NewIdeaForm.propTypes = {
+  setIsSubmitted: PropTypes.func,
+};

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import PropTypes from 'prop-types';
 export default function useDragAndDrop({
   onMouseDown,
   onMouseMove,
@@ -38,3 +38,9 @@ export default function useDragAndDrop({
     offset,
   };
 }
+
+useDragAndDrop.propTypes = {
+  onMouseDown: PropTypes.func,
+  onMouseMove: PropTypes.func,
+  onMouseUp: PropTypes.func,
+};
