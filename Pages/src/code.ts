@@ -71,6 +71,7 @@ function getPages() {
 function createPages(msg, data) {
   data.forEach(name => {
     const newPage = figma.createPage();
+    name = name.trim();
     newPage.name =
       name[0] === '-' && name[name.length - 1] === '-'
         ? `— — — — ${name.replace('-', '')}— — — — `
