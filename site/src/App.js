@@ -6,7 +6,7 @@ import { PluginsCards } from './components/PluginsCards';
 
 function App() {
   return (
-    <div className='App'>
+    <>
       <Header />
       <Multiplayer>
         <Main />
@@ -16,7 +16,7 @@ function App() {
       <Separator />
       <NewIdea />
       <Footer />
-    </div>
+    </>
   );
 }
 
