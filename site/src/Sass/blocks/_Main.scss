@@ -23,22 +23,11 @@
       border-radius: 6px;
       @media (prefers-reduced-motion: no-preference) {
         animation: jumping 1s ease-in-out alternate infinite;
-        &:nth-child(1) {
-          animation: jumping 1s ease-in-out alternate infinite;
-        }
-
-        &:nth-child(2) {
-          animation: jumping 1s ease-in-out alternate infinite 0.2s;
-        }
-        &:nth-child(3) {
-          animation: jumping 1s ease-in-out alternate infinite 0.4s;
-        }
-        &:nth-child(4) {
-          animation: jumping 1s ease-in-out alternate infinite 0.6s;
-        }
-
-        &:nth-child(5) {
-          animation: jumping 1s ease-in-out alternate infinite 0.8s;
+        //! change if number of plugins is being updated
+        @for $i from 1 through 6 {
+          &:nth-child(n + #{$i}) {
+            animation: jumping 1s ease-in-out alternate infinite $i * 0.2s;
+          }
         }
       }
     }
