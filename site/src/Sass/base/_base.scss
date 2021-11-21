@@ -38,6 +38,10 @@ body {
   scroll-behavior: smooth;
   background: var(--clr-white);
 }
+#root {
+  height: 100%;
+  width: 100%;
+}
 *::selection {
   background: var(--clr-green);
   color: var(--clr-white);
