@@ -11,6 +11,8 @@ html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 * {
   scrollbar-color: var(--clr-pink) var(--clr-gray--very-dark);
@@ -34,14 +36,15 @@ body {
   font-family: var(--ff-primary);
   height: 100%;
   min-height: 100vh;
-  width: 100%;
+
   overflow-x: hidden;
   scroll-behavior: smooth;
   background: var(--clr-white);
+  display: flex;
+  flex-direction: column;
 }
 #root {
-  height: 100%;
-  width: 100%;
+  flex-grow: 1;
 }
 *::selection {
   background: var(--clr-green);
