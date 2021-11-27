@@ -1,40 +1,23 @@
-Below are the steps to get your plugin running. You can also find instructions at:
+# <img align="center" alt="figma" width="48px" src="https://raw.githubusercontent.com/TalmSnir/FigmaOP-open-source-Figma-plugins/main/Grid-System/plugin%20icon.png" /> Auto Layout Reverse
 
-  https://www.figma.com/plugin-docs/setup/
+**Polyfill for auto-layout :**
 
-This plugin template uses Typescript and NPM, two standard tools in creating JavaScript applications.
+A common problem with a simple solution!
 
-First, download Node.js which comes with NPM. This will allow you to install TypeScript and other
-libraries. You can find the download link here:
+Run the plugin to add a reverse button to each auto-layout frame\component in the current page.
 
-  https://nodejs.org/en/download/
+Great for creating bidirectional components for LTR and RTL languages, chat components, and more.
 
-Next, install TypeScript using the command:
+![plugin-cover art](https://raw.githubusercontent.com/TalmSnir/FigmaOP-open-source-Figma-plugins/main/Grid-System/Plugin-Cover%20Art-1920x960.png)
 
-  npm install -g typescript
+## Links
 
-Finally, in the directory of your plugin, get the latest type definitions for the plugin API by running:
+<img align="left" alt="figma" width="26px" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Software/figma.svg" />[Install on Figma](https://www.figma.com/community/plugin/1044913520786715800/Auto-Layout-Reverse).
 
-  npm install --save-dev @figma/plugin-typings
+## Tech Stack
 
-If you are familiar with JavaScript, TypeScript will look very familiar. In fact, valid JavaScript code
-is already valid Typescript code.
+**Client:** Vanilla JS
 
-TypeScript adds type annotations to variables. This allows code editors such as Visual Studio Code
-to provide information about the Figma API while you are writing code, as well as help catch bugs
-you previously didn't notice.
+## License
 
-For more information, visit https://www.typescriptlang.org/
-
-Using TypeScript requires a compiler to convert TypeScript (code.ts) into JavaScript (code.js)
-for the browser to run.
-
-We recommend writing TypeScript code using Visual Studio code:
-
-1. Download Visual Studio Code if you haven't already: https://code.visualstudio.com/.
-2. Open this directory in Visual Studio Code.
-3. Compile TypeScript to JavaScript: Run the "Terminal > Run Build Task..." menu item,
-    then select "tsc: watch - tsconfig.json". You will have to do this again every time
-    you reopen Visual Studio Code.
-
-That's it! Visual Studio Code will regenerate the JavaScript file every time you save.
+[MIT License](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
