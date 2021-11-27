@@ -1,0 +1,12 @@
+{
+  "name": "Auto Layout Reverse",
+  "id": "1044913520786715800",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": ["figma"],
+  "relaunchButtons": [
+    { "command": "refresh", "name": "Refresh plugin" },
+    { "command": "detach", "name": "Detach plugin" },
+    { "command": "reverse", "name": "Reverse Auto Layout" }
+  ]
+}
