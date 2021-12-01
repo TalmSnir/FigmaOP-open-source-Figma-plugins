@@ -1,4 +1,4 @@
-# <img align="center" alt="figma" width="48px" src="https://raw.githubusercontent.com/TalmSnir/FigmaOP-open-source-Figma-plugins/main/Grid-System/plugin%20icon.png" /> Auto Layout Reverse
+# <img align="center" alt="figma" width="48px" src="https://raw.githubusercontent.com/TalmSnir/FigmaOP-open-source-Figma-plugins/main/Autolayout-Reverse/Plugin-Icon%20Frame-128x128.png" /> Auto Layout Reverse
 
 **Polyfill for auto-layout :**
 
@@ -8,7 +8,7 @@ Run the plugin to add a reverse button to each auto-layout frame\component in th
 
 Great for creating bidirectional components for LTR and RTL languages, chat components, and more.
 
-![plugin-cover art](https://raw.githubusercontent.com/TalmSnir/FigmaOP-open-source-Figma-plugins/main/Grid-System/Plugin-Cover%20Art-1920x960.png)
+![plugin-cover art](https://raw.githubusercontent.com/TalmSnir/FigmaOP-open-source-Figma-plugins/main/Autolayout-Reverse/Plugin-Cover%20Art-1920x960.png)
 
 ## Links
 
