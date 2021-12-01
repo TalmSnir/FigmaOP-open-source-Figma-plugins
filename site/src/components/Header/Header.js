@@ -31,6 +31,7 @@ function Header() {
           type='icon'
           iconClasses='header__menu__icon'
           iconName={showMenu ? 'close' : 'menu'}
+          ariaLabel='menu button'
           onClick={handleToggleMenu}
         />
       </Container>

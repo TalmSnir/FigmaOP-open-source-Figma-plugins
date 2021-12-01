@@ -1,0 +1,14 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="128" height="128" fill="#F0F0F0"/>
+<rect width="128" height="128" fill="#F0F0F0"/>
+<rect width="17.295" height="17.295" transform="translate(16 12)" fill="#18A0FB"/>
+<rect width="17.295" height="17.295" transform="translate(41.9484 12)" fill="black"/>
+<rect width="17.295" height="17.295" transform="translate(67.8968 12)" fill="#F531B3"/>
+<rect width="17.295" height="17.295" transform="translate(93.8451 12)" fill="#1BC47D"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M84.2348 49.9212L82.8032 48.4896L70.656 36.3424L67.7928 39.2055L76.484 47.8967L42.9054 47.8967L42.9054 51.9457L76.484 51.9458L67.7928 60.6369L70.656 63.5L82.8032 51.3528L84.2348 49.9212Z" fill="#7B61FF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M42.9054 77.0788L44.337 75.6472L56.4842 63.5L59.3473 66.3631L50.6562 75.0543L84.2348 75.0543V79.1033L50.6562 79.1033L59.3473 87.7945L56.4842 90.6576L44.337 78.5104L42.9054 77.0788Z" fill="#7B61FF"/>
+<rect width="17.295" height="17.295" transform="translate(16 97.705)" fill="#1BC47D"/>
+<rect width="17.295" height="17.295" transform="translate(41.9484 97.705)" fill="#F531B3"/>
+<rect width="17.295" height="17.295" transform="translate(67.8968 97.705)" fill="black"/>
+<rect width="17.295" height="17.295" transform="translate(93.8451 97.705)" fill="#18A0FB"/>
+</svg>

@@ -13,7 +13,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md) var(--spacing-sm);
+    flex-wrap: wrap;
 
     img {
       inline-size: 10vmin;
@@ -24,7 +25,7 @@
       @media (prefers-reduced-motion: no-preference) {
         animation: jumping 1s ease-in-out alternate infinite;
         //! change if number of plugins is being updated
-        @for $i from 1 through 6 {
+        @for $i from 1 through 7 {
           &:nth-child(n + #{$i}) {
             animation: jumping 1s ease-in-out alternate infinite $i * 0.2s;
           }

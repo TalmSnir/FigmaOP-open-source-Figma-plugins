@@ -4,25 +4,29 @@ import PropTypes from 'prop-types';
 
 function FooterMenu({ title, items, dataTitle, dataSection, iconName }) {
   return (
-    <ul className='footer__menu'>
+    <div className='footer__menu'>
       <h1 className='footer__menu__title'>{title}</h1>
-      {items.map(item => {
-        return (
-          item[dataSection] !== '#' && (
-            <NavLink
-              key={item[dataTitle]}
-              type='link'
-              href={item[dataSection]}
-              target='_blank'
-              location='footer'
-              iconName={iconName}
-              iconSide='right'>
-              {item[dataTitle]}
-            </NavLink>
-          )
-        );
-      })}
-    </ul>
+      <ul className='footer__menu__list'>
+        {items.map(item => {
+          return (
+            item[dataSection] !== '#' && (
+              <li>
+                <NavLink
+                  key={item[dataTitle]}
+                  type='link'
+                  href={item[dataSection]}
+                  target='_blank'
+                  location='footer'
+                  iconName={iconName}
+                  iconSide='right'>
+                  {item[dataTitle]}
+                </NavLink>
+              </li>
+            )
+          );
+        })}
+      </ul>
+    </div>
   );
 }
 

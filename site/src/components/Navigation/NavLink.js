@@ -12,7 +12,7 @@ function NavLink({
   type,
   btnVariant,
   onClick,
-
+  ariaLabel,
   disabled,
 }) {
   const className = classNames({
@@ -30,6 +30,7 @@ function NavLink({
       href={href}
       target={target}
       className={className}
+      aria-label={ariaLabel}
       rel={location === 'footer' ? 'noopener' : null}
       onClick={onClick}>
       {children}
@@ -43,6 +44,7 @@ NavLink.propTypes = {
   type: PropTypes.oneOf(['button', 'link']),
   href: PropTypes.string.isRequired,
   target: PropTypes.string,
+  ariaLabel: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   location: PropTypes.oneOf(['footer', 'header']),
   iconName: PropTypes.string,

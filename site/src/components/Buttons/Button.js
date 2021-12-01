@@ -11,6 +11,7 @@ function Button({
   type,
   iconClasses,
   disabled,
+  ariaLabel,
 }) {
   const className = classNames('btn', {
     'btn--plugin': type === 'plugin',
@@ -20,7 +21,11 @@ function Button({
   });
 
   return (
-    <button className={className} onClick={onClick} disabled={disabled}>
+    <button
+      className={className}
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={ariaLabel}>
       {iconName && <Icon name={iconName} className={iconClasses} />}
       {children}
     </button>
@@ -34,6 +39,7 @@ Button.propTypes = {
   children: PropTypes.any,
   iconName: PropTypes.string,
   iconSide: PropTypes.string,
+  ariaLabel: PropTypes.string,
   type: PropTypes.oneOf(['primary', 'secondary', 'icon', 'plugin', 'text'])
     .isRequired,
 };

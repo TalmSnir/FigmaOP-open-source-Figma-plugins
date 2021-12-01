@@ -3,6 +3,7 @@ import LayoutHandoffGif from './assets/layouthandoff.gif';
 import IconsToolboxGif from './assets/iconsToolbox.gif';
 import PagesGif from './assets/pages.gif';
 import GridSystemGif from './assets/gridSystem.gif';
+// import AutoLayoutReverse from './assets/autoLayoutReverse.gif';
 
 import FastVariantPropertiesIcon from './assets/fast-variants-properties.svg';
 import IconsToolBoxIcon from './assets/icons-toolbox.svg';
@@ -10,6 +11,7 @@ import LayoutHandoffIcon from './assets/layout-handoff.svg';
 import SavedPrototypes from './assets/saved-prototypes.svg';
 import GridSystem from './assets/grid-system.svg';
 import Pages from './assets/pages.svg';
+import AutoLayoutReverse from './assets/auto-layout-reverse.svg';
 
 export const plugins = [
   {
@@ -108,6 +110,18 @@ Delete and update templates.`,
     repo: 'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Grid-System',
     figmaCommunity:
       'https://www.figma.com/community/plugin/1033367904576323011',
+  },
+  {
+    name: 'auto layout reverse',
+    icon: AutoLayoutReverse,
+    description: `Polyfill for auto-layout :
+    A common problem with a simple solution!
+    Run the plugin to add a reverse button to each auto-layout frame\component in the current page.
+    Great for creating bidirectional components for LTR and RTL languages, chat components, and more.`,
+    gif: GridSystemGif,
+    repo: 'https://github.com/TalmSnir/FigmaOP-open-source-Figma-plugins/tree/main/Autolayout-Reverse',
+    figmaCommunity:
+      'https://www.figma.com/community/plugin/1044913520786715800',
   },
   {
     name: 'saved prototypes',

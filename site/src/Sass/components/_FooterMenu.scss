@@ -1,17 +1,20 @@
 .footer__menu {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-
   &__title {
-    text-align:start;
+    text-align: start;
     color: var(--clr-green);
     font-size: var(--fs-h3);
+    margin-block-end: var(--spacing-sm);
   }
-  .nav__link {
-    svg {
-      block-size: 16px;
-      inline-size: 16px;
+  .footer__menu__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+
+    .nav__link {
+      svg {
+        block-size: 16px;
+        inline-size: 16px;
+      }
     }
   }
 }
