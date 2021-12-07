@@ -1,0 +1,8 @@
+{
+  "name": "Saved Prototypes",
+  "api": "1.0.0",
+  "editorType": ["figma"],
+  "main": "./dist/code.js",
+  "id": "1049956673774498243",
+  "ui": "./dist/ui.html"
+}
